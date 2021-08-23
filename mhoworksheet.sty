@@ -1,0 +1,134 @@
+%=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=
+%             _             _
+%            | |           | |
+%  _ __ ___  | |__    ___  | | ___   ___   _ __       ___   ___   _ __ ___
+% | '_ ` _ \ | '_ \  / _ \ | |/ __| / _ \ | '_ \     / __| / _ \ | '_ ` _ \
+% | | | | | || | | || (_) || |\__ \| (_) || | | | _ | (__ | (_) || | | | | |
+% |_| |_| |_||_| |_| \___/ |_||___/ \___/ |_| |_|(_) \___| \___/ |_| |_| |_|
+%
+% Author: Mark H. Olson
+% Website: https://mholson.com
+% Github: https://github.com/mholson
+% 
+% File: mhoworksheets.sty
+% Created: 2017-01-18
+%
+% Description: This is the style file that use for typesetting mathematics
+% worksheets.
+%=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=
+
+
+
+
+%=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+%	PACKAGE OPTIONS & SETUP
+%=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{mhoorksheets}
+    [2017/04/12 A small package for Article customizations to create worksheets]
+
+\pagenumbering{gobble} % Gobble up the page numbers
+
+\usepackage[full]{textcomp}
+\usepackage{newpxtext} % osf for text, not math
+\usepackage{cabin} % sans serif
+\usepackage[varqu,varl]{inconsolata} % sans serif typewriter
+\usepackage[bigdelims,vvarbb]{newpxmath} % bb from STIX
+\usepackage[cal=boondoxo]{mathalfa} % mathcal
+\usepackage{pdfpages} % Create Worksheet Sets
+
+\usepackage{microtype} % Slightly tweak font spacing for aesthetics
+\usepackage[utf8]{inputenc} % Required for including letters with accents
+\usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
+
+% > > >	DEFAULT PACKAGES
+\usepackage{
+	caption,
+	color,
+	cancel,
+	datetime,
+	enumitem,
+	graphicx,
+	hyperref,
+	colortbl,
+	multicol,
+	multirow,
+  pifont,
+	sagetex,
+	wrapfig,
+	xcolor
+}
+
+% > > >	DEFAULT MATH PACKAGES
+
+\usepackage{
+amssymb,
+mathtools,
+xspace
+}
+
+% > > > SETUP THE MARGINS
+
+\addtolength{\oddsidemargin}{-1.25in}
+\addtolength{\evensidemargin}{-1.25in}
+\addtolength{\textwidth}{2.5in}
+\addtolength{\topmargin}{-1.25in}
+\addtolength{\textheight}{2.5in}
+
+% > > > PARAGRAPH INDENT SET TO ZERO
+
+\setlength\parindent{0pt}
+
+% > > > SETUP TITLE PAGE
+
+\makeatletter
+
+\renewcommand{\maketitle}{ % Customize the title
+\begin{center}
+{\cBlue{\huge\textsc{Work$\int$heet}}} \\% Increase the font size of the title
+\vspace{0.50cm}
+\end{center}
+}
+
+\newcommand{\answers}{
+\begin{center}
+{\cBlue{\huge\textsc{Ans$\int$wers}}} \\% Increase the font size of the title
+\vspace{0.50cm}
+\end{center}
+}
+
+\newcommand{\customfoot}{
+\vfill
+\begin{center}
+\cDarkGrey{\emph{Made with SageMath \cRed{$\heartsuit$}  \LaTeX\,\large --- by MarkOlson\textsuperscript{SE}}}\\
+\vspace{10pt}
+{\scriptsize Ref ID:  \jobname}\\
+{\scriptsize Random Seed: $\sage{t}$}
+\end{center}
+}
+
+\newcommand{\customfootnosage}{
+\vfill
+\begin{center}
+\cDarkGrey{\emph{Made with \LaTeX\,\large --- by MarkOlson\textsuperscript{SE}}}\\
+\vspace{10pt}
+{\scriptsize Ref ID:  \jobname}
+\end{center}
+}
+
+\def\boxentry[#1]#2{{\setlength{\fboxsep}{-\fboxrule}\fbox{\parbox{#1}{\smash{\raise-9.5pt\hbox{~{\small #2}}}\vspace{3.8ex}\mbox{}}}}}
+
+% > > >	CREATE CUT LINE
+% > > >http://tex.stackexchange.com/questions/70792/best-way-to-insert-a-horizontal-cut-line-with-a-scissor-symbol
+
+\newcommand{\cuthere}{%
+\vspace{0.5cm}
+\centering{\cBlue{ --- \, Ans$\int$wers \, ---}}\\
+\vspace{0.5cm}
+%\raisebox{-2.8pt}[0pt][0.75\baselineskip]{\small\ding{34}}
+%\unskip{\small\dotfill}
+}
+\endinput
+%=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=
+% End of file `mhoworksheet.sty'.
+%=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=

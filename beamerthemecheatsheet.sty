@@ -1,0 +1,340 @@
+%=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=
+%             _             _
+%            | |           | |
+%  _ __ ___  | |__    ___  | | ___   ___   _ __       ___   ___   _ __ ___
+% | '_ ` _ \ | '_ \  / _ \ | |/ __| / _ \ | '_ \     / __| / _ \ | '_ ` _ \
+% | | | | | || | | || (_) || |\__ \| (_) || | | | _ | (__ | (_) || | | | | |
+% |_| |_| |_||_| |_| \___/ |_||___/ \___/ |_| |_|(_) \___| \___/ |_| |_| |_|
+%
+% File: beamerthemecheatsheet.sty
+% Author: Mark H. Olson
+% Website: https://mholson.com
+% Github: https://github.com/mholson
+%
+% Created: 2021-05-25
+%
+% Description: Based on the orginal awesome work of Mhairi McNeill @mhairihmcneill
+% http://mhairihmcneill.com/blog/2016/06/05/base-r-cheatsheet.html
+% Easily the LaTeX sheet delivering the most eye candy.
+%
+%=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=
+
+%=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+%   Theme Options   
+%=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+\ProvidesPackage{beamerthemeCS}
+
+\RequirePackage{xcolor}
+\RequirePackage{graphicx} 
+\RequirePackage{colortbl}
+\RequirePackage{ifthen}
+\RequirePackage{multirow}
+\RequirePackage{xspace}
+\RequirePackage{textcomp}
+\RequirePackage{calc}
+%  END =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+%=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+
+%=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+%   Color Theme   
+%=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+\RequirePackage{sthlmnordcolors}
+
+\ProcessOptionsBeamer
+
+\setbeamercolor*{structure}{fg = nordSix, bg = nordThree}
+
+\setbeamercolor*{background canvas}{bg=nordThree}
+\setbeamercolor*{footer}{fg=nordThree!50}
+\setbeamercolor*{footer text}{fg=nordThree}
+\setbeamercolor*{header title}{fg=nordEight!20}
+\setbeamercolor*{header primary}{fg=nordSix,bg=nordSeven}
+\setbeamercolor*{header secondary}{fg=nordSix,bg=nordEight}
+\setbeamercolor*{secondary}{fg=nordTen!10,bg=nordTen}
+\setbeamercolor*{example text}{fg=nordSeven}
+\setbeamercolor*{normal text}{fg=nordZero}
+\setbeamercolor*{alerted text}{fg=nordTen}
+\setbeamercolor*{itemize item}{fg=nordSeven}
+\setbeamercolor*{itemize subitem}{fg=nordSeven}
+\setbeamercolor*{itemize subsubitem}{fg=nordSeven}
+\setbeamercolor*{enumerate item}{fg=nordSeven}
+\setbeamercolor*{enumerate subitem}{fg=nordSeven}
+\setbeamercolor*{enumerate subsubitem}{fg=nordSeven}
+\setbeamercolor*{description item}{fg=nordSeven}
+\setbeamercolor*{caption name}{fg=nordSeven}
+\setbeamercolor*{title}{fg = nordOne}
+\setbeamercolor*{subtitle}{fg = nordOne}
+
+% > > >  Default block
+\setbeamercolor{block title}{bg=nordZero, fg=nordFour}%
+\setbeamercolor{block body}{bg=nordSix}%
+\setbeamercolor{block subtitle}{bg=nordTen, fg=nordSix}%
+\setbeamercolor{block title alerted}{bg=nordTen!80, fg=nordFour}%
+\setbeamercolor{block body alerted}{bg=normal text.bg!90!fg}%
+\setbeamercolor{block title example}{bg=example text.fg!80, fg=nordFour}%
+\setbeamercolor{block body example}{bg=normal text.bg!90!fg}%
+
+% > > >  Bibliography
+\setbeamercolor*{bibliography entry author}{fg=nordSeven}
+\setbeamercolor*{bibliography entry title}{fg=nordZero}
+\setbeamercolor*{bibliography entry location}{fg=nordZero}
+\setbeamercolor*{bibliography entry note}{fg=nordZero}
+%  END =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+%=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+
+%=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+%   Font Theme
+%=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+\RequirePackage[sfdefault]{sourcesanspro}
+\RequirePackage[ttdefault]{sourcecodepro}
+\RequirePackage[rmdefault]{sourceserifpro}
+\RequirePackage[T1]{fontenc}
+\RequirePackage[utf8]{inputenc}
+
+\setbeamerfont*{projected text}{size=\normalsize}
+\setbeamerfont*{header title}{size=\Large,series=\bfseries}
+\setbeamerfont*{header subtitle}{size=\normalsize}
+\setbeamerfont*{toc title}{size=\normalsize,series=\bfseries}
+\setbeamerfont*{toc subtitle}{size=\small}
+\setbeamerfont*{title}{size=\Huge,series=\bfseries}
+\setbeamerfont*{section title}{size=\Huge,series=\bfseries}
+\setbeamerfont*{subtitle}{size=\Large,series=\bfseries}
+\setbeamerfont*{author}{size=\large,series=\normalfont}
+\setbeamerfont*{institute}{size=\large,series=\normalfont}
+\setbeamerfont*{date}{size=\scriptsize,series=\itshape}
+\setbeamerfont*{footnote}{size=\fontsize{6}{6}}
+\setbeamerfont*{bibliography entry author}{size=\normalsize,series=\normalfont}
+\setbeamerfont*{bibliography entry title}{size=\normalsize,series=\bfseries}
+\setbeamerfont*{bibliography entry location}{size=\small,series=\normalfont}
+\setbeamerfont*{bibliography entry note}{size=\small,series=\normalfont}
+\setbeamerfont*{block title}{size=\normalsize}
+\setbeamerfont*{block subtitle}{size=\normalsize}
+\setbeamerfont*{block body}{size=\normalsize}
+\setbeamerfont*{block title example}{size=\normalsize}
+\setbeamerfont*{block body example}{size=\small}
+\setbeamerfont*{block title alerted}{size=\normalsize}
+\setbeamerfont*{block body alerted}{size=\small}
+\setbeamerfont{title page}{size = \Huge}
+%  END =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+%=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+
+%=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+%  Define Break
+%=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+\def\br{\\\vskip2ex}
+
+%=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+%   Title Frame
+%=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+\defbeamertemplate*{title page}{customized}[1][]{
+  \centering\vskip0.1ex
+  \textbf{\inserttitle}\par\vskip-0.25ex
+  {\usebeamerfont{subtitle} \insertsubtitle\par}
+  \vskip0.75ex
+}
+%  END =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+%=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+
+
+\newlength{\longueur}
+\newlength{\tmp}
+
+\newenvironment{tableau}[1]{
+  \color{\cnGrey}\begin{tabular}[b]{#1}
+}{
+  \end{tabular}
+}
+
+\defbeamertemplate{description item}{align right}{\insertdescriptionitem\hfill}
+
+%=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+%   Block Environements
+%=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+\setbeamertemplate{block begin}{
+  \setlength{\longueur}{\linewidth-2ex}
+  \begin{beamercolorbox}[rounded = true, wd = \linewidth, leftskip = 1ex, rightskip = 1ex, vmode]{block body}
+    \vskip-.5ex
+    \setlength{\linewidth}{\longueur}
+    
+    \hfill
+    \begin{beamercolorbox}[ht = 1.25ex, dp = 0.2ex, wd = \longueur, center, rounded = true]{block title}
+      \textbf{\Large \insertblocktitle}
+    \end{beamercolorbox}
+    \ifbeamercolorempty[bg]{block title}{}
+    
+    \vskip.5ex
+    \usebeamerfont{block body} 
+}
+\setbeamertemplate{block end}{
+  \end{beamercolorbox}\par
+  \vskip1ex
+  \setlength{\linewidth}{\longueur+2ex}
+}
+
+% > > > Block Subtitle
+\def\blocksubtitle#1{
+  \vskip0.5ex
+  \setlength{\longueur}{\linewidth-2ex}
+  
+  \hfill
+  \begin{beamercolorbox}[ht = 0.75ex, dp = 0.ex, wd = \longueur, center, rounded = true]{block subtitle}
+    #1
+  \end{beamercolorbox}
+  \hfill\hfill
+  
+  \vskip0.5ex
+}
+
+% > > > Sub-Block
+\newenvironment{subblock}[1]{
+  \setlength{\longueur}{\linewidth-2ex}
+  
+  \hfill\hfill
+  \begin{beamercolorbox}[rounded = true, wd = \linewidth, sep=1ex]{normal text}
+    \vskip-1.5ex
+    \setlength{\linewidth}{\longueur}
+    
+    \ifthenelse{\equal{#1}{}}{}{
+    \hfill
+    \begin{beamercolorbox}[ht = 1ex, dp = 0.ex, wd = \longueur, center, rounded = true]{block subtitle}
+      \textbf{\large #1}
+    \end{beamercolorbox}
+    
+    \vskip0.2ex
+  }}
+  {
+  \vskip-0.75ex
+  \end{beamercolorbox}
+  \hfill\hfill\hfill
+  
+  \vskip-1.25ex
+  \setlength{\linewidth}{\longueur+2ex}}
+
+  % > > > Annotated Block
+\newenvironment{annotedblock}[2]{
+  \setlength{\longueur}{\linewidth-2ex}
+  
+  \hfill\hfill
+  \begin{beamercolorbox}[rounded = true, wd = \linewidth, sep=1ex]{block body}
+    \vskip-1.5ex
+    \setlength{\linewidth}{\longueur}
+    
+    \hspace{-0.5ex}
+    \begin{beamercolorbox}[ht = 1.25ex, dp = 0.2ex, wd = 0.43\longueur, center, rounded = true]{block title}
+      \textbf{\Large #1}
+    \end{beamercolorbox}
+    \hfill
+    \begin{beamercolorbox}[ht = 1ex, dp = 0.ex, wd = 0.52\longueur, center, rounded = true]{alerted text}
+      #2
+    \end{beamercolorbox}
+    \hspace{-0.5ex}
+    
+    \vskip0.2ex
+  }
+  {\end{beamercolorbox}
+  
+  % \vskip-2ex
+  \setlength{\linewidth}{\longueur+2ex}}
+  
+\newenvironment{seeblock}[2]{
+  \begin{annotedblock}{#1}{Also see the \textbf{#2} package.}}
+  {\end{annotedblock}}
+
+% > > > Annotated Sub-block
+\newenvironment{annotedsubblock}[2]{
+  \setlength{\longueur}{\linewidth-2ex}
+  
+  \hfill\hfill
+  \begin{beamercolorbox}[rounded = true, wd = \linewidth, sep=1ex]{normal text}
+    \vskip-1.5ex
+    \setlength{\linewidth}{\longueur}
+    
+    \hspace{-0.5ex}
+    \begin{beamercolorbox}[ht = 1.25ex, dp = 0.ex, wd = 0.6\longueur, center, rounded = true]{block title}
+      \textbf{\large #1}
+    \end{beamercolorbox}
+    \hfill
+    \begin{beamercolorbox}[ht = 1ex, dp = 0.ex, wd = 0.37\longueur, center, rounded = true]{alerted text}
+      #2
+    \end{beamercolorbox}
+    \hspace{-0.5ex}
+    
+    \vskip0.2ex
+  }
+  {\end{beamercolorbox}
+  
+%  \vskip-2ex
+  \setlength{\linewidth}{\longueur+2ex}}
+  
+% > > > See Sub-block
+\newenvironment{seesubblock}[2]{
+  \begin{annotedsubblock}{#1}{Also see the \textbf{#2} package.}}
+  {\end{annotedsubblock}}
+
+  % > > > Example Block
+\setbeamertemplate{block example begin}{
+  \begin{beamercolorbox}[ht = 1.25ex, dp = 0.5ex, wd = \linewidth, center, rounded = true]{block title example}
+    \usebeamerfont{block title example}\insertblocktitle
+  \end{beamercolorbox}
+    
+  \begin{beamercolorbox}[wd = \linewidth, dp = 0.5ex, leftskip = 1ex, rightskip = 1ex, vmode]{block body example}
+    \vskip0.ex
+}
+\setbeamertemplate{block example end}{
+  \vskip-1.5ex
+  \end{beamercolorbox}
+}
+%  END =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+%=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+
+%=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+%   Code Environement
+%=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+\newenvironment{code}{
+  \setlength{\longueur}{\linewidth-0.3ex}
+  \begin{beamercolorbox}[wd = \linewidth, dp = 0.4ex, leftskip = 0.15ex, rightskip = 0.15ex, vmode]{block title}
+  
+    \setlength{\linewidth}{\longueur}
+    \vskip0.15ex
+
+    \begin{beamercolorbox}[wd = \longueur, dp = 0.5ex, leftskip = 1ex, rightskip = 1ex, vmode]{normal text}
+      \vskip0.ex
+}{
+      \vskip-1.5ex
+    \end{beamercolorbox}
+    \setlength{\linewidth}{\longueur+0.3ex}
+      \vskip-0.25ex
+  \end{beamercolorbox}
+}
+%  END =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+%=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+  
+%=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+%   Headers and Footers
+%=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+\setbeamertemplate{headline}{}
+%\setbeamertemplate{footline}{\small \hskip3ex by markolsonSE. \textbullet\xspace Modified CS Beamer theme by Mhairi McNeill \hfill Updated: \today \hspace{3ex} \vskip1ex}
+\setbeamertemplate{footline}{\small \hfill Updated: \today \hspace{3ex} \vskip1ex}
+\setbeamertemplate{navigation symbols}{}
+%  END =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+%=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+
+%=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+%   Toggle Grid
+%=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+
+% Display a grid to help align images ... and it looks nice with this color scheme
+%\beamertemplategridbackground[1cm]
+
+%=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+%   Beamer Cusomizations
+%=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+\setbeamertemplate{bibliography item}[text]
+\setbeamertemplate{caption}[numbered]{}% Number float-like environments
+\setlength{\parindent}{0pt}
+%  END =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+%=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+
+%=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=
+% End of file `beamerthemecheatsheet.sty'.
+%=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=
