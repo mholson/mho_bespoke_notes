@@ -24,29 +24,11 @@
 %	PACKAGE OPTIONS & SETUP
 %=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{mhoorksheets}
-    [2017/04/12 A small package for Article customizations to create worksheets]
+\ProvidesPackage{mhoworksheet}
+    [2017/04/12 A small package for Article customisations to create worksheets]
 
 \pagenumbering{gobble} % Gobble up the page numbers
 
-
-% > > >	DEFAULT PACKAGES
-\usepackage{
-	caption,
-	color,
-	cancel,
-	datetime,
-	enumitem,
-	graphicx,
-	hyperref,
-	colortbl,
-	multicol,
-	multirow,
-  pifont,
-	sagetex,
-	wrapfig,
-	xcolor
-}
 
 % > > > Fonts
 \RequirePackage{microtype}
@@ -55,11 +37,10 @@
 \RequirePackage{libertinus-otf}
 \RequirePackage{metalogo}
 
-\usepackage{
-amssymb,
-mathtools,
-xspace
-}
+% > > > Default Packages
+\RequirePackage{mhomath}
+\RequirePackage{sagetex}
+\RequirePackage{xcolor}
 
 % > > > SETUP THE MARGINS
 
@@ -79,14 +60,14 @@ xspace
 
 \renewcommand{\maketitle}{ % Customize the title
 \begin{center}
-{\cBlue{\huge\textsc{Work$\int$heet}}} \\% Increase the font size of the title
+{\cDarkBlue{\huge\textsc{Work \( \int \)heet}}} \\% Increase the font size of the title
 \vspace{0.50cm}
 \end{center}
 }
 
 \newcommand{\answers}{
 \begin{center}
-{\cBlue{\huge\textsc{Ans$\int$wers}}} \\% Increase the font size of the title
+{\cDarkBlue{\huge\textsc{Ans \( \int \)wers}}} \\% Increase the font size of the title
 \vspace{0.50cm}
 \end{center}
 }
@@ -94,19 +75,19 @@ xspace
 \newcommand{\customfoot}{
 \vfill
 \begin{center}
-\cDarkGrey{\emph{Made with SageMath \cRed{$\heartsuit$}  \LaTeX\,\large --- by MarkOlson\textsuperscript{SE}}}\\
+\cDarkGrey{\emph{Made with SageMath \cRed{\faHeart}  \LaTeX\,\large --- by mholson\textsuperscript{COM}}}\\
 \vspace{10pt}
-{\scriptsize Ref ID:  \jobname}\\
-{\scriptsize Random Seed: $\sage{t}$}
+{\scriptsize TAG ID:  \jobname}\\
+{\scriptsize Random Seed: \( \sage{t} \)}
 \end{center}
 }
 
 \newcommand{\customfootnosage}{
 \vfill
 \begin{center}
-\cDarkGrey{\emph{Made with \LaTeX\,\large --- by MarkOlson\textsuperscript{SE}}}\\
+\cDarkGrey{\emph{Made with \XeLaTeX\,\large --- by mholson\textsuperscript{COM}}}\\
 \vspace{10pt}
-{\scriptsize Ref ID:  \jobname}
+{\scriptsize TAG ID:  \jobname}
 \end{center}
 }
 
@@ -117,7 +98,7 @@ xspace
 
 \newcommand{\cuthere}{%
 \vspace{0.5cm}
-\centering{\cBlue{ --- \, Ans$\int$wers \, ---}}\\
+\centering{\cBlue{ --- \, Ans \( \int \) wers \, ---}}\\
 \vspace{0.5cm}
 %\raisebox{-2.8pt}[0pt][0.75\baselineskip]{\small\ding{34}}
 %\unskip{\small\dotfill}
