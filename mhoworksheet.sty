@@ -29,17 +29,6 @@
 
 \pagenumbering{gobble} % Gobble up the page numbers
 
-\usepackage[full]{textcomp}
-\usepackage{newpxtext} % osf for text, not math
-\usepackage{cabin} % sans serif
-\usepackage[varqu,varl]{inconsolata} % sans serif typewriter
-\usepackage[bigdelims,vvarbb]{newpxmath} % bb from STIX
-\usepackage[cal=boondoxo]{mathalfa} % mathcal
-\usepackage{pdfpages} % Create Worksheet Sets
-
-\usepackage{microtype} % Slightly tweak font spacing for aesthetics
-\usepackage[utf8]{inputenc} % Required for including letters with accents
-\usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
 
 % > > >	DEFAULT PACKAGES
 \usepackage{
@@ -59,7 +48,12 @@
 	xcolor
 }
 
-% > > >	DEFAULT MATH PACKAGES
+% > > > Fonts
+\RequirePackage{microtype}
+\RequirePackage{textcomp}
+\RequirePackage[warnings-off={mathtools-colon,mathtools-overbracket}]{unicode-math}
+\RequirePackage{libertinus-otf}
+\RequirePackage{metalogo}
 
 \usepackage{
 amssymb,
