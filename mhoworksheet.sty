@@ -41,6 +41,7 @@
 \RequirePackage{mhomath}
 \RequirePackage{sagetex}
 \RequirePackage{xcolor}
+\RequirePackage{multicol}
 
 % > > > SETUP THE MARGINS
 
@@ -60,14 +61,14 @@
 
 \renewcommand{\maketitle}{ % Customize the title
 \begin{center}
-{\cDarkBlue{\huge\textsc{Work \( \int \)heet}}} \\% Increase the font size of the title
+{\cDarkBlue{\huge\textsc{Work\( \int \)heet}}} \\% Increase the font size of the title
 \vspace{0.50cm}
 \end{center}
 }
 
 \newcommand{\answers}{
 \begin{center}
-{\cDarkBlue{\huge\textsc{Ans \( \int \)wers}}} \\% Increase the font size of the title
+{\cDarkBlue{\huge\textsc{Ans\( \int \)wers}}} \\% Increase the font size of the title
 \vspace{0.50cm}
 \end{center}
 }
@@ -77,7 +78,7 @@
 \begin{center}
 \cDarkGrey{\emph{Made with SageMath \cRed{\faHeart}  \LaTeX\,\large --- by mholson\textsuperscript{COM}}}\\
 \vspace{10pt}
-{\scriptsize TAG ID:  \jobname}\\
+{\scriptsize TAG ID: \jobname}\\
 {\scriptsize Random Seed: \( \sage{t} \)}
 \end{center}
 }
@@ -87,7 +88,7 @@
 \begin{center}
 \cDarkGrey{\emph{Made with \XeLaTeX\,\large --- by mholson\textsuperscript{COM}}}\\
 \vspace{10pt}
-{\scriptsize TAG ID:  \jobname}
+{\scriptsize TAG ID: \jobname}
 \end{center}
 }
 
