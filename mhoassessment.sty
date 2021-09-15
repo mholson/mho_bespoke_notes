@@ -39,22 +39,37 @@
 \RequirePackage{metalogo}
 
 % > > >	DEFAULT PACKAGES
-\usepackage{
-	caption,
-	color,
-	cancel,
-	datetime,
-	enumitem,
-	graphicx,
-	hyperref,
-	tikz,
-	colortbl,
-	multicol,
-	multirow,
-	wrapfig,
-	xcolor,
-	xspace
+\RequirePackage{graphicx}
+
+\RequirePackage{xcolor}
+
+\RequirePackage{tikz}
+
+\RequirePackage{mhocolorthemenord}
+
+\RequirePackage{mhotables}
+
+\RequirePackage{mhomath}
+
+\RequirePackage{datetime}
+
+
+\RequirePackage[unicode]{hyperref}
+\hypersetup{
+colorlinks=true,
+% You might want to disable color links for you final draft.
+%colorlinks=false,
+linkcolor={nordZero},
+citecolor={nordZero},
+urlcolor={nordZero},
 }
+
+% > > > Formatting
+\RequirePackage{subcaption}
+
+\RequirePackage{enumerate}
+
+\RequirePackage{multirow}
 
 % > > >	DEFAULT MATH PACKAGES	MULTIPLE CHOICE ANSWERS
 \checkboxchar{$\Circle$}
