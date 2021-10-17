@@ -81,6 +81,19 @@
 ]{thmexamplebox}
 
 \declaretheoremstyle[
+    headfont=\bfseries\sffamily\color{\cnPrimaryLightGreen}, 
+    bodyfont=\normalfont,
+    numbered=no,
+    mdframed={
+        linewidth=2pt,
+        rightline=false, topline=false, bottomline=false,
+        linecolor=\cnPrimaryLightGreen,
+        skipabove=1\baselineskip, skipbelow=0\baselineskip, 
+    },
+    qed={\(\cnordTen{\square}\)}
+]{thmsolnbox}
+
+\declaretheoremstyle[
     headfont=\bfseries\sffamily\color{nordEleven}, bodyfont=\normalfont,
     mdframed={
         linewidth=2pt,
@@ -121,19 +134,6 @@
     },
     qed=\qedsymbol
 ]{thmproofbox}
-
-\declaretheoremstyle[
-    headfont=\bfseries\sffamily\color{nordTen}, 
-    bodyfont=\normalfont,
-    numbered=no,
-    mdframed={
-        linewidth=2pt,
-        rightline=false, topline=false, bottomline=false,
-        linecolor=nordTen!70,
-        skipabove=1\baselineskip, skipbelow=0\baselineskip, 
-    },
-    qed={\(\cnordTen{\square}\)}
-]{thmsolnbox}
 
 \declaretheoremstyle[
     headfont=\bfseries\sffamily\color{\cnBlue}, bodyfont=\normalfont,
