@@ -61,11 +61,11 @@
 
 \theoremstyle{definition}
 \declaretheoremstyle[
-    headfont=\bfseries\sffamily\color{nordTwo}, bodyfont=\normalfont,
+    headfont=\bfseries\sffamily\color{nordOne}, bodyfont=\normalfont,
     mdframed={
         linewidth=2pt,
         rightline=false, topline=false, bottomline=false,
-        linecolor=nordTwo, backgroundcolor=nordSix!50,
+        linecolor=nordOne, backgroundcolor=nordSix!50,
         skipabove=1\baselineskip, skipbelow=0\baselineskip,
     }
 ]{thmdefnbox}
@@ -75,7 +75,7 @@
     mdframed={
         linewidth=2pt,
         rightline=false, topline=false, bottomline=false,
-        linecolor=nordTen, backgroundcolor=nordSix!50,
+        linecolor=\cnPrimaryGreen, backgroundcolor=nordSix!50,
         skipabove=1\baselineskip, skipbelow=0\baselineskip,
     }
 ]{thmexamplebox}
@@ -111,7 +111,7 @@
         linecolor=nordTwelve, backgroundcolor=nordSix!50,
         skipabove=1\baselineskip, skipbelow=0\baselineskip,
     }
-]{thmaxiombox}
+]{thmnotationbox}
 
 \declaretheoremstyle[
     headfont=\bfseries\sffamily\color{nordTen}, bodyfont=\normalfont,
@@ -129,18 +129,18 @@
     mdframed={
         linewidth=2pt,
         rightline=false, topline=false, bottomline=false,
-        linecolor=nordEleven!70,
+        linecolor=nordEleven!80,
         skipabove=1\baselineskip, skipbelow=0\baselineskip, 
     },
     qed=\qedsymbol
 ]{thmproofbox}
 
 \declaretheoremstyle[
-    headfont=\bfseries\sffamily\color{\cnBlue}, bodyfont=\normalfont,
+    headfont=\bfseries\sffamily\color{nordNine}, bodyfont=\normalfont,
     mdframed={
         linewidth=2pt,
         rightline=false, topline=false, bottomline=false,
-        linecolor=\cnBlue
+        linecolor=nordNine
     }
 ]{thmblueline}
 
@@ -168,18 +168,17 @@
 \declaretheorem[style=thmtheorembox, name=Rule]{arule}
 \declaretheorem[style=thmalgobox, name=Algorithm]{algo}
 \declaretheorem[style=thmtheorembox, name=Theorem]{theorem}
-\declaretheorem[style=thmaxiombox, name=Axiom]{axiom}
-\declaretheorem[style=thmaxiombox, numbered=no, name=Corollary]{corollary}
+\declaretheorem[style=thmtheorembox, name=Axiom]{axiom}
+\declaretheorem[style=thmtheorembox, numbered=no, name=Corollary]{corollary}
 
 \declaretheorem[style=thmproofbox, name=Proof]{replacementproof}
 \renewenvironment{proof}[1][\proofname]{\vspace{-10pt}\begin{replacementproof}}{\end{replacementproof}}
-
 
 \declaretheorem[style=thmsolnbox, name=Solution]{tmpsoln}
 \newenvironment{solution}[1][]{\vspace{-10pt}\begin{tmpsoln}}{\end{tmpsoln}}
 
 \declaretheorem[style=thmblueline, numbered=no, name=Remark]{remark}
-\declaretheorem[style=thmblueline, numbered=no, name=Notation]{notation}
+\declaretheorem[style=thmnotationbox, numbered=no, name=Notation]{notation}
 \declaretheorem[style=thmblueline, numbered=no, name=Note]{note}
 
 \renewcommand{\qedsymbol}{\(\cnordEleven{\blacksquare}\)}
