@@ -317,7 +317,7 @@
     \begin{beamercolorbox}[wd=\paperwidth,leftskip=0.2cm,ht=0.6cm,dp=0.25cm]{header primary}%
         {\usebeamercolor*[fg]{frame title}\usebeamerfont{header title}\insertframetitle} 
 		\ifx\insertframesubtitle\empty
-		\else {\usebeamercolor*[fg]{frame mark}\,.::.\,}
+		\else {\usebeamercolor*[fg]{frame mark} {\small\faTerminal} }
         {\usebeamercolor*[fg]{frame subtitle}\usebeamerfont{header subtitle}\insertframesubtitle} \fi
         \hfill
     \end{beamercolorbox}%
@@ -334,17 +334,16 @@
     \begin{beamercolorbox}[
       wd=.9\paperwidth,
       ht=2ex,
-      dp=1.75ex,
+      dp=1ex,
       center]{section in head/foot}%
-      % > > > display priority: subsection > section > title
-      \texttt{\filename}
+      \usebeamerfont{section in head/foot}\texttt{\filename}
     \end{beamercolorbox}%
     \begin{beamercolorbox}[
       wd=.1\paperwidth,
       ht=2ex,
-      dp=1.75ex,
-      center]{number in head/foot}
-      \insertframenumber\ /\ \inserttotalframenumber
+      dp=1ex,
+      center]{page number in head/foot}
+     \usebeamerfont{page number in head/foot} \insertframenumber\ {\cnordEight\faBookOpen}\ \inserttotalframenumber
     \end{beamercolorbox}%
   }
 }
