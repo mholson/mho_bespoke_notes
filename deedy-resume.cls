@@ -23,15 +23,21 @@
 \renewcommand\refname{\vskip -1.5cm}
 
 % Color definitions
-\definecolor{date}{HTML}{666666} 
-\definecolor{primary}{HTML}{2b2b2b} 
-\definecolor{headings}{HTML}{6A6A6A}
-\definecolor{subheadings}{HTML}{333333}
+\definecolor{date}{HTML}{4C566A} 
+\definecolor{primary}{HTML}{2E3440} 
+\definecolor{headings}{HTML}{3B4252}
+\definecolor{subheadings}{HTML}{434C5E}
 
 % Set main fonts
-\defaultfontfeatures{Mapping=tex-text}
-\setmainfont[Color=primary]{Flama}
-\setsansfont[Mapping=tex-text]{FlamaLight}
+%\defaultfontfeatures{Mapping=tex-text}
+%\setmainfont[Color=primary]{Flama}
+%\setsansfont[Mapping=tex-text]{FlamaLight}
+% > > > Fonts
+\RequirePackage{microtype}
+\RequirePackage[warnings-off={mathtools-colon,mathtools-overbracket}]{unicode-math}
+\RequirePackage{libertinus-otf}
+\RequirePackage{metalogo}
+
 
 % Date command
 \setlength{\TPHorizModule}{1mm}
