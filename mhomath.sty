@@ -226,9 +226,22 @@
 \newcommand{\farg}[1]{\left[\cDarkBlue{#1}\right]} % Function Argument
 \newcommand{\fargr}[1]{\left[\cRed{#1}\right]} % Function Argument
 
+% > > > Absolute Value fix
+% https://tex.stackexchange.com/questions/43008/absolute-value-symbols
 %\delimitershortfall-1sp % Absolute Value
 %\newcommand\abs[1]{\left|#1\right|} %Absolute Value
 \DeclarePairedDelimiter\abs{\lvert}{\rvert} % Mathtools Absolute Value
+\DeclarePairedDelimiter\norm{\lVert}{\rVert} % Mathtools Normal Value
+% Swap the definition of \abs* and \norm*, so that \abs
+% and \norm resizes the size of the brackets, and the 
+% starred version does not.
+\makeatletter
+\let\oldabs\abs
+\def\abs{\@ifstar{\oldabs}{\oldabs*}}
+%
+\let\oldnorm\norm
+\def\norm{\@ifstar{\oldnorm}{\oldnorm*}}
+\makeatother
 \newcommand{\lcm}{\mathrm{lcm}} % LCM
 \newcommand{\hcf}{\mathrm{hcf}} % HCF
 \newcommand{\inv}{^{-1}} % Inverse
@@ -238,7 +251,6 @@
 
 % > > > Vectors
 %\newcommand{\vect}[1]{\boldsymbol{#1}}
-\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
 \newcommand{\hangle}[1]{\hat{#1}} % Component hat
 \newcommand{\ihat}{\hat{\imath}} % i hat
 \newcommand{\jhat}{\hat{\jmath}} % j hat
