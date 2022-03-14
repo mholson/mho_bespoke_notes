@@ -92,6 +92,9 @@ urlcolor={nordZero},
 % > > > Ignore Beamer Frame Breaks
 \newcommand{\framebreak}{}
 
+% > > > Ignore mref
+\renewcommand{\mref}[1]{}
+
 % > > >	DEFAULT MATH PACKAGES SOLUTIONS
 
 %\SolutionEmphasis{\color{\cnRed}}
@@ -164,7 +167,7 @@ urlcolor={nordZero},
 
 \begin{center}
 \testdate \\
-\coursecode
+\course
 \end{center}
 \vfill
 \end{minipage}
@@ -267,12 +270,9 @@ urlcolor={nordZero},
 %=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 \if@dogytest
 
-% > > >	 TODOLIST BOXES
-\newlist{todolist}{itemize}{2}
-\setlist[todolist]{label=$\square$}
-
 % > > >	 POINTS
 \pointsinrightmargin
+\marginpointname{}
 \pointname{}
 \extrawidth{-1cm}
 
@@ -282,7 +282,7 @@ urlcolor={nordZero},
 
 % > > >	 PART B 
 \newcommand{\partb}{\begin{tikzpicture}
-\node[draw=\cnBlue,line width=1pt,rectangle,fill=\cnBlue!25,font=\sffamily\bfseries,inner sep=2pt,outer sep=0pt] at (0pt,0pt){\cBlue{Part B}};\end{tikzpicture}}
+\node[draw=\cnDarkBlue,line width=1pt,rectangle,fill=\cnDarkBlue!25,font=\sffamily\bfseries,inner sep=2pt,outer sep=0pt] at (0pt,0pt){\cDarkBlue{Part B}};\end{tikzpicture}}
 
 % > > >	 STUDENT NAME BOX
 \def\boxentry[#1]#2{{\setlength{\fboxsep}{-\fboxrule}\fbox{\parbox{#1}{\smash{\raise-6.5pt\hbox{~{\scriptsize #2}}}\vspace{6ex}\mbox{}}}}}
@@ -308,41 +308,33 @@ urlcolor={nordZero},
 \def\makecoverpage{
 \begin{coverpages}
 
-\begin{minipage}[c]{.18\linewidth}
+\begin{minipage}[c]{.25\linewidth}
 \begin{center}
-\includegraphics[height=6em]{sshl}	 \\
-\vspace{0.5em}
-{\cBlue{\Large \textbf{SSHL}}} \\
-\vspace{0.5em}
-{\cDarkGrey{\textbf{Sigtuna}}}
+\includegraphics[width=0.8\textwidth]{images/logoAGS}
+\vfill
 \end{center}	
-\vfill
 \end{minipage}
-\begin{minipage}[c]{.6\linewidth}
+\begin{minipage}[c]{.7\linewidth}
 \begin{center}
-\cDarkGrey{\Huge{\coursecode $ \cdot $  \classnumber $\, \cdot $ Test \testnumber}}\\
-\vspace{3em} 
-\Huge{\cBlue{ \testpart}}
+\vfill
+\cDarkGrey{\Huge{\course\, -- Test \TestID}}\\
+\vspace{2em} 
+\Huge{\cDarkBlue{Part \testpart}} \\
 \end{center}
-\vfill
 \end{minipage}
 
-\vspace{1em}
+\vspace{2em}
 
 \begin{center}
-\cRed{\textbf{DO NOT OPEN THIS TEST BOOKLET UNTIL INSTRUCTED TO DO SO}}
+\cRed{\large\textbf{DO NOT OPEN THIS TEST BOOKLET UNTIL INSTRUCTED TO DO SO}}\\
 
-\vspace{1em}
+\vspace{4em}
 
-\emph{\textbf{Before starting} $\rightarrow$ write your full name and class on the Test Identification Paper. }
+\boxentry[0.35\hsize]{Name:} \boxentry[0.25\hsize]{class:} \boxentry[0.15\hsize]{Pages Submitted:}
 
-\vspace{1em}
+\vspace{4em}
 
-\boxentry[0.25\hsize]{Test Identification Number:} \boxentry[0.15\hsize]{Pages Submitted:}
-
-\vspace{1em}
-
-\emph{Please make sure that you write your test identification number, \textbf{not your name}, and a page number in the top right-hand corner of each squared paper handed-in. All solutions are to be neatly written in the order they appear on the test. Illegible work will not be graded.  All work that you do not want to be graded must be neatly crossed-out - including scrap papers.}
+\emph{Please make sure that you write your \textbf{name}, and a page number in the top right-hand corner of each squared paper handed-in. All solutions are to be neatly written in the order they appear on the test. Illegible work will not be graded.  All work that you do not want to be graded must be neatly crossed-out - including scrap papers.}
 
 \vspace{0.75cm}
 \centering{\framebox{\textbf{\epoints \, E points}, \textbf{\cpoints \,  C points} and \textbf{\apoints \,  A points}.}}
@@ -354,11 +346,10 @@ urlcolor={nordZero},
 
 \vspace{0.75cm}
 
-\colorbox{\cnGrey}{
+\colorbox{\cnBGGrey}{
 \begin{minipage}[c]{.4\linewidth}
 \begin{center}
 \textbf{\large\textsc{Materials \& Information}}\\
-\vspace{0.5cm}
 \partainstructions
 \end{center}
 \end{minipage}

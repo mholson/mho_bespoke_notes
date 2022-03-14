@@ -96,6 +96,10 @@
 
 \ifx\beamer@sthlmnordtheme@mode\beamer@sthlmnordtheme@darkmode%
 
+% > > > For ease of reading switich Light (nord 9) and Dark (nord 10) Blue
+\definecolor{nordNine}{HTML}{5E81AC}    	                                % nord10 > nord9
+\definecolor{nordTen}{HTML}{81A1C1}                                    % nord9 > nord10
+
 % > > >  Global Definitions
 \setbeamercolor*{normal text}{fg=nordFive}
 \setbeamercolor*{background canvas}{bg=nordOne}
@@ -105,11 +109,11 @@
 \setbeamercolor*{title}{fg=nordFour}
 \setbeamercolor*{subtitle}{fg=nordEight}
 
-\setbeamercolor*{author title}{fg=nordNine}
-\setbeamercolor*{author}{fg=nordNine!50}
+\setbeamercolor*{author title}{fg=nordTen}
+\setbeamercolor*{author}{fg=nordTen!50}
 
-\setbeamercolor*{institute title}{fg=nordNine}
-\setbeamercolor*{institute}{fg=nordNine!50}
+\setbeamercolor*{institute title}{fg=nordTen}
+\setbeamercolor*{institute}{fg=nordTen!50}
 
 % > > >  Text
 \setbeamercolor*{example text}{fg=nordSeven}
@@ -118,7 +122,7 @@
 %\setbeamercolor*{normal text in math text}{fg=nordFive}
 
 % > > >  Footnotes
-\setbeamercolor*{footnotemark}{fg=nordNine}
+\setbeamercolor*{footnotemark}{fg=nordTen}
 \setbeamercolor*{footnote}{fg=nordEight}
 
 % > > >  Frame Structure
@@ -135,13 +139,13 @@
 \setbeamercolor*{footer text}{fg=nordThree}
 
 % > > >  Lists
-\setbeamercolor*{itemize item}{fg=nordNine}
+\setbeamercolor*{itemize item}{fg=nordTen}
 \setbeamercolor*{itemize subitem}{fg=nordEight}
 \setbeamercolor*{itemize subsubitem}{fg=nordSeven}
-\setbeamercolor*{enumerate item}{fg=nordNine}
+\setbeamercolor*{enumerate item}{fg=nordTen}
 \setbeamercolor*{enumerate subitem}{fg=nordEight}
 \setbeamercolor*{enumerate subsubitem}{fg=nordSeven}
-\setbeamercolor*{description item}{fg=nordNine}
+\setbeamercolor*{description item}{fg=nordTen}
 
 % > > >  Figures
 \setbeamercolor*{caption name}{fg=nordFour}
@@ -176,7 +180,6 @@
 \newcommand{\an}{\cnordEight{\faTh \, Answer: \enskip}}
 \newcommand{\ans}{\cnordEight{\faTh \, Answers: \enskip}}
 \renewcommand{\proof}{\cnordTen{\faTh \, Proof: \enskip}}
-\newcommand{\yt}[1]{\cnordTen{\Large\faYoutubeSquare \footnote{#1}}}
 %  END =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 %=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 \else%
@@ -242,10 +245,10 @@
 \setbeamercolor{block body example}{bg=nordFive, fg=nordTwo}%
 
 % > > >  Bibliography
-\setbeamercolor*{bibliography entry author}{fg=nordFour}
-\setbeamercolor*{bibliography entry title}{fg=nordFour}
-\setbeamercolor*{bibliography entry location}{fg=nordFour}
-\setbeamercolor*{bibliography entry note}{fg=nordFour}
+\setbeamercolor*{bibliography entry author}{fg=nordTwo}
+\setbeamercolor*{bibliography entry title}{fg=nordTwo}
+\setbeamercolor*{bibliography entry location}{fg=nordTwo}
+\setbeamercolor*{bibliography entry note}{fg=nordTwo}
 
 % > > > Math Environments 
 \newcommand{\prob}{\cnordThree{\faFire} \cnordZero{\textbf{Problem:}\enskip}}
@@ -253,7 +256,6 @@
 \newcommand{\an}{\cnordThree{\faSignature} \cnordZero{\textbf{Answer:} \enskip}}
 \newcommand{\ans}{\cnordThree{\faSignature} \cnordZero{\textbf{Answers:} \enskip}}
 \renewcommand{\proof}{\cnordThree{\faLightbulb[regular]} \cnordZero{\textbf{Proof:} \enskip}}
-\newcommand{\yt}[1]{\cnordEleven{\Large\faYoutubeSquare \footnote{#1}}}
 %  END =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 %=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
@@ -281,7 +283,7 @@
  \setlist[enumerate]{labelsep=*, leftmargin=1.5pc}
  %\setlist[enumerate,1]{label = \arabic*.,
  %                      ref   = \arabic*}
- \setlist[enumerate,1]{label = (\emph{\cRed{\alph*}}),
+ \setlist[enumerate,1]{label = (\cRed{\alph*}),
                        ref   = \theenumi.\emph{\alph*}}
  \setlist[enumerate,2]{label = \cRed{\roman*}),
                        ref   = \theenumii.\roman*}
@@ -573,9 +575,9 @@
 %=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 \RequirePackage[backend=biber,style=numeric]{biblatex}
 \addbibresource{mhoreferences.bib}
-\setbeamertemplate{bibliography item}{
- 	\usebeamercolor[bg]{secondary}\insertbiblabel
-}
+%\setbeamertemplate{bibliography item}{
+% 	\usebeamercolor[bg]{primary}\insertbiblabel
+%}
 %  END =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 %=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
