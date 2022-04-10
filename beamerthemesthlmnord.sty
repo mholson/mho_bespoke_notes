@@ -234,12 +234,12 @@
 \setbeamercolor*{caption name}{fg=nordNine}
 
 % > > >  Table of Contents
-\setbeamercolor*{section in toc}{fg=nordTwo}
-\setbeamercolor*{subsection in toc}{fg=nordEight}
+\setbeamercolor*{section in toc}{fg=nordTen}
+\setbeamercolor*{subsection in toc}{fg=nordNine}
 
 % > > >  Section Page
-\setbeamercolor*{section page}{bg=nordSix,fg=nordTwo}
-\setbeamercolor*{subsection page}{bg=nordSix,fg=nordTwo}
+\setbeamercolor*{section page}{bg=nordSix,fg=nordTen}
+\setbeamercolor*{subsection page}{bg=nordSix,fg=nordNine}
 
 % > > >  Default block
 \setbeamercolor{block title}{bg=nordOne,fg=nordFive}%
@@ -374,14 +374,14 @@
       ht=2ex,
       dp=1ex,
       center]{section in head/foot}%
-      \usebeamerfont{section in head/foot}\texttt{\currfilename}
+      {\usebeamerfont{section in head/foot}\texttt{\currfilename}}
     \end{beamercolorbox}%
     \begin{beamercolorbox}[
       wd=.1\paperwidth,
       ht=2ex,
       dp=1ex,
       center]{page number in head/foot}
-     \usebeamerfont{page number in head/foot} \insertframenumber\ {\cnordEight\faBookOpen}\ \inserttotalframenumber
+     {\usebeamerfont{page number in head/foot} \insertframenumber\ {\cnordEight\faBookOpen}\ \inserttotalframenumber}
     \end{beamercolorbox}%
   }
 }
@@ -395,7 +395,7 @@
 \renewcommand\footnoterule{\color{nordThree!50}\hspace*{-0.5cm}\rule{0.95\paperwidth}{0.2pt}\vspace*{0.07cm}}
 \setbeamertemplate{footnote}{
 	\begin{beamercolorbox}[wd=\textwidth, leftskip=0.3cm,rightskip=0.3cm]{footer text}%
-	\usebeamerfont{footnote}{\usebeamercolor{footnotemark}\insertfootnotemark}{\usebeamercolor{footnotemark}\insertfootnotetext}
+	{\usebeamerfont{footnote}{\usebeamercolor{footnotemark}\insertfootnotemark}{\usebeamercolor{footnotemark}\insertfootnotetext}}
 	\end{beamercolorbox}%
 }
 %  END =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
@@ -463,27 +463,23 @@
 \AtBeginSection[]{
   \begin{frame}[plain,noframenumbering]
     \vfill
-    \center
-    \usebeamerfont{section page}
-    \usebeamercolor[fg]{section page}
-    \insertsectionhead
-    \par
-    \vfill
+    \begin{center}
+    {\usebeamerfont{section page}\usebeamercolor*[fg]{section page}\insertsectionhead}
+  \end{center}
+    \par%
+    \vfill%
   \end{frame}
 }
 \AtBeginSubsection[]{
   \begin{frame}[plain,noframenumbering]
     \vfill
-    \center
-    \usebeamerfont{section page}
-    \usebeamercolor[fg]{section page}
-    \insertsectionhead
+    \begin{center}
+    {\usebeamerfont{section page}\usebeamercolor*[fg]{section page}\insertsectionhead}
     \par%
-    \usebeamerfont{subsection page}
-    \usebeamercolor[fg]{subsection page}
-    \insertsubsectionhead
+    {\usebeamerfont{subsection page}\usebeamercolor*[fg]{subsection page}\insertsubsectionhead}
+  \end{center}
     \par%
-    \vfill
+    \vfill%
   \end{frame}
 }
 \else
