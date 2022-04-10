@@ -198,11 +198,11 @@
 \setbeamercolor*{title}{fg=nordTwo}
 \setbeamercolor*{subtitle}{fg=nordThree}
 
-\setbeamercolor*{author title}{fg=nordTen}
-\setbeamercolor*{author}{fg=nordNine}
+\setbeamercolor*{author title}{fg=nordThree}
+\setbeamercolor*{author}{fg=nordTen}
 
-\setbeamercolor*{institute title}{fg=nordTen}
-\setbeamercolor*{institute}{fg=nordNine}
+\setbeamercolor*{institute title}{fg=nordThree}
+\setbeamercolor*{institute}{fg=nordTen}
 
 % > > >  Text
 \setbeamercolor*{example text}{fg=nordSeven}
@@ -405,54 +405,52 @@
 %   Deck Title Page
 %=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 \def\titlepage{\usebeamertemplate{title page}}
-\def\logo@width{0.1\paperwidth}
-\def\logo@height{0.1\paperheight}
-\tikzset{
-  sider/.style={
-    draw=none,
-    rectangle,
-    outer xsep=-0.1mm,
-    minimum height=\paperheight,
-    minimum width=\logo@width,
-    fill=nordZero
-  },
-  icon/.style={
-  	draw=nordZero,
-		line width=1.2pt,
-  	fill=nordTen, 
-  	minimum height=\logo@height,
-  	minimum width=\logo@width,
-  	text=nordFour,
-  	outer xsep=0.4cm,
-  	outer ysep=0.4cm,
-  	inner sep=0.1cm,
-  }
-}
+\setbeamercolor{nordOneBox}{bg=nordOne}
+\setbeamercolor{nordAquaBlueBox}{bg=nordEight}
 \setbeamertemplate{title page}
 {
-	\begin{frame}[plain]
-    	\begin{tikzpicture}[remember picture,overlay]
-    		\hspace*{-1pt}\node[anchor=west,sider] at (current page.west){};
-    		%\node[anchor=south west,sider, fill=primary, minimum height=0.95\paperheight] at (current page.south west){};
-			\node[align=left] at (current page.center){
-				{\usebeamerfont{title}\usebeamercolor*[fg]{title}\inserttitle}\\[0.3cm]
-				{\usebeamerfont{subtitle}\usebeamercolor*[fg]{subtitle}\insertsubtitle}\\[0.1cm]
-				
-				\usebeamercolor[fg]{footer}\rule{0.7\paperwidth}{0.2pt}	\\[0.35cm]
-				
-				{\usebeamerfont{author title}\usebeamercolor*[fg]{author title}Created by: {\usebeamerfont{author}\usebeamercolor*[fg]{author}\insertauthor}}\\[0.3cm]
-				{\usebeamerfont{institute title}\usebeamercolor*[fg]{institute title}Institute: {\usebeamerfont{institute}\usebeamercolor*[fg]{institute}\insertinstitute}}\\[0.3cm]
-				{\usebeamerfont{institute title}\usebeamercolor*[fg]{institute title}Course: {\usebeamerfont{institute}\usebeamercolor*[fg]{institute}\course}}\\[0.3cm]
-				{\usebeamerfont{institute title}\usebeamercolor*[fg]{institute title}File: {\usebeamerfont{institute}\usebeamercolor*[fg]{institute}\filename}}\\[0.3cm]
-				%\usebeamerfont{author}\small{FileID: \color{nordTen}\fileid} 
-			 %\includegraphics[width=\logo@width, height=\logo@height, keepaspectratio]{assets/titlelogo}
-			};
-			\node[anchor=south,outer ysep=0.4cm] at (current page.south){\small\color{nordThree!90} \XeLaTeX ed on \insertdate};
-			%\node[anchor=south east,icon] at (current page.south east)(logo){\includegraphics[width=\logo@width, height=\logo@height, keepaspectratio]{\inserttitlegraphic}};
-			\node[anchor=south east] at (current page.south east)(logo){\includegraphics[width=\logo@width, height=\logo@height, keepaspectratio]{\inserttitlegraphic}};
-		\end{tikzpicture}
-	\end{frame}
-}
+  \begin{frame}[plain]
+    \hspace*{-0.1\linewidth}
+\begin{minipage}[t]{1\paperwidth}
+  \hbox{%
+    \begin{beamercolorbox}[
+      wd=0.1\linewidth,
+      ht=0.28\linewidth,
+      dp=0.02\linewidth]{nordOneBox}
+    \end{beamercolorbox}
+    \begin{beamercolorbox}[
+      wd=1\linewidth,
+      ht=0.28\linewidth,
+      dp=0.02\linewidth,
+      sep=3em]{nordAquaBlueBox}
+      \parbox{0.8\linewidth}{%
+        {\usebeamerfont{title} \usebeamercolor[fg]{title} \noindent \inserttitle} \\
+        {\usebeamerfont{subtitle} \usebeamercolor[fg]{subtitle} \insertsubtitle}
+      }%
+    \end{beamercolorbox}
+  }%
+\end{minipage}
+\vspace{0.25em}%
+\hfill\\
+\begin{minipage}[c]{0.02\paperwidth}
+\vspace{0pt}
+\hfill\\
+\end{minipage}%
+\begin{minipage}[c]{0.7\paperwidth}
+\vspace{0pt}
+{\usebeamerfont{author title}\usebeamercolor*[fg]{author title}\titleAuthor: {\usebeamerfont{author}\usebeamercolor*[fg]{author}\insertauthor}}\\[0.3cm]
+{\usebeamerfont{institute title}\usebeamercolor*[fg]{institute title}\titleInstitute: {\usebeamerfont{institute}\usebeamercolor*[fg]{institute}\insertinstitute}}\\[0.3cm]
+{\usebeamerfont{institute title}\usebeamercolor*[fg]{institute title}\titleMiscI: {\usebeamerfont{institute}\usebeamercolor*[fg]{institute}\course}}\\[0.3cm]
+{\usebeamerfont{institute title}\usebeamercolor*[fg]{institute title}\titleMiscII: {\usebeamerfont{institute}\usebeamercolor*[fg]{institute}\filename}}\\[0.3cm]
+\end{minipage}%
+\begin{minipage}[c]{0.2\paperwidth}
+\vspace{0pt}
+\includegraphics[width=0.65\linewidth,keepaspectratio]{\inserttitlegraphic}
+\end{minipage}%
+\hfill
+\addtocounter{framenumber}{-1}
+\end{frame}
+  }%
 %  END =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 %=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
