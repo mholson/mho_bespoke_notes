@@ -97,8 +97,15 @@
 \ifx\beamer@sthlmnordtheme@mode\beamer@sthlmnordtheme@darkmode%
 
 % > > > For ease of reading switich Light (nord 9) and Dark (nord 10) Blue
-\definecolor{nordNine}{HTML}{5E81AC}    	                                % nord10 > nord9
-\definecolor{nordTen}{HTML}{81A1C1}                                    % nord9 > nord10
+	\renewcommand{\cnordNine}[1]{{\color{nordTen}{#1}}}
+	\renewcommand{\crnordNine}{{\color{nordTen}}}
+	\renewcommand{\cBlue}[1]{{\color{nordTen}{#1}}}
+	\renewcommand{\cnBlue}{nordTen}
+	
+	\renewcommand{\cnordTen}[1]{{\color{nordNine}{#1}}}
+	\renewcommand{\crnordTen}{{\color{nordNine}}}
+	\renewcommand{\cDarkBlue}[1]{{\color{nordNine}{#1}}}
+	\renewcommand{\cnDarkBlue}{nordNine}                                   % nord9 > nord10
 
 % > > >  Global Definitions
 \setbeamercolor*{normal text}{fg=nordFive}
