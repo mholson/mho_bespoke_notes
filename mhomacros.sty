@@ -10,7 +10,7 @@
 % Website: https://mholson.com
 % Github: https://github.com/mholson
 % 
-% File: mhomath.sty
+% File: mhomacros.sty
 % Created: 2017-01-18
 % Updated: 2021-05-23
 %
@@ -24,7 +24,7 @@
 %	PACKAGE OPTIONS & SETUP
 %=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{mhomath}[2017/04/12 A small package for Math customizations]
+\ProvidesPackage{mhomacros}[2017/04/12 A small package for Math customizations]
 
 % > > > Load Packages
 \let\openbox\relax
@@ -67,9 +67,9 @@
 \newcommand{\ibqn}[1]{(\textit{\textbf{\cRed{#1}}})}
 
 % > > > Custom Citation
-\newcommand{\mref}[1]{{\small\begin{flushright}\cGrey{#1} \, \cBlue{\faBook}\end{flushright}}}
-\newcommand{\yt}[1]{\small\begin{flushright} \cGrey{\url{#1}} \, \cRed{\faYoutubeSquare}\end{flushright}}
-\newcommand{\colab}[1]{\small\begin{flushright} \cGrey{\href{#1}{Google Colab Python Notebook}} \, \cOrange{\faInfinity}\end{flushright}}
+\newcommand{\mref}[1]{{\small\begin{flushright}\cDarkBlue{#1} \, \cDarkBlue{\faBook}\end{flushright}}}
+\newcommand{\yt}[1]{\small\begin{flushright} \cRed{\url{#1}} \, \cRed{\faYoutubeSquare}\end{flushright}}
+\newcommand{\colab}[1]{\small\begin{flushright} \cOrange{\href{#1}{Google Colab Python Notebook}} \, \cOrange{\faInfinity}\end{flushright}}
 
 % > > > Shorter Commands
 \newcommand{\ds}{\displaystyle}
@@ -87,13 +87,41 @@
 \DeclareMathOperator{\opos}{\raisebox{0.2em}{+}} % Postive Prefix Operator
 
 % > > > Highlighting
-\newcommand{\hl}[1]{\colorbox{\cnYellow}{$\displaystyle#1$}}
-\newcommand{\hlp}[1]{\colorbox{\cnPurple}{$\displaystyle#1$}}
-\newcommand{\hlo}[1]{\colorbox{\cnOrange}{$\displaystyle#1$}}
-\newcommand{\hlr}[1]{\colorbox{\cnRed}{$\displaystyle#1$}}
-\newcommand{\hlg}[1]{\colorbox{\cnGreen}{$\displaystyle#1$}}
-\newcommand{\hldg}[1]{\colorbox{\cnDarkGrey}{$\displaystyle#1$}}
-\newcommand{\hlb}[1]{\colorbox{\cnBlue}{$\displaystyle#1$}}
+\newcommand{\hl}[1]{\colorbox{\cnYellow}{#1}}
+\newcommand{\hlDarkBlack}[1]{\colorbox{\cnDarkBlack}{#1}}
+\newcommand{\hlBlack}[1]{\colorbox{\cnBlack}{#1}}
+\newcommand{\hlDarkGrey}[1]{\colorbox{\cnDarkGrey}{#1}}
+\newcommand{\hlGrey}[1]{\colorbox{\cnGrey}{#1}}
+\newcommand{\hlDivGrey}[1]{\colorbox{\cnDivGrey}{#1}}
+\newcommand{\hlLightGrey}[1]{\colorbox{\cnLightGrey}{#1}}
+\newcommand{\hlBGGrey}[1]{\colorbox{\cnBGGrey}{#1}}
+\newcommand{\hlAquaBlue}[1]{\colorbox{\cnAquaBlue}{#1}}
+\newcommand{\hlLightBlue}[1]{\colorbox{\cnLightBlue}{#1}}
+\newcommand{\hlBlue}[1]{\colorbox{\cnBlue}{#1}}
+\newcommand{\hlDarkBlue}[1]{\colorbox{\cnDarkBlue}{#1}}
+\newcommand{\hlRed}[1]{\colorbox{\cnRed}{#1}}
+\newcommand{\hlOrange}[1]{\colorbox{\cnOrange}{#1}}
+\newcommand{\hlGreen}[1]{\colorbox{\cnGreen}{#1}}
+\newcommand{\hlPurple}[1]{\colorbox{\cnPurple}{#1}}
+
+% > > > Highlighting
+\newcommand{\hlm}[1]{\colorbox{\cnYellow}{\ensuremath{#1}}}
+\newcommand{\hlmDarkBlack}[1]{\colorbox{\cnDarkBlack}{\ensuremath{#1}}}
+\newcommand{\hlmBlack}[1]{\colorbox{\cnBlack}{\ensuremath{#1}}}
+\newcommand{\hlmDarkGrey}[1]{\colorbox{\cnDarkGrey}{\ensuremath{#1}}}
+\newcommand{\hlmGrey}[1]{\colorbox{\cnGrey}{\ensuremath{#1}}}
+\newcommand{\hlmDivGrey}[1]{\colorbox{\cnDivGrey}{\ensuremath{#1}}}
+\newcommand{\hlmLightGrey}[1]{\colorbox{\cnLightGrey}{\ensuremath{#1}}}
+\newcommand{\hlmBGGrey}[1]{\colorbox{\cnBGGrey}{\ensuremath{#1}}}
+\newcommand{\hlmAquaBlue}[1]{\colorbox{\cnAquaBlue}{\ensuremath{#1}}}
+\newcommand{\hlmLightBlue}[1]{\colorbox{\cnLightBlue}{\ensuremath{#1}}}
+\newcommand{\hlmBlue}[1]{\colorbox{\cnBlue}{\ensuremath{#1}}}
+\newcommand{\hlmDarkBlue}[1]{\colorbox{\cnDarkBlue}{\ensuremath{#1}}}
+\newcommand{\hlmRed}[1]{\colorbox{\cnRed}{\ensuremath{#1}}}
+\newcommand{\hlmOrange}[1]{\colorbox{\cnOrange}{\ensuremath{#1}}}
+\newcommand{\hlmGreen}[1]{\colorbox{\cnGreen}{\ensuremath{#1}}}
+\newcommand{\hlmPurple}[1]{\colorbox{\cnPurple}{\ensuremath{#1}}}
+
 
 \newcommand{\defw}[1]{\cnordOne{\textbf{#1}}}
 \newcommand{\defsw}[1]{\cnordTen{[sv: \textit{#1}]}}
@@ -119,7 +147,7 @@
 \newcommand{\setZnn}{\ensuremath{\mathbb{Z}_{\ge 0}}} % Non-Negative
 \newcommand{\setZp}{\ensuremath{\mathbb{Z}^{+}}} % Positive
 \newcommand{\setZs}{\ensuremath{\mathbb{Z}^{*}}} % Non-Zero
-\newcommand{\setZi}[1]{\ensuremath{\mathbb{Z}{#1}}} % On interval
+\newcommand{\setZi}[1]{\ensuremath{\mathbb{Z}_{#1}}} % On interval
 
 \newcommand{\setE}{\ensuremath{\mathbb{E}}} % Set of Even Integers
 \newcommand{\setO}{\ensuremath{\mathbb{O}}} % Set of Odd Integers
@@ -135,25 +163,25 @@
 
 % > > > Set of Rationals
 \newcommand{\setQ}{\ensuremath{\mathbb{Q}}} % Set of Rationals
-\newcommand{\setQn}{\ensuremath{\mathbb{Q}_{<0}}} %  Negative
+\newcommand{\setQn}{\ensuremath{\mathbb{Q}^{-}}} %  Negative
 \newcommand{\setQp}{\ensuremath{\mathbb{Q}^{+}}} %  Postive 
 \newcommand{\setQs}{\ensuremath{\mathbb{Q}^{*}}} %  Non-Zero 
 \newcommand{\setQnn}{\ensuremath{\mathbb{Q}_{\ge 0}}} %  Non-Negative 
-\newcommand{\setQi}[1]{\ensuremath{\mathbb{Q}^{#1}}} %  On interval
+\newcommand{\setQi}[1]{\ensuremath{\mathbb{Q}_{#1}}} %  On interval
 
 \newcommand{\setJ}{\ensuremath{\mathbb{J}}} % Set of Irrationals (not rational)
 \newcommand{\setJp}{\ensuremath{\mathbb{J}^{+}}} % Positive
 \newcommand{\setJs}{\ensuremath{\mathbb{J}_{*}}} % Non-Zero
-\newcommand{\setJn}{\ensuremath{\mathbb{J}_{<0}}} % Negative
+\newcommand{\setJn}{\ensuremath{\mathbb{J}^{-1}}} % Negative
 \newcommand{\setJnn}{\ensuremath{\mathbb{J}_{\ge 0}}} % Non-negative
-\newcommand{\setJi}[1]{\ensuremath{\mathbb{J}^{#1}}} % On Interval
+\newcommand{\setJi}[1]{\ensuremath{\mathbb{J}_{#1}}} % On Interval
 
 \newcommand{\rfrac}[2]{\left.{#1}\middle/{#2}\right.} % Solidus Fraction
 
 % > > > Set of Reals
 \newcommand{\setR}{\ensuremath{\mathbb{R}}} % Set of Reals
 \newcommand{\setRp}{\ensuremath{\mathbb{R}^{+}}} %  Positive 
-\newcommand{\setRn}{\ensuremath{\mathbb{R}_{<0}}} %  Negative 
+\newcommand{\setRn}{\ensuremath{\mathbb{R}^{-}}} %  Negative 
 \newcommand{\setRs}{\ensuremath{\mathbb{R}^{*}}} %  Non-Zero 
 \newcommand{\setRnn}{\ensuremath{\mathbb{R}_{\ge 0}}} %  Non-Negative  
 \newcommand{\setRi}[1]{\ensuremath{\mathbb{R}_{#1}}} % On Interval
@@ -161,12 +189,12 @@
 % > > > Set of Complex
 \newcommand{\setC}{\ensuremath{\mathbb{C}}} % Set of Complex 
 \newcommand{\setCp}{\ensuremath{\mathbb{C}^{+}}} % Positive 
-\newcommand{\setCn}{\ensuremath{\mathbb{C}_{<0}}} % Negative 
+\newcommand{\setCn}{\ensuremath{\mathbb{C}^{-}}} % Negative 
 \newcommand{\setCs}{\ensuremath{\mathbb{C}^{*}}} % Non-Zero 
 
 \newcommand{\setI}{\ensuremath{\mathbb{I}}} % Set of Imaginary
 \newcommand{\setIp}{\ensuremath{\mathbb{I}^{+}}} % Positive 
-\newcommand{\setIn}{\ensuremath{\mathbb{I}_{<0}}} % Negative 
+\newcommand{\setIn}{\ensuremath{\mathbb{I}^{-1}}} % Negative 
 \newcommand{\setIs}{\ensuremath{\mathbb{I}^{*}}} % Non-Zero 
 
 \renewcommand{\Im}{\textrm{Im}} % Imaginary Part
@@ -186,6 +214,13 @@
 \newcommand{\bdicev}{\text{\cDarkBlue{\faDiceFive}}}
 \newcommand{\bdicevi}{\text{\cDarkBlue{\faDiceSix}}}
 
+\newcommand{\abdicei}{\text{\cAquaBlue{\faDiceOne}}}
+\newcommand{\abdiceii}{\text{\cAquaBlue{\faDiceTwo}}}
+\newcommand{\abdiceiii}{\text{\cAquaBlue{\faDiceThree}}}
+\newcommand{\abdiceiv}{\text{\cAquaBlue{\faDiceFour}}}
+\newcommand{\abdicev}{\text{\cAquaBlue{\faDiceFive}}}
+\newcommand{\abdicevi}{\text{\cAquaBlue{\faDiceSix}}}
+
 \newcommand{\gdicei}{\text{\cGrey{\faDiceOne}}}
 \newcommand{\gdiceii}{\text{\cGrey{\faDiceTwo}}}
 \newcommand{\gdiceiii}{\text{\cGrey{\faDiceThree}}}
@@ -203,11 +238,17 @@
 \newcommand{\bcheads}{\text{\cDarkBlue{\faSmile}}}
 \newcommand{\bctails}{\text{\cDarkBlue{\faCrown}}}
 
+\newcommand{\abcheads}{\text{\cAquaBlue{\faSmile}}}
+\newcommand{\abctails}{\text{\cAquaBlue{\faCrown}}}
+
+\newcommand{\gcheads}{\text{\cGrey{\faSmile}}}
+\newcommand{\gctails}{\text{\cGrey{\faCrown}}}
+
 \newcommand{\rcheads}{\text{\cRed{\faSmile}}}
 \newcommand{\rctails}{\text{\cRed{\faCrown}}}
 
-\newcommand{\remarks}{\cOrange{\faPen* \, Remark: \enskip}}
-\newcommand{\readas}{\cBlue{\faBullhorn \, Read as: \enskip}}
+\newcommand{\remarks}{\cRed{\faPen* \, Remark: \enskip}}
+\newcommand{\readas}{\cDarkBlue{\faBullhorn \, Read as: \enskip}}
 
 % > > > Sets Functions
 \newcommand{\setDomain}[1]{\textrm{dom}\mpar{#1}} % Domain Set
@@ -303,12 +344,14 @@
 %=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
 %=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-%	BOOK NAME
+%	CUSTOM WORDS
 %=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 \newcommand{\mhobookname}{\uppercase\expandafter{Math\kern -1pt \lower .7ex\hbox{s}\kern -1pt Notes}}
+\newcommand{\snord}{\cnordTen{sthlm}\cnordEight{NORD}}
+
 %  END =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 %=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 \endinput
 %=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=
-% End of file `mhomath.sty'.
+% End of file `mhomacros.sty'.
 %=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=
