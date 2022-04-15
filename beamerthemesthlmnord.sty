@@ -55,6 +55,9 @@
 \newif\if@dosectionpages
 \@dosectionpagesfalse
 \DeclareOptionBeamer{sectionpages}{\@dosectionpagestrue}
+\newif\if@dobibref
+\@dobibreffalse
+\DeclareOptionBeamer{bibref}{\@dobibreftrue}
 \newif\if@doenumarabic
 \@doenumarabicfalse
 \DeclareOptionBeamer{enumarabic}{\@doenumarabictrue}
@@ -331,6 +334,7 @@
 %=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 %   Bibliography
 %=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+\if@dobibref
 \RequirePackage{cleveref}
 \RequirePackage[backend=biber,style=numeric]{biblatex}
 %\setbeamertemplate{bibliography item}{
@@ -338,6 +342,8 @@
 %}
 \addbibresource{\bibfilename}
 
+\else
+\fi
 %  END =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 %=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
