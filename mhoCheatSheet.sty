@@ -1,0 +1,125 @@
+%=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=
+%             _             _
+%            | |           | |
+%  _ __ ___  | |__    ___  | | ___   ___   _ __       ___   ___   _ __ ___
+% | '_ ` _ \ | '_ \  / _ \ | |/ __| / _ \ | '_ \     / __| / _ \ | '_ ` _ \
+% | | | | | || | | || (_) || |\__ \| (_) || | | | _ | (__ | (_) || | | | | |
+% |_| |_| |_||_| |_| \___/ |_||___/ \___/ |_| |_|(_) \___| \___/ |_| |_| |_|
+%
+% Author: Mark H. Olson
+% Website: https://mholson.com
+% Github: https://github.com/mholson
+%
+% File: mhoCheatSheet.sty
+% Created: 2022-05-03
+%
+%=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{mhoCheatSheet}
+
+\RequirePackage{graphicx}
+
+\RequirePackage{xcolor}
+
+\RequirePackage{geometry}
+\geometry{paper=a4paper,landscape, left=6mm,right=6mm, top=8mm,bottom=4mm}
+\pagestyle{empty}
+
+\RequirePackage{tikz}
+
+\RequirePackage{multicol}
+
+\RequirePackage{mhocolorthemenord}
+
+\RequirePackage{mhotables}
+\RequirePackage{mhomacros}
+
+
+\RequirePackage[unicode]{hyperref}
+\hypersetup{
+colorlinks=true,
+% You might want to disable color links for you final draft.
+%colorlinks=false,
+linkcolor={nordZero},
+citecolor={nordZero},
+urlcolor={nordZero},
+}
+% > > > Load Packages
+
+\RequirePackage{mhotheorems}
+
+% > > > Fonts
+\RequirePackage[warnings-off={mathtools-colon,mathtools-overbracket}]{unicode-math}
+\RequirePackage{libertinus-otf}
+\RequirePackage{metalogo}
+
+% > > > Formatting
+\newcommand{\framebreak}{}
+\newcommand{\tablepagebreak}{}
+
+\newenvironment{EnvUplevel}
+  {\par\bigskip\vbox\bgroup
+    % We set \leftskip to provide the correct left margin for whatever
+    % is inside of the environment:
+    \leftskip=\@totalleftmargin
+    \advance\leftskip-\leftmargin
+    % We adjust \@totalleftmargin (and linewidth?) in case there's a
+    % solution environment inside of the environment:
+    \advance\@totalleftmargin-\leftmargin
+    \advance\linewidth\leftmargin
+  }
+  {\egroup\nobreak}
+
+%=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+%   Enumerated Lists
+%=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+ \RequirePackage[shortlabels]{enumitem}
+ \setlist{noitemsep,itemindent=0pt,leftmargin=1.4em,nosep}
+ \setlist[1]{labelindent=\parindent} % < Usually a good idea
+ \setlist[itemize]{leftmargin=*}
+ \setlist[itemize,1]{label=\cDarkBlue{\(\circledcirc\)}}
+ \setlist[itemize,2]{label=\cDarkBlue{\(\bullet\)}}
+ \setlist[itemize,3]{\cDarkBlue{\(\triangleright\)}}
+ \setlist[enumerate]{labelsep=*, leftmargin=1.5pc}
+ \setlist[enumerate,1]{label = \arabic*.,
+                       ref   = \arabic*}
+ %\setlist[enumerate,1]{label = (\cRed{\alph*}),
+ %                      ref   = \theenumi.\emph{\alph*}}
+ \setlist[enumerate,2]{label = \cRed{\roman*}),
+                       ref   = \theenumii.\roman*}
+ \setlist[description]{font=\sffamily\bfseries}
+
+ %=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+%   Boxes
+%=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+
+ \providecommand{\sectionbox}[1]{{\fboxsep0.5em\hspace*{-1.5\fboxsep}%
+ \fcolorbox{\cnDivGrey}{\cnBGGrey}{%
+ \parbox{\columnwidth}{%
+ \raggedright #1}}}}
+
+\setlength{\parskip}{1pt}
+\renewcommand{\arraystretch}{1.12}
+
+% make boxes robust for verbatim
+\usepackage{cprotect}
+
+\let\oldsectionbox\sectionbox
+\outer\def\sectionbox{\icprotect\oldsectionbox}
+
+\setkomafont{disposition}{\color{nordTen}}
+\setkomafont{section}{\color{nordTen}\Large}
+\setkomafont{subsection}{\color{nordTen}\large}
+\setkomafont{subsubsection}{\normalsize}
+
+\renewcommand*{\thesection}{\Alph{section}}
+\RedeclareSectionCommand[beforeskip=-6pt, afterskip=3sp]{section}
+\RedeclareSectionCommand[beforeskip=-2pt, afterskip=3sp]{subsection}
+\RedeclareSectionCommand[beforeskip=-2pt, afterskip=3sp]{subsubsection}
+
+
+\endinput
+%=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=
+% End of file `mhoCheatSheet.sty'.
+%=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=
+
