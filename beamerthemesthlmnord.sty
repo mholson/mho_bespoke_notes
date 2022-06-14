@@ -11,6 +11,7 @@
 % Website: https://mholson.com
 % Github: https://github.com/mholson
 %
+% Updated: 2022-04-28 > Version 3.141
 % Updated: 2022-04-11 > Version 3.1
 % Updated: 2021-08-21 > Version 3.0
 % Created: 2013-07-31
@@ -58,9 +59,6 @@
 \newif\if@dobibref
 \@dobibreffalse
 \DeclareOptionBeamer{bibref}{\@dobibreftrue}
-\newif\if@doenumarabic
-\@doenumarabicfalse
-\DeclareOptionBeamer{enumarabic}{\@doenumarabictrue}
 \newif\if@docodehl
 \@docodehlfalse
 \DeclareOptionBeamer{codehl}{\@docodehltrue}
@@ -147,8 +145,7 @@
   \setbeamercolor*{alerted text}{fg=nordEleven}
 
   % > > >  Footnotes
-  \setbeamercolor*{footnotemark}{fg=nordTen}
-  \setbeamercolor*{footnote}{fg=nordEight}
+  \setbeamercolor*{footnote mark}{fg=nordTen}
   \setbeamercolor*{footer}{fg=nordFive}
   \setbeamercolor*{footer text}{fg=nordFive}
   \setbeamercolor*{footnote book}{fg=nordEight}
@@ -164,14 +161,20 @@
   \setbeamercolor*{frame mark}{fg=nordEight}
 
   % > > >  Lists
-  \setbeamercolor*{itemize item}{fg=nordTen}
-  \setbeamercolor*{itemize subitem}{fg=nordEight}
-  \setbeamercolor*{itemize subsubitem}{fg=nordSeven}
-  \setbeamercolor*{enumerate item}{fg=nordTen}
+  %\setbeamercolor*{itemize item}{fg=nordEight}
+  %\setbeamercolor*{itemize subitem}{fg=nordEight}
+  %\setbeamercolor*{itemize subsubitem}{fg=nordEight}
+  \setbeamertemplate{itemize item}{\cAquaBlue{\(\circledcirc\)}}
+  \setbeamertemplate{itemize subitem}{\cAquaBlue{\(\bullet\)}}
+  \setbeamertemplate{itemize subsubitem}{\cAquaBlue{\(\triangleright\)}}
+  \setbeamercolor*{enumerate item}{fg=nordEight}
   \setbeamercolor*{enumerate subitem}{fg=nordEight}
-  \setbeamercolor*{enumerate subsubitem}{fg=nordSeven}
-  \setbeamercolor*{description body begin}{fg=nordEight}
-  \setbeamercolor*{description item}{fg=nordTen}
+  \setbeamercolor*{enumerate subsubitem}{fg=nordEight}
+  \setbeamercolor*{description item}{fg=nordEight}
+  \setbeamercolor*{itemize/enumerate body}{fg=nordFive}
+  \setbeamercolor*{itemize/enumerate subbody}{fg=nordFive}
+  \setbeamercolor*{itemize/enumerate subsubbody}{fg=nordFive}
+  \setbeamercolor*{description body}{fg=nordFive}
 
   % > > >  Figures
   \setbeamercolor*{caption name}{fg=nordFour}
@@ -241,8 +244,7 @@
     \setbeamercolor*{alerted text}{fg=nordEleven}
 
     % > > >  Footnotes
-    \setbeamercolor*{footnotemark}{fg=nordNine}
-    \setbeamercolor*{footnote}{fg=nordEight}
+    \setbeamercolor*{footnote mark}{fg=nordNine}
     \setbeamercolor*{footer}{fg=nordThree}
     \setbeamercolor*{footer text}{fg=nordThree}
     \setbeamercolor*{footnote book}{fg=nordEight}
@@ -257,15 +259,22 @@
     \setbeamercolor*{frame mark}{fg=nordEight}
 
     % > > >  Lists
-    \setbeamercolor*{itemize item}{fg=nordNine}
-    \setbeamercolor*{itemize subitem}{fg=nordEight}
-    \setbeamercolor*{itemize subsubitem}{fg=nordSeven}
-    \setbeamercolor*{enumerate item}{fg=nordZero}
-    \setbeamercolor*{enumerate subitem}{fg=nordZero}
-    \setbeamercolor*{enumerate subsubitem}{fg=nordZero}
-    \setbeamercolor*{description body begin}{fg=nordEight}
-    \setbeamercolor*{description item}{fg=nordZero}
-
+    %\setbeamercolor*{itemize item}{fg=nordTen}
+    %\setbeamercolor*{itemize subitem}{fg=nordTen}
+    %\setbeamercolor*{itemize subsubitem}{fg=Ten}
+    \setbeamertemplate{itemize item}{\cDarkBlue{\(\circledcirc\)}}
+    \setbeamertemplate{itemize subitem}{\cDarkBlue{\(\bullet\)}}
+    \setbeamertemplate{itemize subsubitem}{\cDarkBlue{\(\triangleright\)}}
+    \setbeamercolor*{enumerate item}{fg=nordTen}
+    \setbeamercolor*{enumerate subitem}{fg=nordTen}
+    \setbeamercolor*{enumerate subsubitem}{fg=nordTen}
+    \setbeamercolor*{description item}{fg=nordTen}
+    \setbeamercolor*{itemize/enumerate body}{fg=nordZero}
+    \setbeamercolor*{itemize/enumerate subbody}{fg=nordZero}
+    \setbeamercolor*{itemize/enumerate subsubbody}{fg=nordZero}
+    \setbeamercolor*{description body}{fg=nordZero}
+    
+   
     % > > >  Figures
     \setbeamercolor*{caption name}{fg=nordNine}
 
@@ -335,6 +344,9 @@
 %=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 \if@dobibref
 \RequirePackage{cleveref}
+% https://tex.stackexchange.com/questions/266080/cleveref-hyperlink-not-working-in-beamer/266109#266109
+\let\chyperref\cref % Save the orginal command under a new name
+\renewcommand{\cref}[1]{\hyperlink{#1}{\chyperref{#1}}} % Redefine the \cref command and explictely add the hyperlink.
 \RequirePackage[backend=biber,style=numeric]{biblatex}
 %\setbeamertemplate{bibliography item}{
 % 	\usebeamercolor[bg]{primary}\insertbiblabel
@@ -357,7 +369,7 @@
 
 \newenvironment{beamercodeblock}[1][sep=.4em,leftskip=.6em]{%
     \vspace{\parskip}%
-    \begin{beamercolorbox}[#1]{sthmlnord_codeblock}
+    \begin{beamercolorbox}[#1]{sthmlnord_codeblock}%
 }{%
     \end{beamercolorbox}%
     \vspace{-1.5pt}
@@ -369,9 +381,7 @@
 }
 
 % Line Numbers
-\renewcommand{\theFancyVerbLine}{\sffamily
-\textcolor{nordFour}{\scriptsize
-\oldstylenums{\arabic{FancyVerbLine}}}}
+\renewcommand{\theFancyVerbLine}{\sffamily\textcolor{nordFour}{\scriptsize\oldstylenums{\arabic{FancyVerbLine}}}}
 \else
 \fi
 
@@ -379,35 +389,9 @@
 %=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
 %=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-%   Enumerated Lists
-%=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-\RequirePackage[shortlabels]{enumitem}
-\setlist[1]{labelindent=\parindent} % < Usually a good idea
-\setlist[itemize]{labelsep=1em, leftmargin=*}
-\setlist[itemize,1]{label=\(\cDarkBlue{\circledcirc}\)}
-\setlist[itemize,2]{label=\(\cDarkBlue{\bullet}\)}
-\setlist[itemize,3]{label=\(\cDarkBlue{\triangleright}\)}
-\setlist[enumerate]{labelsep=1em, leftmargin=1.5pc}
-\if@doenumarabic%
-  \setlist[enumerate,1]{label = \cDarkBlue{\arabic*.},
-    ref   = \arabic*}
-  \setlist[enumerate,2]{label = \cDarkBlue{\arabic*.},
-    ref   = \arabic*}
-\else%
-  \setlist[enumerate,1]{label = (\cDarkBlue{\alph*}),
-    ref   = \theenumi.\emph{\alph*}}
-  \setlist[enumerate,2]{label = \cDarkBlue{\roman*}),
-    ref   = \theenumii.\roman*}
-\fi%
-\setlist[description]{font=\sffamily\bfseries}
-
-%  END =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-%=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-
-%=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 %   FONTS
 %=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-\RequirePackage{microtype}
+%\RequirePackage{microtype}
 \RequirePackage{textcomp}
 
 % > > > Whoa! Need a large font ... here it is!
@@ -422,7 +406,7 @@
 \setbeamerfont*{header subtitle}{size=\normalsize}
 \setbeamerfont*{toc title}{size=\normalsize,series=\bfseries}
 \setbeamerfont*{toc subtitle}{size=\small}
-\setbeamerfont*{footnote}{size=\fontsize{6}{6}}
+\setbeamerfont*{footline}{size=\fontsize{6}{6}}
 \setbeamerfont*{bibliography entry author}{size=\normalsize,series=\normalfont}
 \setbeamerfont*{bibliography entry title}{size=\normalsize,series=\bfseries}
 \setbeamerfont*{bibliography entry location}{size=\small,series=\normalfont}
@@ -502,9 +486,9 @@
 %=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 \hfuzz=\maxdimen % Remove warning hbox overfull (TODO) 
 \renewcommand\footnoterule{\color{nordThree!50}\hspace*{-0.5cm}\rule{0.95\paperwidth}{0.2pt}\vspace*{0.07cm}}
-\setbeamertemplate{footnote}{
+\setbeamertemplate{footnote}{%
   \begin{beamercolorbox}[wd=\textwidth, leftskip=0.3cm,rightskip=0.3cm]{footer text}%
-    {\usebeamerfont{footnote}{\usebeamercolor{footnotemark}\insertfootnotemark}{\usebeamercolor{footnotemark}\insertfootnotetext}}
+    {\usebeamerfont{footnote mark}{\usebeamercolor{footnote mark}\insertfootnotemark}{\insertfootnotetext}}
   \end{beamercolorbox}%
 }
 %  END =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
