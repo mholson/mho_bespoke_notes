@@ -59,9 +59,9 @@
 \newif\if@dobibref
 \@dobibreffalse
 \DeclareOptionBeamer{bibref}{\@dobibreftrue}
-\newif\if@docodehl
-\@docodehlfalse
-\DeclareOptionBeamer{codehl}{\@docodehltrue}
+\newif\if@docodeminted
+\@docodemintedfalse
+\DeclareOptionBeamer{codeminted}{\@docodemintedtrue}
 \DeclareOptionBeamer{mode}{\def\beamer@sthlmnordtheme@mode{#1}}
 \ExecuteOptionsBeamer{mode=dark}  %Default Dark Mode
 \ProcessOptionsBeamer
@@ -401,6 +401,24 @@
 \setbeamerfont{number in head/foot}{shape=\upshape}
 \setbeamerfont{section page}{series=\bfseries, shape=\upshape, size=\Large}
 \setbeamerfont{subsection page}{series=\bfseries, shape=\upshape, size=\normalsize}
+%  END =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+%=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+
+%=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+%   Code Highlighting Style
+%=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+\if@docodeminted
+\RequirePackage{minted}
+% > > > Nord style Requires custom install: https://github.com/sbrisard/nord_pygments
+\usemintedstyle{nord}
+\setminted{autogobble,xleftmargin=10pt}
+\renewcommand{\theFancyVerbLine}{\sffamily\textcolor{nordFour}{\scriptsize\oldstylenums{\arabic{FancyVerbLine}}}}
+\else
+\RequirePackage{listings}
+\input{mholststyletex}
+\input{mholststylepython}
+\lstset{escapechar=@, style=mholststyletex}
+\fi
 %  END =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 %=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
