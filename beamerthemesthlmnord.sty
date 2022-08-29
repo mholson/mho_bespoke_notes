@@ -409,9 +409,17 @@
 %=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 \if@docodeminted
 \RequirePackage{minted}
-% > > > Nord style Requires custom install: https://github.com/sbrisard/nord_pygments
-\usemintedstyle{nord}
-\setminted{autogobble,xleftmargin=10pt}
+% > > > DEPRICATED Nord style Requires custom install: https://github.com/sbrisard/nord_pygments
+% > > > Custom install https://github.com/emprice/pygments-nord
+% > > > Using Anaconda https://anaconda.org/conda-forge/python-build
+\ifx\beamer@sthlmnordtheme@mode\beamer@sthlmnordtheme@lightmode%
+\usemintedstyle{nord-dark}
+\setminted{autogobble,xleftmargin=10pt, bgcolor=\cnDarkGrey}
+\else%
+\usemintedstyle{nord-light}
+\setminted{autogobble,xleftmargin=10pt, bgcolor=\cnBGGrey}
+\fi%
+\setminted{autogobble,xleftmargin=10pt, bgcolor=\cnDarkGrey}
 \renewcommand{\theFancyVerbLine}{\sffamily\textcolor{nordFour}{\scriptsize\oldstylenums{\arabic{FancyVerbLine}}}}
 \else
 \RequirePackage{listings}
