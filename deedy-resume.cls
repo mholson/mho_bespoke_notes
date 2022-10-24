@@ -82,7 +82,7 @@ Last Updated on
 \fontsize{12pt}{12pt}\selectfont\uppercase {#1} \normalfont}
 
 % Descriptors command
-\newcommand{\descript}[1]{\color{nordEleven}\raggedright\scshape\fontsize{11pt}{13pt}\selectfont {#1 \\} \normalfont}
+\newcommand{\descript}[1]{\color{nordTen}\raggedright\scshape\fontsize{11pt}{13pt}\selectfont {#1 \\} \normalfont}
 
 % Location command
 \newcommand{\location}[1]{\color{nordOne}\raggedright\scshape\fontsize{10pt}{12pt}\selectfont {#1\\} \normalfont}
