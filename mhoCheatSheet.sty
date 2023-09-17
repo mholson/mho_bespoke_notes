@@ -1,10 +1,4 @@
 %=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=
-%             _             _
-%            | |           | |
-%  _ __ ___  | |__    ___  | | ___   ___   _ __       ___   ___   _ __ ___
-% | '_ ` _ \ | '_ \  / _ \ | |/ __| / _ \ | '_ \     / __| / _ \ | '_ ` _ \
-% | | | | | || | | || (_) || |\__ \| (_) || | | | _ | (__ | (_) || | | | | |
-% |_| |_| |_||_| |_| \___/ |_||___/ \___/ |_| |_|(_) \___| \___/ |_| |_| |_|
 %
 % Author: Mark H. Olson
 % Website: https://mholson.com
@@ -29,7 +23,7 @@
 
 \RequirePackage{multicol}
 
-\RequirePackage{mhocolorthemenord}
+\RequirePackage{mhocolorpalettesthlmnord}
 
 \RequirePackage{mhotables}
 \RequirePackage{mhomacros}
@@ -40,17 +34,19 @@
 colorlinks=true,
 % You might want to disable color links for you final draft.
 %colorlinks=false,
-linkcolor={nordZero},
-citecolor={nordZero},
-urlcolor={nordZero},
+linkcolor=Blue,
+citecolor=Blue,
+urlcolor=Blue,
 }
 % > > > Load Packages
 
 \RequirePackage{mhotheorems}
 
 % > > > Fonts
-\RequirePackage[warnings-off={mathtools-colon,mathtools-overbracket}]{unicode-math}
-\RequirePackage{libertinus-otf}
+\RequirePackage[sfdefault,vvarbb]{notomath}
+\RequirePackage[scale=\NotoText@scale]{noto-mono}
+% \RequirePackage[warnings-off={mathtools-colon,mathtools-overbracket}]{unicode-math}
+% \RequirePackage{libertinus-otf}
 \RequirePackage{metalogo}
 
 % > > > Formatting
@@ -77,10 +73,10 @@ urlcolor={nordZero},
  \setlist{noitemsep,itemindent=0pt,leftmargin=1.4em,nosep}
  \setlist[1]{labelindent=\parindent} % < Usually a good idea
  \setlist[itemize]{leftmargin=*}
- \setlist[itemize,1]{label=\cDarkBlue{\(\circledcirc\)}}
- \setlist[itemize,2]{label=\cDarkBlue{\(\bullet\)}}
- \setlist[itemize,3]{\cDarkBlue{\(\triangleright\)}}
- \setlist[enumerate]{labelsep=*, leftmargin=1.5pc}
+ \setlist[itemize,1]{label=\cBlue{\(\circledcirc\)}}
+ \setlist[itemize,2]{label=\cBlue{\(\bullet\)}}
+ \setlist[itemize,3]{\cBlue{\(\triangleright\)}}
+ \setlist[enumerate]{labelsep=*, leftmargin=2pc}
  \setlist[enumerate,1]{label = \arabic*.,
                        ref   = \arabic*}
  %\setlist[enumerate,1]{label = (\cRed{\alph*}),
@@ -94,7 +90,7 @@ urlcolor={nordZero},
 %=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
  \providecommand{\sectionbox}[1]{{\fboxsep0.5em\hspace*{-1.5\fboxsep}%
- \fcolorbox{\cnDivGrey}{\cnBGGrey}{%
+ \fcolorbox{SteelII}{SnowII}{%
  \parbox{\columnwidth}{%
  \raggedright #1}}}}
 
@@ -107,9 +103,9 @@ urlcolor={nordZero},
 \let\oldsectionbox\sectionbox
 \outer\def\sectionbox{\icprotect\oldsectionbox}
 
-\setkomafont{disposition}{\color{nordTen}}
-\setkomafont{section}{\color{nordTen}\Large}
-\setkomafont{subsection}{\color{nordTen}\large}
+\setkomafont{disposition}{\color{Teal}}
+\setkomafont{section}{\color{Teal}\Large}
+\setkomafont{subsection}{\color{Teal}\large}
 \setkomafont{subsubsection}{\normalsize}
 
 \renewcommand*{\thesection}{\Alph{section}}

@@ -6,6 +6,7 @@
 % Website: https://mholson.com
 % Github: https://github.com/mholson
 %
+% Updated: 2023-04-02 > Version 3.141592
 % Updated: 2022-11-05 > Version 3.14159
 % Updated: 2022-07-08 > Version 3.1415
 % Updated: 2022-04-28 > Version 3.141
@@ -75,7 +76,7 @@
 % this can be changed to light mode.
 \DeclareOptionBeamer{mode}{\def\beamer@sthlmnordtheme@mode{#1}}
 \ExecuteOptionsBeamer{mode=dark}  %Default Dark Mode
-\ProcessOptionsBeamer
+\ProcessOptionsBeamer%
 \def\beamer@sthlmnordtheme@darkmode{dark}
 \def\beamer@sthlmnordtheme@lightmode{light}
 %  END =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
@@ -84,6 +85,7 @@
 %=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 %   Required Packages   
 %=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+\RequirePackage{subfiles}
 \RequirePackage{tikz}
 \RequirePackage{ragged2e}
 \RequirePackage{metalogo}
@@ -121,7 +123,7 @@
 %=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 %   Color Theme (DARK MODE DEFAULT)  
 %=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-\RequirePackage{mhocolorthemenord}
+\RequirePackage{mhocolorpalettesthlmnord}
 
 \ifx\beamer@sthlmnordtheme@mode\beamer@sthlmnordtheme@darkmode%
 
@@ -175,9 +177,9 @@
   %\setbeamercolor*{itemize item}{fg=nordEight}
   %\setbeamercolor*{itemize subitem}{fg=nordEight}
   %\setbeamercolor*{itemize subsubitem}{fg=nordEight}
-  \setbeamertemplate{itemize item}{\cAquaBlue{\(\circledcirc\)}}
-  \setbeamertemplate{itemize subitem}{\cAquaBlue{\(\bullet\)}}
-  \setbeamertemplate{itemize subsubitem}{\cAquaBlue{\(\triangleright\)}}
+  \setbeamertemplate{itemize item}{\cBlueGreen{\(\circledcirc\)}}
+  \setbeamertemplate{itemize subitem}{\cBlueGreen{\(\bullet\)}}
+  \setbeamertemplate{itemize subsubitem}{\cBlueGreen{\(\triangleright\)}}
   \setbeamercolor*{enumerate item}{fg=nordEight}
   \setbeamercolor*{enumerate subitem}{fg=nordEight}
   \setbeamercolor*{enumerate subsubitem}{fg=nordEight}
@@ -231,101 +233,101 @@
 \else%
   \ifx\beamer@sthlmnordtheme@mode\beamer@sthlmnordtheme@lightmode%
     % > > >  Global Definitions
-    \setbeamercolor*{normal text}{fg=nordZero}
-    \setbeamercolor*{background canvas}{bg=nordSix}
-    \setbeamercolor*{structure}{fg=nordZero}
+    \setbeamercolor*{normal text}{fg=Black}
+    \setbeamercolor*{background canvas}{bg=SnowIII}
+    \setbeamercolor*{structure}{fg=Black}
 
     % > > >  Title Page
-    \setbeamercolor*{title}{fg=nordTwo}
-    \setbeamercolor*{subtitle}{fg=nordThree}
+    \setbeamercolor*{title}{fg=SteelI}
+    \setbeamercolor*{subtitle}{fg=SteelII}
 
-    \setbeamercolor*{author title}{fg=nordThree}
-    \setbeamercolor*{author}{fg=nordTen}
+    \setbeamercolor*{author title}{fg=SteelII}
+    \setbeamercolor*{author}{fg=Blue}
 
-    \setbeamercolor*{institute title}{fg=nordThree}
-    \setbeamercolor*{institute}{fg=nordTen}
+    \setbeamercolor*{institute title}{fg=SteelII}
+    \setbeamercolor*{institute}{fg=Blue}
 
-    \setbeamercolor*{date}{fg=nordThree}
+    \setbeamercolor*{date}{fg=SteelII}
 
-    \setbeamercolor{nordOneBox}{bg=nordOne}
-    \setbeamercolor{nordTwoBlueBox}{bg=nordEight}
+    \setbeamercolor{nordBoxI}{bg=SteelI}
+    \setbeamercolor{nordBoxII}{bg=LightTeal}
 
     % > > >  Text
-    \setbeamercolor*{example text}{fg=nordSeven}
-    \setbeamercolor*{alerted text}{fg=nordEleven}
+    \setbeamercolor*{example text}{fg=Teal}
+    \setbeamercolor*{alerted text}{fg=Red}
 
     % > > >  Footnotes
-    \setbeamercolor*{footnote mark}{fg=nordNine}
-    \setbeamercolor*{footer}{fg=nordThree}
-    \setbeamercolor*{footer text}{fg=nordThree}
-    \setbeamercolor*{footnote book}{fg=nordEight}
+    \setbeamercolor*{footnote mark}{fg=Teal}
+    \setbeamercolor*{footer}{fg=SteelII}
+    \setbeamercolor*{footer text}{fg=SteelII}
+    \setbeamercolor*{footnote book}{fg=Teal}
 
     % > > >  Frame Structure
-    \setbeamercolor*{section in head/foot}{fg=nordSix, bg=nordTwo}
-    \setbeamercolor*{page number in head/foot}{fg=nordSix, bg=nordThree}
+    \setbeamercolor*{section in head/foot}{fg=SnowIII, bg=SteelI}
+    \setbeamercolor*{page number in head/foot}{fg=SnowIII, bg=SteelII}
 
-    \setbeamercolor*{header primary}{bg=nordOne}
-    \setbeamercolor*{frame title}{fg=nordFive}
-    \setbeamercolor*{frame subtitle}{fg=nordFive}
-    \setbeamercolor*{frame mark}{fg=nordEight}
+    \setbeamercolor*{header primary}{bg=SteelI}
+    \setbeamercolor*{frame title}{fg=SnowIII}
+    \setbeamercolor*{frame subtitle}{fg=SnowIII}
+    \setbeamercolor*{frame mark}{fg=LightTeal}
 
     % > > >  Lists
-    %\setbeamercolor*{itemize item}{fg=nordTen}
-    %\setbeamercolor*{itemize subitem}{fg=nordTen}
+    %\setbeamercolor*{itemize item}{fg=Blue}
+    %\setbeamercolor*{itemize subitem}{fg=Blue}
     %\setbeamercolor*{itemize subsubitem}{fg=Ten}
-    \setbeamertemplate{itemize item}{\cDarkBlue{\(\circledcirc\)}}
-    \setbeamertemplate{itemize subitem}{\cDarkBlue{\(\bullet\)}}
-    \setbeamertemplate{itemize subsubitem}{\cDarkBlue{\(\triangleright\)}}
-    \setbeamercolor*{enumerate item}{fg=nordTen}
-    \setbeamercolor*{enumerate subitem}{fg=nordTen}
-    \setbeamercolor*{enumerate subsubitem}{fg=nordTen}
-    \setbeamercolor*{description item}{fg=nordTen}
-    \setbeamercolor*{itemize/enumerate body}{fg=nordZero}
-    \setbeamercolor*{itemize/enumerate subbody}{fg=nordZero}
-    \setbeamercolor*{itemize/enumerate subsubbody}{fg=nordZero}
-    \setbeamercolor*{description body}{fg=nordZero}
+    \setbeamertemplate{itemize item}{\cBlue{\(\circledcirc\)}}
+    \setbeamertemplate{itemize subitem}{\cBlue{\(\bullet\)}}
+    \setbeamertemplate{itemize subsubitem}{\cBlue{\(\triangleright\)}}
+    \setbeamercolor*{enumerate item}{fg=Blue}
+    \setbeamercolor*{enumerate subitem}{fg=Blue}
+    \setbeamercolor*{enumerate subsubitem}{fg=Blue}
+    \setbeamercolor*{description item}{fg=Blue}
+    \setbeamercolor*{itemize/enumerate body}{fg=Black}
+    \setbeamercolor*{itemize/enumerate subbody}{fg=Black}
+    \setbeamercolor*{itemize/enumerate subsubbody}{fg=Black}
+    \setbeamercolor*{description body}{fg=Black}
     
     % > > >  Figures
-    \setbeamercolor*{caption name}{fg=nordNine}
+    \setbeamercolor*{caption name}{fg=Teal}
 
     % > > >  Table of Contents
-    \setbeamercolor*{section in toc}{fg=nordTen}
-    \setbeamercolor*{subsection in toc}{fg=nordNine}
+    \setbeamercolor*{section in toc}{fg=Blue}
+    \setbeamercolor*{subsection in toc}{fg=Teal}
 
     % > > >  Section Page
-    \setbeamercolor*{section page}{bg=nordSix,fg=nordTen}
-    \setbeamercolor*{subsection page}{bg=nordSix,fg=nordNine}
+    \setbeamercolor*{section page}{bg=SnowIII,fg=Blue}
+    \setbeamercolor*{subsection page}{bg=SnowIII,fg=Teal}
 
     % > > > Code Blocks with Minted
-    \setbeamercolor{sthmlnord_codeblock}{fg=nordFour,bg=nordZero}
-    \setbeamercolor{sthmlnord_captionblock}{fg=nordOne,bg=nordEight}
+    \setbeamercolor{sthmlnord_codeblock}{fg=GreyII,bg=Black}
+    \setbeamercolor{sthmlnord_captionblock}{fg=SteelI,bg=LightTeal}
 
     % > > >  Default block
-    \setbeamercolor{block title}{bg=nordOne,fg=nordFive}
-    \setbeamercolor{block body}{bg=nordFive, fg=nordTwo}
-    \setbeamercolor{block title alerted}{bg=nordEleven, fg=nordFive}
-    \setbeamercolor{block body alerted}{bg=nordFive, fg=nordTwo}
-    \setbeamercolor{block title example}{bg=nordSeven, fg=nordFive}
-    \setbeamercolor{block body example}{bg=nordFive, fg=nordTwo}
+    \setbeamercolor{block title}{bg=SteelI,fg=SnowI}
+    \setbeamercolor{block body}{bg=SnowI, fg=SteelI}
+    \setbeamercolor{block title alerted}{bg=Red, fg=SnowI}
+    \setbeamercolor{block body alerted}{bg=SnowI, fg=SteelI}
+    \setbeamercolor{block title example}{bg=Teal, fg=SnowI}
+    \setbeamercolor{block body example}{bg=SnowI, fg=SteelI}
 
     % > > >  Bibliography
-    \setbeamercolor*{bibliography entry author}{fg=nordTwo}
-    \setbeamercolor*{bibliography entry title}{fg=nordTwo}
-    \setbeamercolor*{bibliography entry location}{fg=nordTwo}
-    \setbeamercolor*{bibliography entry note}{fg=nordTwo}
+    \setbeamercolor*{bibliography entry author}{fg=SteelI}
+    \setbeamercolor*{bibliography entry title}{fg=SteelI}
+    \setbeamercolor*{bibliography entry location}{fg=SteelI}
+    \setbeamercolor*{bibliography entry note}{fg=SteelI}
 
     % > > > Math Environments 
-    \newcommand{\prob}{\cnordThree{\faFire} \cnordZero{\textbf{Problem:}\enskip}}
-    \newcommand{\soln}{\cnordThree{\faSignature} \cnordZero{\textbf{Solution:} \enskip}}
-    \newcommand{\an}{\cnordThree{\faSignature} \cnordZero{\textbf{Answer:} \enskip}}
-    \newcommand{\ans}{\cnordThree{\faSignature} \cnordZero{\textbf{Answers:} \enskip}}
-    \renewcommand{\proof}{\cnordThree{\faLightbulb[regular]} \cnordZero{\textbf{Proof:} \enskip}}
+    \newcommand{\prob}{\cSteelII{\faFire} \cBlack{\textbf{Problem:}\enskip}}
+    \newcommand{\soln}{\cSteelII{\faSignature} \cBlack{\textbf{Solution:} \enskip}}
+    \newcommand{\an}{\cSteelII{\faSignature} \cBlack{\textbf{Answer:} \enskip}}
+    \newcommand{\ans}{\cSteelII{\faSignature} \cBlack{\textbf{Answers:} \enskip}}
+    \renewcommand{\proof}{\cSteelII{\faLightbulb[regular]} \cBlack{\textbf{Proof:} \enskip}}
     %  END =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
     %=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
     % > > > Color mode error returns
   \else%
-    \PackageError{beamercolorthemesthlmNord}{Unknow style option `\beamer@sthlmnordtheme@mode`}{extra help}
+    \PackageError{beamercolorthemesthlmNord}{Unknown style option `\beamer@sthlmnordtheme@mode`}{extra help}
   \fi%
 \fi%
 %  END =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
@@ -333,8 +335,8 @@
 
 %=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 %   Math
-%   Includes Math marcros that I use for my slides.  Careful, these definitions
-%   may conflict with other packages or your own defnitions.  Also, if you choose 
+%   Includes Math macros that I use for my slides.  Careful, these definitions
+%   may conflict with other packages or your own definitions.  Also, if you choose
 %   to remove this package, then you will need to uncomment the font-awesome package
 %=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
@@ -345,7 +347,7 @@
 
 %=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 %   Custom Commands
-\newcommand{\snord}{\cnordTen{sthlm}\cnordEight{NORD}}
+\newcommand{\snord}{\cBlue{sthlm}\cLightTeal{NORD}}
 %  END =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 %=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
@@ -355,7 +357,7 @@
 \if@dobibref
 \RequirePackage{cleveref}
 % https://tex.stackexchange.com/questions/266080/cleveref-hyperlink-not-working-in-beamer/266109#266109
-\let\chyperref\cref % Save the orginal command under a new name
+\let\chyperref\cref% Save the orginal command under a new name
 \renewcommand{\cref}[1]{\hyperlink{#1}{\chyperref{#1}}} % Redefine the \cref command and explicitly add the hyperlink.
 \RequirePackage[backend=biber,style=numeric]{biblatex}
 %\setbeamertemplate{bibliography item}{
@@ -371,12 +373,14 @@
 %=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 %   FONTS
 %=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-\RequirePackage{textcomp}
 
 % > > > Whoa! Need a large font ... here it is!
 \newcommand\Massive{\@setfontsize\VeryHuge{90}{60}}
-\RequirePackage[warnings-off={mathtools-colon,mathtools-overbracket}]{unicode-math}
-\RequirePackage{libertinus-otf}
+\RequirePackage{mhofonts}
+
+\ifpdftex%
+\usefonttheme{professionalfonts}
+\fi
 
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{1ex}
@@ -423,8 +427,7 @@
 % > > > DEPRICATED Nord style Requires custom install: https://github.com/sbrisard/nord_pygments
 % > > > DEPRICATED Custom install https://github.com/emprice/pygments-nord
 % > > > DEPRICATED Using Anaconda https://anaconda.org/conda-forge/python-build
-\usemintedstyle{nord-darker}
-\setminted{autogobble,xleftmargin=10pt,bgcolor=\cnDarkGrey}
+\RequirePackage{mhominted}
 \else
 \fi
 \if@docodemintedoverleaf
@@ -434,7 +437,7 @@
 % \usemintedstyle command and use a supported color theme:
 % https://www.overleaf.com/learn/latex/Code_Highlighting_with_minted
 \usemintedstyle{vim}
-\setminted{autogobble,xleftmargin=10pt,bgcolor=\cnDarkGrey}
+\setminted{autogobble,xleftmargin=10pt,bgcolor=GreyIII}
 \else
 \fi
 %  END =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
@@ -479,7 +482,7 @@
       ht=2ex,
       dp=1ex,
       center]{page number in head/foot}
-      {\usebeamerfont{page number in head/foot} \insertframenumber\ {\usebeamercolor[fg]{footnote book}\faBookOpen}\ \inserttotalframenumber}
+      {\usebeamerfont{page number in head/foot} \insertframenumber\ {\usebeamercolor[fg]{footnote book}\cfLightTeal\faBookOpen}\ \inserttotalframenumber}
     \end{beamercolorbox}%
   }
 }
@@ -489,8 +492,8 @@
 %=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 %   Footnotes
 %=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-\hfuzz=\maxdimen % Remove warning hbox overfull (TODO) 
-\renewcommand\footnoterule{\color{nordThree!50}\hspace*{-0.5cm}\rule{0.95\paperwidth}{0.2pt}\vspace*{0.07cm}}
+\hfuzz=\maxdimen% Remove warning hbox overfull (TODO)
+\renewcommand\footnoterule{\color{SteelII!50}\hspace*{-0.5cm}\rule{0.95\paperwidth}{0.2pt}\vspace*{0.07cm}}
 \setbeamertemplate{footnote}{%
   \begin{beamercolorbox}[wd=\textwidth, leftskip=0.3cm,rightskip=0.3cm]{footer text}%
     {\usebeamerfont{footnote mark}{\usebeamercolor{footnote mark}\insertfootnotemark}{\insertfootnotetext}}
@@ -513,13 +516,13 @@
         \begin{beamercolorbox}[
             wd=0.1\linewidth,
             ht=0.28\linewidth,
-            dp=0.02\linewidth]{nordOneBox}
+            dp=0.02\linewidth]{nordBoxI}
         \end{beamercolorbox}
         \begin{beamercolorbox}[
             wd=1\linewidth,
             ht=0.28\linewidth,
             dp=0.02\linewidth,
-            sep=3em]{nordTwoBlueBox}
+            sep=3em]{nordBoxII}
           \parbox{0.8\linewidth}{%
           {\usebeamerfont{title} \usebeamercolor[fg]{title} \noindent \inserttitle} \\
           {\usebeamerfont{subtitle} \usebeamercolor[fg]{subtitle} \insertsubtitle}
@@ -539,7 +542,7 @@
       {\usebeamerfont{institute title}\usebeamercolor*[fg]{institute title}\titleInstitute: {\usebeamerfont{institute}\usebeamercolor*[fg]{institute}\insertinstitute}}\\[0.2cm]
       {\usebeamerfont{institute title}\usebeamercolor*[fg]{institute title}\titleMiscI: {\usebeamerfont{institute}\usebeamercolor*[fg]{institute}\descMiscI}}\\[0.2cm]
       {\usebeamerfont{institute title}\usebeamercolor*[fg]{institute title}\titleMiscII: {\usebeamerfont{institute}\usebeamercolor*[fg]{institute}\descMiscII}} \\[0.2cm]
-      {\usebeamerfont{date}\usebeamercolor*[fg]{date}\XeLaTeX ed \ on \insertdate}
+      {\usebeamerfont{date}\usebeamercolor*[fg]{date} Complied on \insertdate}
     \end{minipage}%
     \begin{minipage}[c]{0.2\paperwidth}
       \vspace{0pt}

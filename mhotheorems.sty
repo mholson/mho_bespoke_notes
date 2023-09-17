@@ -1,10 +1,4 @@
 %=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=
-%             _             _
-%            | |           | |
-%  _ __ ___  | |__    ___  | | ___   ___   _ __       ___   ___   _ __ ___
-% | '_ ` _ \ | '_ \  / _ \ | |/ __| / _ \ | '_ \     / __| / _ \ | '_ ` _ \
-% | | | | | || | | || (_) || |\__ \| (_) || | | | _ | (__ | (_) || | | | | |
-% |_| |_| |_||_| |_| \___/ |_||___/ \___/ |_| |_|(_) \___| \___/ |_| |_| |_|
 %
 % File: mhotheorems.sty
 % Author: Mark H. Olson
@@ -53,7 +47,7 @@
 %=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 %	DEFAULT COLORS USED
 %=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-\newcommand{\mhobackground}{\cnBGGrey}
+%\newcommand{\mhobackground}{Grey}
 
 %=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 %	BOX GEOMETRY
@@ -61,95 +55,95 @@
 
 \theoremstyle{definition}
 \declaretheoremstyle[
-    headfont=\bfseries\sffamily\color{nordOne}, bodyfont=\normalfont,
+    headfont=\bfseries\sffamily\cfBlue, bodyfont=\normalfont,
     mdframed={
         linewidth=2pt,
         rightline=false, topline=false, bottomline=false,
-        linecolor=nordOne, backgroundcolor=nordSix!50,
+        linecolor=Blue, backgroundcolor=GreyIII,
         skipabove=1\baselineskip, skipbelow=0\baselineskip,
     }
 ]{thmdefnbox}
 
 \declaretheoremstyle[
-    headfont=\bfseries\sffamily\color{\cnDarkGreen}, bodyfont=\normalfont,
+    headfont=\bfseries\sffamily\cfTeal, bodyfont=\normalfont,
     mdframed={
         linewidth=2pt,
         rightline=false, topline=false, bottomline=false,
-        linecolor=\cnDarkGreen, backgroundcolor=nordSix!50,
+        linecolor=Teal, backgroundcolor=GreyIII,
         skipabove=1\baselineskip, skipbelow=0\baselineskip,
     }
 ]{thmexamplebox}
 
 \declaretheoremstyle[
-    headfont=\bfseries\sffamily\color{\cnLightGreen}, 
+    headfont=\bfseries\sffamily\cfLightTeal,
     bodyfont=\normalfont,
     numbered=no,
     mdframed={
         linewidth=2pt,
         rightline=false, topline=false, bottomline=false,
-        linecolor=\cnLightGreen,
+        linecolor=LightTeal,
         skipabove=1\baselineskip, skipbelow=0\baselineskip, 
     },
-    qed={\(\cnordTen{\square}\)}
+    qed={\(\cTeal{\square}\)}
 ]{thmsolnbox}
 
 \declaretheoremstyle[
-    headfont=\bfseries\sffamily\color{nordEleven}, bodyfont=\normalfont,
+    headfont=\bfseries\sffamily\cfRed, bodyfont=\normalfont,
     mdframed={
         linewidth=2pt,
         rightline=false, topline=false, bottomline=false,
-        linecolor=nordEleven, backgroundcolor=nordSix!50,
+        linecolor=Red, backgroundcolor=GreyIII,
         skipabove=1\baselineskip, skipbelow=0\baselineskip,
     }
 ]{thmtheorembox}
 
 \declaretheoremstyle[
-    headfont=\bfseries\sffamily\color{nordTwelve}, bodyfont=\normalfont,
+    headfont=\bfseries\sffamily\cfPurple, bodyfont=\normalfont,
     mdframed={
         linewidth=2pt,
         rightline=false, topline=false, bottomline=false,
-        linecolor=nordTwelve, backgroundcolor=nordSix!50,
+        linecolor=Purple, backgroundcolor=GreyIII,
         skipabove=1\baselineskip, skipbelow=0\baselineskip,
     }
 ]{thmnotationbox}
 
 \declaretheoremstyle[
-    headfont=\bfseries\sffamily\color{nordTen}, bodyfont=\normalfont,
+    headfont=\bfseries\sffamily\cfSteelI, bodyfont=\normalfont,
     mdframed={
         linewidth=2pt,
         rightline=false, topline=false, bottomline=false,
-        linecolor=nordTen, backgroundcolor=nordSix!50,
+        linecolor=SteelI, backgroundcolor=GreyIII,
         skipabove=1\baselineskip, skipbelow=0\baselineskip,
     }
 ]{thmalgobox}
 
 \declaretheoremstyle[
-    headfont=\bfseries\sffamily\color{nordEleven}, bodyfont=\normalfont,
+    headfont=\bfseries\sffamily\cfLightRed, bodyfont=\normalfont,
     numbered=no,
     mdframed={
         linewidth=2pt,
         rightline=false, topline=false, bottomline=false,
-        linecolor=nordEleven!80,
+        linecolor=LightRed,
         skipabove=1\baselineskip, skipbelow=0\baselineskip, 
     },
     qed=\qedsymbol
 ]{thmproofbox}
 
 \declaretheoremstyle[
-    headfont=\bfseries\sffamily\color{nordNine}, bodyfont=\normalfont,
+    headfont=\bfseries\sffamily\cfBlue, bodyfont=\normalfont,
     mdframed={
         linewidth=2pt,
         rightline=false, topline=false, bottomline=false,
-        linecolor=nordNine
+        linecolor=Blue
     }
 ]{thmblueline}
 
 \declaretheoremstyle[
-    headfont=\bfseries\sffamily\color{\cnPrimaryGreen}, bodyfont=\normalfont,
+    headfont=\bfseries\sffamily\cfTeal, bodyfont=\normalfont,
     mdframed={
         linewidth=2pt,
         rightline=false, topline=false, bottomline=false,
-        linecolor=\cnPrimaryGreen
+        linecolor=Teal
     }
 ]{thmgreenline}
 
@@ -174,6 +168,7 @@
 \declaretheorem[style=thmtheorembox, name=Conjecture]{conjecture}
 \declaretheorem[style=thmtheorembox, name=Law]{alaw}
 \declaretheorem[style=thmtheorembox, name=Rule]{arule}
+\declaretheorem[style=thmtheorembox, name=Property]{property}
 \declaretheorem[style=thmtheorembox, name=Theorem]{theorem}
 \declaretheorem[style=thmalgobox, name=Algorithm]{algo}
 \declaretheorem[style=thmtheorembox, name=Axiom]{axiom}
@@ -189,7 +184,7 @@
 \declaretheorem[style=thmnotationbox, numbered=no, name=Notation]{notation}
 \declaretheorem[style=thmblueline, numbered=no, name=Note]{note}
 
-\renewcommand{\qedsymbol}{\(\cnordEleven{\blacksquare}\)}
+\renewcommand{\qedsymbol}{\(\cRed{\blacksquare}\)}
 
 % \newenvironment{codeoutput}{\begin{tcolorbox}[
 %     arc=0mm,

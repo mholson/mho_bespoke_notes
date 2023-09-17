@@ -4,7 +4,7 @@
 % Website: https://mholson.com
 % Github: https://github.com/mholson
 % 
-% File: mhoworksheets.sty
+% File: mhoassessment.sty
 % Created: 2015-08-18
 %
 % Description: This package is used to extend customize the exam.cls.
@@ -35,9 +35,7 @@
 
 % > > >	DEFAULT PACKAGES
 \RequirePackage{graphicx}
-
 \RequirePackage{xcolor}
-
 \RequirePackage{tikz}
 
 \RequirePackage{mhocolorthemenord}
@@ -45,19 +43,11 @@
 \RequirePackage{mhotables}
 
 % > > > Image Files
-\graphicspath{{\string~/Documents/assets/}}
+\graphicspath{{\string~/Dropbox/assets/}}
 \RequirePackage{datetime}
 
 
 \RequirePackage[unicode]{hyperref}
-\hypersetup{
-colorlinks=true,
-% You might want to disable color links for you final draft.
-%colorlinks=false,
-linkcolor={nordZero},
-citecolor={nordZero},
-urlcolor={nordZero},
-}
 
 % > > > Formatting
 \RequirePackage{subcaption}
@@ -70,7 +60,7 @@ urlcolor={nordZero},
 \setlist[1]{labelindent=\parindent} % < Usually a good idea
 \setlist[itemize]{leftmargin=*}
 \setlist[itemize,1]{label=$\triangleleft$}
-\setlist[enumerate]{labelsep=*, leftmargin=1.5pc}
+\setlist[enumerate]{labelsep=*, leftmargin=2pc}
 %\setlist[enumerate,1]{label = \arabic*.,
 %                      ref   = \arabic*}
 \setlist[enumerate,1]{label = (\cRed{\alph*}),
@@ -81,7 +71,7 @@ urlcolor={nordZero},
 
 \RequirePackage{multirow}
 
-% > > >	DEFAULT MATH PACKAGES	MULTIPLE CHOICE ANSWERS
+% > > > DEFAULT MATH PACKAGES	MULTIPLE CHOICE ANSWERS
 \checkboxchar{\(\Circle\)}
 \checkedchar{\(\CIRCLE\)}
 
@@ -102,7 +92,7 @@ urlcolor={nordZero},
 
 % > > >	DEFAULT MATH PACKAGES SOLUTIONS
 
-%\SolutionEmphasis{\color{\cnRed}}
+%\SolutionEmphasis{\color{Red}}
 %\unframedsolutions
 %\shadedsolutions % Background Color
 %\definecolor{SolutionColor}{rgb}{1,1,1} % White
@@ -165,7 +155,7 @@ urlcolor={nordZero},
 
 \cBlue{\Huge\textbf{\documenttitle}} \\
 
-\cDarkGrey{\large \textsc{\documentsubtitle}} \\
+\cSteelI{\large \textsc{\documentsubtitle}} \\
 \end{minipage}
 \begin{minipage}[l]{.35\linewidth}
 \boxentry[1\hsize]{Student Name:}\\
@@ -228,7 +218,7 @@ urlcolor={nordZero},
 \newcommand{\nameandgrade}{
 \begin{center}
 \cBlue{\Huge\textbf{\documenttitle}} \\
-\cDarkGrey{\large \textsc{\documentsubtitle}}
+\cSteelI{\large \textsc{\documentsubtitle}}
 \end{center}
 \vspace{1cm}
 %\begin{minipage}[l]{.12\linewidth}
@@ -240,7 +230,7 @@ urlcolor={nordZero},
 
 %\cBlue{\Huge\textbf{\documenttitle}} \\
 
-%\cDarkGrey{\large \textsc{\documentsubtitle}} \\
+%\cSteelI{\large \textsc{\documentsubtitle}} \\
 %\end{minipage}
 \begin{minipage}[l]{.4\linewidth}
 \vspace{0.5cm}
@@ -283,11 +273,11 @@ urlcolor={nordZero},
 
 % > > >	 PART A 
 \newcommand{\parta}{\begin{tikzpicture}
-\node[draw=\cnRed,line width=1pt,rectangle,fill=\cnRed!25,font=\sffamily\bfseries,inner sep=3pt,outer sep=0pt] at (0pt,0pt){\cRed{Part A}};\end{tikzpicture}}
+\node[draw=Red,line width=1pt,rectangle,fill=Red!25,font=\sffamily\bfseries,inner sep=3pt,outer sep=0pt] at (0pt,0pt){\cRed{Part A}};\end{tikzpicture}}
 
 % > > >	 PART B 
 \newcommand{\partb}{\begin{tikzpicture}
-\node[draw=\cnDarkBlue,line width=1pt,rectangle,fill=\cnDarkBlue!25,font=\sffamily\bfseries,inner sep=2pt,outer sep=0pt] at (0pt,0pt){\cDarkBlue{Part B}};\end{tikzpicture}}
+\node[draw=Blue,line width=1pt,rectangle,fill=Blue!25,font=\sffamily\bfseries,inner sep=2pt,outer sep=0pt] at (0pt,0pt){\cBlue{Part B}};\end{tikzpicture}}
 
 % > > >	 STUDENT NAME BOX
 \def\boxentry[#1]#2{{\setlength{\fboxsep}{-\fboxrule}\fbox{\parbox{#1}{\smash{\raise-6.5pt\hbox{~{\scriptsize #2}}}\vspace{6ex}\mbox{}}}}}
@@ -322,9 +312,9 @@ urlcolor={nordZero},
 \begin{minipage}[c]{.7\linewidth}
 \begin{center}
 \vfill
-\cDarkGrey{\Huge{\course\, -- Test \TestID}}\\
+\cSteelI{\Huge{\course\, -- Test \TestID}}\\
 \vspace{2em} 
-\Huge{\cDarkBlue{Part \testpart}} \\
+\Huge{\cBlue{Part \testpart}} \\
 \end{center}
 \end{minipage}
 
@@ -351,7 +341,7 @@ urlcolor={nordZero},
 
 \vspace{0.75cm}
 
-\colorbox{\cnBGGrey}{
+\colorbox{SteelII}{
 \begin{minipage}[c]{.4\linewidth}
 \begin{center}
 \textbf{\large\textsc{Materials \& Information}}\\
@@ -424,7 +414,7 @@ urlcolor={nordZero},
 
 \Large{\textbf{\cBlack{\course}}}\\
 \Large{\textbf{\cGrey{Mathematics}}}
-\large{\textbf{\cDarkBlue{\TestID}}}\\
+\large{\textbf{\cBlue{\TestID}}}\\
 \textit{\cBlue{\TestTopic}}
 
 \vspace{0.25cm}

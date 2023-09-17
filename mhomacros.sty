@@ -1,11 +1,3 @@
-%=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=
-%             _             _
-%            | |           | |
-%  _ __ ___  | |__    ___  | | ___   ___   _ __       ___   ___   _ __ ___
-% | '_ ` _ \ | '_ \  / _ \ | |/ __| / _ \ | '_ \     / __| / _ \ | '_ ` _ \
-% | | | | | || | | || (_) || |\__ \| (_) || | | | _ | (__ | (_) || | | | | |
-% |_| |_| |_||_| |_| \___/ |_||___/ \___/ |_| |_|(_) \___| \___/ |_| |_| |_|
-%
 % Author: Mark H. Olson
 % Website: https://mholson.com
 % Github: https://github.com/mholson
@@ -39,11 +31,12 @@
 \RequirePackage{cancel}                 % Cancel a given value to a new value
 \RequirePackage{cases}                  % Produce multicase equations
 \RequirePackage{fontawesome5}           % More symbols
-\RequirePackage[ISO]{diffcoeff}         % Easily typeset differentials
+\RequirePackage{diffcoeff}              % Easily typeset differentials
 \RequirePackage[nointegrals]{wasysym}   % Mostly used for the section, euro
                                         % box and cent symbols.  nointegrals 
                                         % option to not conflict with amsmath
 %\RequirePackage{polynom}               % Polynomial Division
+\RequirePackage{annotate-equations}     % Annotate equations with ease
 \RequirePackage{xfrac}                  % More control over fraction displays
 %  END =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 %=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
@@ -60,20 +53,20 @@
 % > > > Red Circled character (used for referencing characteristics of plots)
 \newcommand\redCircled[1]{
     \begin{tikzpicture}[baseline=(char.base)]%
-        \node[circle,draw,inner sep=1pt, color=nordEleven, fill=\nordEleven](char){\cLightGrey{\textsf{#1}}};%
-\end{tikzpicture}}
+        \node[circle,draw,inner sep=1pt, color=Red, fill=LightRed](char){\cBlack{\textsf{#1}}};%
+\end{tikzpicture}}%
 
-% > > > Circled character (used for referencing characteristics of plots)
-\newcommand\swed{
+% > > > Blue Circled character (used for referencing characteristics of plots)
+\newcommand\blueCircled[1]{
     \begin{tikzpicture}[baseline=(char.base)]%
-        \node[circle,draw,inner sep=1pt,color=nordTen, fill=nordTen] (char) {\cYellow{\textsf{SV}}};%
-\end{tikzpicture} \,}
+        \node[circle,draw,inner sep=1pt, color=Blue, fill=LightBlue](char){\cBlack{\textsf{#1}}};%
+\end{tikzpicture}}%
 
 %  > > > Custom Exam Solution Numbering
 \newcommand{\ibqn}[1]{(\textit{\textbf{\cRed{#1}}})}
-
+%\newcommand{\tbqn}[1]{\textbf{\hl{#1}}}
 % > > > Custom Citation
-\newcommand{\mref}[1]{{\small\begin{flushright}\cDarkBlue{#1} \, \cDarkBlue{\faBook}\end{flushright}}}
+\newcommand{\mref}[1]{{\small\begin{flushright}\cBlue{#1} \, \cBlue{\faBook}\end{flushright}}}
 \newcommand{\yt}[1]{\small\begin{flushright} \cRed{\url{#1}} \, \cRed{\faYoutubeSquare}\end{flushright}}
 \newcommand{\colab}[1]{\small\begin{flushright} \cOrange{\href{#1}{Google Colab Python Notebook}} \, \cOrange{\faInfinity}\end{flushright}}
 
@@ -81,11 +74,11 @@
 \newcommand{\ds}{\displaystyle}
 
 % > > > Question parts for slides and notes
-\newcommand{\cpart}[1]{\cPrimaryLightGreen{part(#1)}}
+\newcommand{\cpart}[1]{\cLightTeal{part(#1)}}
 
 % > > > Units
 % Temperature
-\newcommand{\degree}{\unit{\degree}} % Degree
+%\newcommand{\degree}{\unit{\degree}} % Degree
 \newcommand{\degC}{\degreeCelsius} % Degree Celsius
 \DeclareSIUnit\degreeFahrenheit{\degree F} % Custom SIunitX
 \newcommand{\degF}{\degreeFahrenheit} % Degree Fahrenheit
@@ -96,45 +89,30 @@
 \DeclareMathOperator{\opos}{\raisebox{0.2em}{+}} % Positive Prefix Operator
 
 % > > > Highlighting
-\newcommand{\hl}[1]{\colorbox{\cnYellow}{#1}}
-\newcommand{\hlDarkBlack}[1]{\colorbox{\cnDarkBlack}{#1}}
-\newcommand{\hlBlack}[1]{\colorbox{\cnBlack}{#1}}
-\newcommand{\hlDarkGrey}[1]{\colorbox{\cnDarkGrey}{#1}}
-\newcommand{\hlGrey}[1]{\colorbox{\cnGrey}{#1}}
-\newcommand{\hlDivGrey}[1]{\colorbox{\cnDivGrey}{#1}}
-\newcommand{\hlLightGrey}[1]{\colorbox{\cnLightGrey}{#1}}
-\newcommand{\hlBGGrey}[1]{\colorbox{\cnBGGrey}{#1}}
-\newcommand{\hlAquaBlue}[1]{\colorbox{\cnAquaBlue}{#1}}
-\newcommand{\hlLightBlue}[1]{\colorbox{\cnLightBlue}{#1}}
-\newcommand{\hlBlue}[1]{\colorbox{\cnBlue}{#1}}
-\newcommand{\hlDarkBlue}[1]{\colorbox{\cnDarkBlue}{#1}}
-\newcommand{\hlRed}[1]{\colorbox{\cnRed}{#1}}
-\newcommand{\hlOrange}[1]{\colorbox{\cnOrange}{#1}}
-\newcommand{\hlGreen}[1]{\colorbox{\cnGreen}{#1}}
-\newcommand{\hlPurple}[1]{\colorbox{\cnPurple}{#1}}
+\newcommand{\hl}[1]{\colorbox{LightYellow}{#1}}
+\newcommand{\hlGrey}[1]{\colorbox{GreyI}{#1}}
+\newcommand{\hlDivGrey}[1]{\colorbox{GreyII}{#1}}
+\newcommand{\hlTeal}[1]{\colorbox{LightTeal}{#1}}
+\newcommand{\hlBlue}[1]{\colorbox{LightBlue}{#1}}
+\newcommand{\hlRed}[1]{\colorbox{LightRed}{#1}}
+\newcommand{\hlOrange}[1]{\colorbox{LightOrange}{#1}}
+\newcommand{\hlGreen}[1]{\colorbox{LightGreen}{#1}}
+\newcommand{\hlPurple}[1]{\colorbox{LightPurple}{#1}}
 
-% > > > Highlighting
-\newcommand{\hlm}[1]{\colorbox{\cnYellow}{\ensuremath{#1}}}
-\newcommand{\hlmDarkBlack}[1]{\colorbox{\cnDarkBlack}{\ensuremath{#1}}}
-\newcommand{\hlmBlack}[1]{\colorbox{\cnBlack}{\ensuremath{#1}}}
-\newcommand{\hlmDarkGrey}[1]{\colorbox{\cnDarkGrey}{\ensuremath{#1}}}
-\newcommand{\hlmGrey}[1]{\colorbox{\cnGrey}{\ensuremath{#1}}}
-\newcommand{\hlmDivGrey}[1]{\colorbox{\cnDivGrey}{\ensuremath{#1}}}
-\newcommand{\hlmLightGrey}[1]{\colorbox{\cnLightGrey}{\ensuremath{#1}}}
-\newcommand{\hlmBGGrey}[1]{\colorbox{\cnBGGrey}{\ensuremath{#1}}}
-\newcommand{\hlmAquaBlue}[1]{\colorbox{\cnAquaBlue}{\ensuremath{#1}}}
-\newcommand{\hlmLightBlue}[1]{\colorbox{\cnLightBlue}{\ensuremath{#1}}}
-\newcommand{\hlmBlue}[1]{\colorbox{\cnBlue}{\ensuremath{#1}}}
-\newcommand{\hlmDarkBlue}[1]{\colorbox{\cnDarkBlue}{\ensuremath{#1}}}
-\newcommand{\hlmRed}[1]{\colorbox{\cnRed}{\ensuremath{#1}}}
-\newcommand{\hlmOrange}[1]{\colorbox{\cnOrange}{\ensuremath{#1}}}
-\newcommand{\hlmGreen}[1]{\colorbox{\cnGreen}{\ensuremath{#1}}}
-\newcommand{\hlmPurple}[1]{\colorbox{\cnPurple}{\ensuremath{#1}}}
+\newcommand{\hlm}[1]{\colorbox{LightYellow}{\ensuremath{#1}}}
+\newcommand{\hlmGrey}[1]{\colorbox{GreyI}{\ensuremath{#1}}}
+\newcommand{\hlmDivGrey}[1]{\colorbox{GreyII}{\ensuremath{#1}}}
+\newcommand{\hlmTeal}[1]{\colorbox{LightTeal}{\ensuremath{#1}}}
+\newcommand{\hlmBlue}[1]{\colorbox{LightBlue}{\ensuremath{#1}}}
+\newcommand{\hlmRed}[1]{\colorbox{LightRed}{\ensuremath{#1}}}
+\newcommand{\hlmOrange}[1]{\colorbox{LightOrange}{\ensuremath{#1}}}
+\newcommand{\hlmGreen}[1]{\colorbox{LightGreen}{\ensuremath{#1}}}
+\newcommand{\hlmPurple}[1]{\colorbox{LightPurple}{\ensuremath{#1}}}
 
-
-\newcommand{\defw}[1]{\cnordTen{\textbf{#1}}}
-\newcommand{\defsw}[1]{\cnordFifteen{[sv: \textit{#1}]}}
-\newcommand{\emphw}[1]{\cnordEleven{\textbf{#1}}}
+\newcommand{\defw}[1]{\cBlue{\textbf{#1}}}
+\newcommand{\defwr}[1]{\cRed{\textbf{#1}}}
+\newcommand{\defsw}[1]{\cPurple{[sv: \textit{#1}]}}
+\newcommand{\emphw}[1]{\cSteelII{\textbf{#1}}}
 
 % > > > Delimiters
 \newcommand{\mpar}[1]{\left(#1\right)} % Parenthesis
@@ -153,7 +131,6 @@
 
 \newcommand{\setZ}{\ensuremath{\mathbb{Z}}} % Set of Integers
 \newcommand{\setZn}{\ensuremath{\mathbb{Z}^{-}}} % Negative
-\newcommand{\setZnn}{\ensuremath{\mathbb{Z}_{\ge 0}}} % Non-Negative
 \newcommand{\setZp}{\ensuremath{\mathbb{Z}^{+}}} % Positive
 \newcommand{\setZs}{\ensuremath{\mathbb{Z}^{*}}} % Non-Zero
 \newcommand{\setZi}[1]{\ensuremath{\mathbb{Z}_{#1}}} % On interval
@@ -162,6 +139,8 @@
 \newcommand{\setO}{\ensuremath{\mathbb{O}}} % Set of Odd Integers
 
 \newcommand{\setP}{\ensuremath{\mathbb{P}}} % Set of Prime Integers
+
+\newcommand{\setSS}{\ensuremath{\mathbb{S}}} % Solution set of an equation
 
 \newcommand{\setT}{\ensuremath{\mathbb{T}}} % Set of Triangular Numbers
 
@@ -203,7 +182,7 @@
 
 \newcommand{\setI}{\ensuremath{\mathbb{I}}} % Set of Imaginary
 \newcommand{\setIp}{\ensuremath{\mathbb{I}^{+}}} % Positive 
-\newcommand{\setIn}{\ensuremath{\mathbb{I}^{-1}}} % Negative 
+\newcommand{\setIn}{\ensuremath{\mathbb{I}^{-}}} % Negative
 \newcommand{\setIs}{\ensuremath{\mathbb{I}^{*}}} % Non-Zero 
 
 \renewcommand{\Im}{\textrm{Im}} % Imaginary Part
@@ -216,26 +195,26 @@
 %\newcommand{\cis}{\textnormal{cis}} % CIS
 
 % Requires FONT AWESOME5 package
-\newcommand{\bdicei}{\text{\cDarkBlue{\faDiceOne}}}
-\newcommand{\bdiceii}{\text{\cDarkBlue{\faDiceTwo}}}
-\newcommand{\bdiceiii}{\text{\cDarkBlue{\faDiceThree}}}
-\newcommand{\bdiceiv}{\text{\cDarkBlue{\faDiceFour}}}
-\newcommand{\bdicev}{\text{\cDarkBlue{\faDiceFive}}}
-\newcommand{\bdicevi}{\text{\cDarkBlue{\faDiceSix}}}
+\newcommand{\bdicei}{\text{\cBlue{\faDiceOne}}}
+\newcommand{\bdiceii}{\text{\cBlue{\faDiceTwo}}}
+\newcommand{\bdiceiii}{\text{\cBlue{\faDiceThree}}}
+\newcommand{\bdiceiv}{\text{\cBlue{\faDiceFour}}}
+\newcommand{\bdicev}{\text{\cBlue{\faDiceFive}}}
+\newcommand{\bdicevi}{\text{\cBlue{\faDiceSix}}}
 
-\newcommand{\abdicei}{\text{\cAquaBlue{\faDiceOne}}}
-\newcommand{\abdiceii}{\text{\cAquaBlue{\faDiceTwo}}}
-\newcommand{\abdiceiii}{\text{\cAquaBlue{\faDiceThree}}}
-\newcommand{\abdiceiv}{\text{\cAquaBlue{\faDiceFour}}}
-\newcommand{\abdicev}{\text{\cAquaBlue{\faDiceFive}}}
-\newcommand{\abdicevi}{\text{\cAquaBlue{\faDiceSix}}}
+\newcommand{\abdicei}{\text{\cTeal{\faDiceOne}}}
+\newcommand{\abdiceii}{\text{\cTeal{\faDiceTwo}}}
+\newcommand{\abdiceiii}{\text{\cTeal{\faDiceThree}}}
+\newcommand{\abdiceiv}{\text{\cTeal{\faDiceFour}}}
+\newcommand{\abdicev}{\text{\cTeal{\faDiceFive}}}
+\newcommand{\abdicevi}{\text{\cTeal{\faDiceSix}}}
 
-\newcommand{\gdicei}{\text{\cGrey{\faDiceOne}}}
-\newcommand{\gdiceii}{\text{\cGrey{\faDiceTwo}}}
-\newcommand{\gdiceiii}{\text{\cGrey{\faDiceThree}}}
-\newcommand{\gdiceiv}{\text{\cGrey{\faDiceFour}}}
-\newcommand{\gdicev}{\text{\cGrey{\faDiceFive}}}
-\newcommand{\gdicevi}{\text{\cGrey{\faDiceSix}}}
+\newcommand{\gdicei}{\text{\cSteelI{\faDiceOne}}}
+\newcommand{\gdiceii}{\text{\cSteelI{\faDiceTwo}}}
+\newcommand{\gdiceiii}{\text{\cSteelI{\faDiceThree}}}
+\newcommand{\gdiceiv}{\text{\cSteelI{\faDiceFour}}}
+\newcommand{\gdicev}{\text{\cSteelI{\faDiceFive}}}
+\newcommand{\gdicevi}{\text{\cSteelI{\faDiceSix}}}
 
 \newcommand{\rdicei}{\text{\cRed{\faDiceOne}}}
 \newcommand{\rdiceii}{\text{\cRed{\faDiceTwo}}}
@@ -244,20 +223,20 @@
 \newcommand{\rdicev}{\text{\cRed{\faDiceFive}}}
 \newcommand{\rdicevi}{\text{\cRed{\faDiceSix}}}
 
-\newcommand{\bcheads}{\text{\cDarkBlue{\faSmile}}}
-\newcommand{\bctails}{\text{\cDarkBlue{\faCrown}}}
+\newcommand{\bcheads}{\text{\cBlue{\faSmile}}}
+\newcommand{\bctails}{\text{\cBlue{\faCrown}}}
 
-\newcommand{\abcheads}{\text{\cAquaBlue{\faSmile}}}
-\newcommand{\abctails}{\text{\cAquaBlue{\faCrown}}}
+\newcommand{\abcheads}{\text{\cTeal{\faSmile}}}
+\newcommand{\abctails}{\text{\cTeal{\faCrown}}}
 
-\newcommand{\gcheads}{\text{\cGrey{\faSmile}}}
-\newcommand{\gctails}{\text{\cGrey{\faCrown}}}
+\newcommand{\gcheads}{\text{\cSteelI{\faSmile}}}
+\newcommand{\gctails}{\text{\cSteelI{\faCrown}}}
 
 \newcommand{\rcheads}{\text{\cRed{\faSmile}}}
 \newcommand{\rctails}{\text{\cRed{\faCrown}}}
 
-\newcommand{\remarks}{\cRed{\faPen* \, Remark: \enskip}}
-\newcommand{\readas}{\cDarkBlue{\faBullhorn \, Read as: \enskip}}
+\newcommand{\remarks}{\cOrange{\faPen* \, Remark: \enskip}}
+\newcommand{\readas}{\cBlue{\faBullhorn \, Read as: \enskip}}
 
 % > > > Sets Functions
 \newcommand{\setDomain}[1]{\textrm{dom}\mpar{#1}} % Domain Set
@@ -286,8 +265,8 @@
 \newcommand{\linel}[1]{\overleftrightarrow{#1}}
 
 % > > > Functions
-\newcommand{\fargpass}[1]{\cDarkBlue{#1}} % Function Argument Pass
-\newcommand{\farg}[1]{\left[\cDarkBlue{#1}\right]} % Function Argument
+\newcommand{\fargpass}[1]{\cBlue{#1}} % Function Argument Pass
+\newcommand{\farg}[1]{\left[\cBlue{#1}\right]} % Function Argument
 \newcommand{\fargr}[1]{\left[\cRed{#1}\right]} % Function Argument
 
 % > > > Absolute Value fix
@@ -324,9 +303,15 @@
 \newcommand{\limit}{\displaystyle\lim}
 \newcommand{\dstylim}[3]{\displaystyle \lim_{#1 \to #2} #3}
 
-% > > > Increasing & Decreasing Functions
+% > > > Derivative notation
+\newcommand{\fprime}{f\,\prime} % Noto-Math font only
 
+% > > > Increasing & Decreasing Functions
+\newcommand{\intleft}{\Longleftarrow} % Less than Interval
+\newcommand{\intright}{\Longrightarrow} % Less than Interval
+\newcommand{\intleftright}{\Longleftrightarrow} % Less than Interval
 \newcommand{\cpoint}{\text{\faCopyright}} % Critical Point
+\newcommand{\ipoint}{\leadsto} % Inflection Point
 \newcommand{\decf}{\searrow} % Decreasing f
 \newcommand{\incf}{\nearrow} % Increasing f
 \newcommand{\stationary}{\rightarrow} % Stationary f
@@ -336,10 +321,11 @@
 
 % > > > Integration
 \newcommand{\ieval}[3]{\left. \left(#1\right)\right\rvert_{#2}^{#3}}
+\newcommand{\defint}[2]{\displaystyle \int_{#1}^{#2}}
 
 % > > > Cell Background Colors 
-\newcommand{\cellyes}{\cellcolor{\cnLightGreen}Yes} % Cell YES
-\newcommand{\cellno}{\cellcolor{\cnLightRed}No} % Cell NO
+\newcommand{\cellyes}{\cellcolor{LightGreen}Yes} % Cell YES
+\newcommand{\cellno}{\cellcolor{LightRed}No} % Cell NO
 %  END =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 %=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
