@@ -1,0 +1,75 @@
+%=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=
+%
+% Author: Mark H. Olson
+% Website: https://mholson.com
+% Github: https://github.com/mholson
+%
+% File: mhoexam.sty
+% Created: 2015-08-18
+%
+% Description: This package is used to extend customize the exam.cls.
+%=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=
+
+%=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+%	PACKAGE OPTIONS & SETUP
+%=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+\ProvidesPackage{mhoexam}
+
+
+% > > > Mathematics Package
+\RequirePackage{mhomacros}
+
+
+% > > > DEFAULT PACKAGES
+\RequirePackage{graphicx}
+\RequirePackage{xcolor}
+\RequirePackage{tikz}
+
+
+% > > > CUSTOM PACKAGES
+\RequirePackage{mhocolorthemenord}
+\RequirePackage{mhotables}
+
+
+% > > > Image Files
+\graphicspath{{\string~/Dropbox/assets/}}%
+
+
+% > > > COVER PAGE
+\RequirePackage{datetime}
+
+
+% > > > FORMATTING
+\RequirePackage{subcaption}
+\RequirePackage{multirow}
+
+% > > > ANSWERS
+% multiple choice
+\checkboxchar{\( \Circle \)}
+\checkedchar{\( \CIRCLE \)}
+
+% true false
+\newcommand{\tf}[1][{}]{%
+  \fillin[#1][0.25in] \hspace{1cm}%
+}
+
+% > > > Solution ID
+\newcommand{\tagid}[1]{\cBlack{\textbf{#1}}}
+
+% > > >	DEFAULT SOLUTIONS
+
+%\SolutionEmphasis{\color{Red}}
+%\unframedsolutions
+%\shadedsolutions % Background Color
+%\definecolor{SolutionColor}{rgb}{1,1,1} % White
+
+% > > > Ignore Beamer Frame Breaks
+\newcommand{\framebreak}{}
+
+% > > > Ignore mref
+\renewcommand{\mref}[1]{}
+
+\endinput
+%=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=
+% End of file `mhoexam.sty'.
+%=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=
