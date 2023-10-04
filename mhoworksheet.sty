@@ -29,6 +29,88 @@
 % > > > Default Packages
 \RequirePackage{mhomacros}
 %\RequirePackage{sagetex}
+
+\RequirePackage{mhotables}
+
+\RequirePackage[unicode]{hyperref}
+\hypersetup{
+colorlinks=true,
+% You might want to disable color links for you final draft.
+%colorlinks=false,
+filecolor=Blue,
+linkcolor=Blue,
+citecolor=Blue,
+urlcolor=Blue,
+}
+
+% > > > Loading custom tikz
+\RequirePackage{mhotikz}
+
+% > > > Load Packages Need to remove listings
+%\RequirePackage{listings}
+
+%\RequirePackage{mhocodestyle}
+\RequirePackage{mhotheorems}
+\RequirePackage{tocbasic}
+
+% > > > Fonts
+%\RequirePackage[warnings-off={mathtools-colon,mathtools-overbracket}]{unicode-math}
+%\RequirePackage{libertinus-otf}
+\RequirePackage[sfdefault,vvarbb]{notomath}
+\RequirePackage[scale=\NotoText@scale]{noto-mono}
+\RequirePackage{metalogo}
+\RequirePackage{anyfontsize} % \fontsize{}{}\selectfont
+% > > > Formatting
+\newcommand{\framebreak}{}
+\newcommand{\tablepagebreak}{}
+
+% > > > Question numbers left margin
+\newcommand{\qnum}[1]{\hspace{-1.75cm}\vspace{-1.1cm}\tbqn{#1}}
+
+\newenvironment{EnvUplevel}
+  {\par\bigskip\vbox\bgroup
+    % We set \leftskip to provide the correct left margin for whatever
+    % is inside of the environment:
+    \leftskip=\@totalleftmargin
+    \advance\leftskip-\leftmargin
+    % We adjust \@totalleftmargin (and linewidth?) in case there's a
+    % solution environment inside of the environment:
+    \advance\@totalleftmargin-\leftmargin
+    \advance\linewidth\leftmargin
+  }
+  {\egroup\nobreak}
+
+% > > > Place custom tagID in right margin.
+\RequirePackage[right]{showlabels}
+\renewcommand{\showlabelsetlabel}[1]
+         {\showlabelfont \mhozid{\cGreyI{#1}}}
+
+\RequirePackage{subcaption}
+
+%=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+%   Enumerated Lists
+%=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+ \RequirePackage[shortlabels]{enumitem}
+ %\setlist{noitemsep}
+ \setlist[1]{labelindent=\parindent} % < Usually a good idea
+ \setlist[itemize]{leftmargin=*}
+ \setlist[itemize,1]{label=\(\circledcirc\)}
+ \setlist[enumerate]{labelsep=*, leftmargin=2pc}
+ \setlist[enumerate,1]{label = \arabic*.,
+                       ref   = \arabic*}
+ \setlist[enumerate,2]{label = (\cRed{\alph*}),
+                       ref   = \theenumi.\emph{\alph*}}
+ % \setlist[enumerate,1]{label = (\cRed{\alph*}),
+ %                       ref   = \theenumi.\emph{\alph*}}
+ % \setlist[enumerate,2]{label = \cRed{\roman*}),
+ %                       ref   = \theenumii.\roman*}
+ \setlist[description]{font=\sffamily\bfseries}
+
+\RequirePackage{multirow}
+
+%\RequirePackage{cleveref}
+
+\RequirePackage[english=british]{csquotes}
 % > > > Include Arithmetic Package
 \RequirePackage{xlop}
 \newcommand\hole[1]{\texttt{\_}}
@@ -77,22 +159,27 @@
 \end{center}
 }
 
-\newcommand{\customfoot}{
+
+\RequirePackage{xstring}
+\newcommand{\customjobname}{\StrLeft{\jobname}{21}}
+
+\newcommand{\customfootsage}{
 \vfill
 \begin{center}
 \cSteelI{\emph{Made with SageMath \cRed{\faHeart}  \XeLaTeX\,\large --- by mholson.com}}\\
 \vspace{10pt}
-{\scriptsize TAG ID: \jobname}\\
+{\scriptsize TAG ID: \customjobname}\\
 {\scriptsize Random Seed: \( \sage{initial_seed()} \)}
 \end{center}
 }
 
-\newcommand{\customfootnosage}{
+\newcommand{\customfoot}{
 \vfill
 \begin{center}
-\cSteelI{\emph{Made with \XeLaTeX\,\large --- by mholson.com}}\\
+%\cSteelI{\emph{Made with \XeLaTeX\,\large --- by mholson.com}}\\
+\cSteelI{\emph{Made with \XeLaTeX\,\large}}\\
 \vspace{10pt}
-{\scriptsize TAG ID: \jobname}
+{\scriptsize TAG ID: \customjobname}
 \end{center}
 }
 
