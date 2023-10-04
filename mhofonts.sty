@@ -24,15 +24,14 @@
 \RequirePackage{iftex}
 % > > > Fonts
 \ifxetex%
-  \RequirePackage[sfdefault,vvarbb]{notomath}
-  \RequirePackage[scale=\NotoText@scale]{noto-mono}
+  \RequirePackage[sfdefault,mono,vvarbb,subscriptcorrection]{notomath}
   \RequirePackage{metalogo}
 \else%
   \RequirePackage[utf8]{inputenc}
   \RequirePackage[T1]{fontenc}
   \RequirePackage{textcomp}
   \RequirePackage{microtype}
-  \RequirePackage[sfdefault,vvarbb]{notomath}
+  \RequirePackage[sfdefault,mono,vvarbb,subscriptcorrection]{notomath}
   \RequirePackage[scale=\NotoText@scale]{noto-mono}
 \fi
 \let\Bbbk\relax
