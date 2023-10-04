@@ -79,10 +79,11 @@
 \runningheader {\documenttitle}{- \thepage - }{\documentversion} \runningheadrule
 
 % PAGE FOOTER
+\RequirePackage{xstring}
+\newcommand{\customjobname}{\StrLeft{\jobname}{21}}
+\footer{\tiny \customjobname}{}{}
 
-\footer{\tiny \jobname}{}{}
-
-\runningfooter{\tiny \jobname}
+\runningfooter{\tiny \customjobname}
 {}
 {\iflastpage{}{}}
 
@@ -90,7 +91,7 @@
   \header{\calculatorpermission.  Write your answers \writesolutions}{}{\exampart}{
     \footer{}
     {Page \thepage\ of \numpages}
-    {\small \jobname}
+    {\small \customjobname}
 
     % > > > COVER PAGE
     \def\makecoverpage{
