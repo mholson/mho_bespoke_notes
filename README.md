@@ -9,7 +9,8 @@ someone a little tex inspiration for their own setup much in the
 same way that I have benefited from the shared work of others.
 
 ## Cheatsheets
-
+### Doom Emacs Cheatsheet
+![Doom Emacs Cheatsheet](/assets/latex-cheatsheet-doomEmacs.png)
 ## Notebooks
 
 ## Exams
