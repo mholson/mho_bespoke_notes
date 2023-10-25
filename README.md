@@ -11,11 +11,10 @@ Happy TeX-ing!
 
 ## Cheatsheets
 ### Doom Emacs Cheatsheet
-<p align="center">
-  <img src="/assets/latex-cheatsheet-doomEmacs.png" width="70%" alt="latex-cheatsheet-doomEmacs">
-</p>
-- [tex](/main/0-reference_emacs_doom.tex)
-- [pdf](/main/0-reference_emacs_doom.pdf)
+![Doom Emacs Cheatsheet](/assets/latex-cheatsheet-doomEmacs.png)
+> [!Files]
+> [tex](/main/0-reference_emacs_doom.tex) [pdf](/main/0-reference_emacs_doom.pdf) 
+
 ## Notebooks
 
 ## Exams
