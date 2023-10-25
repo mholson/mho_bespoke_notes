@@ -1,0 +1,116 @@
+%=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=
+%
+% File: mhocolorthemenord.sty
+% Author: Mark H. Olson
+% Website: https://mholson.com
+% Github: https://github.com/mholson
+%
+% Created: 2021-04-25
+%
+% Description: A set of commands that I use to define colors based on the 
+% nord color theme (https://www.nordtheme.com) that can be used across all my
+% latex files.  I have appended this style file name with mho to ensure that 
+% the name is unique to other nord color themes for latex.
+%
+%=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=
+
+
+%=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+%	PACKAGE OPTIONS & SETUP
+%=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{mhocolorthemenord}
+    [2021/04/25 Nord Color scheme]
+\RequirePackage{mhocolorpalettenord}
+\RequirePackage{mhocolorpalettesthlm}
+%  END =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+%=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+
+
+%=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+%	NORD COLOR THEME DEFINITIONS
+%=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+
+% >>> Polar Night
+	\newcommand{\crDarkBlack}{\color{nordZero}}
+	\newcommand{\cBlack}[1]{{\color{nordZero}{#1}}}
+	\newcommand{\cnDarkBlack}{nordZero}
+
+	\newcommand{\crBlack}{\color{nordOne}}
+	\newcommand{\cBlack}[1]{{\color{nordOne}{#1}}}
+	\newcommand{\cnBlack}{nordOne}
+	
+	\newcommand{\crDarkGrey}{\color{nordTwo}}
+	\newcommand{\cSteelI}[1]{{\color{nordTwo}{#1}}}
+	\newcommand{\cnDarkGrey}{nordTwo}
+	
+	\newcommand{\crGrey}{\color{nordThree}}
+	\newcommand{\cGrey}[1]{{\color{nordThree}{#1}}}
+	\newcommand{\cnGrey}{nordThree}
+
+% >>> Snow Storm
+	\newcommand{\crDivGrey}{\color{nordFour}}
+	\newcommand{\cDivGrey}[1]{{\color{nordFour}{#1}}}
+	\newcommand{\cnDivGrey}{nordFour}
+	
+	\newcommand{\crLightGrey}{\color{nordFive}}
+	\newcommand{\cLightGrey}[1]{{\color{nordFive}{#1}}}
+	\newcommand{\cnLightGrey}{nordFive}
+	
+	\newcommand{\crBBGrey}{\color{nordSix}}
+	\newcommand{\cBGGrey}[1]{{\color{nordSix}{#1}}}
+	\newcommand{SteelII}{nordSix}
+	
+% >>> Frost
+	\newcommand{\crBlueGreen}{\color{nordSeven}}
+	\newcommand{\cBlueGreen}[1]{{\color{nordSeven}{#1}}}
+	\newcommand{BlueGreen}{nordSeven}
+	
+	\newcommand{\crLightBlue}{\color{nordEight}}
+	\newcommand{\cLightBlue}[1]{{\color{nordEight}{#1}}}
+	\newcommand{\cnLightBlue}{nordEight}
+
+	\newcommand{\crBlue}{{\color{nordNine}}}
+	\newcommand{\cBlue}[1]{{\color{nordNine}{#1}}}
+	\newcommand{Blue}{nordNine}
+	
+	\newcommand{\crDarkBlue}{\color{nordTen}}
+	\newcommand{\cBlue}[1]{{\color{nordTen}{#1}}}
+	\newcommand{\cnDarkBlue}{nordTen}
+	
+% >>> Aurora
+	\newcommand{\crRed}{\color{nordEleven}}
+	\newcommand{\cRed}[1]{{\color{nordEleven}{#1}}}
+	\newcommand{Red}{nordEleven}
+	
+	\newcommand{\crOrange}{\color{nordTwelve}}
+	\newcommand{\cOrange}[1]{{\color{nordTwelve}{#1}}}
+	\newcommand{\cnOrange}{nordTwelve}
+	
+	\newcommand{\crYellow}{\color{nordThirteen}}
+	\newcommand{\cYellow}[1]{{\color{nordThirteen}{#1}}}
+	\newcommand{\cnYellow}{nordThirteen}
+	
+	\newcommand{\crGreen}{\color{nordFourteen}}
+	\newcommand{\cGreen}[1]{{\color{nordFourteen}{#1}}}
+	\newcommand{\cnGreen}{nordFourteen}
+
+	\newcommand{\cLightGreen}[1]{{\color{sthlmLightGreen}{#1}}}
+	\newcommand{\crLightGreen}{\color{sthlmLightGreen}}
+	\newcommand{\cnLightGreen}{sthlmLightGreen}
+
+	\newcommand{\cGreen}[1]{{\color{sthlmDarkGreen}{#1}}}
+	\newcommand{\crDarkGreen}{\color{sthlmDarkGreen}}
+	\newcommand{\cnDarkGreen}{sthlmDarkGreen}
+
+	\newcommand{\crPurple}{\color{nordFifteen}}
+	\newcommand{\cPurple}[1]{{\color{nordFifteen}{#1}}}
+	\newcommand{\cnPurple}{nordFifteen}
+%  END =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+%=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+
+
+\endinput
+%=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=
+% End of file `nordcolors.sty'.
+%=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=

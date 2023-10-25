@@ -1,0 +1,32 @@
+% File: mhominted
+% Author: Mark H. Olson
+% Website: https://mholson.com
+% Github: https://github.com/mholson
+%
+%	Created: 2022-12-13
+%
+% Description: Custom style file for the minted pkg
+%
+%=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=
+
+%=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+%	Packages and Options
+%=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{mhominted}
+    [2022/12/13 Getting minted setup if necessary.]
+%  END =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+%=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+\usepackage{minted}
+\newcommand{\pyminted}[1]{\inputminted{python}{\string~/Library/CloudStorage/Dropbox/mho_tex/0-tex/#1}}
+
+\newcommand{\texminted}[1]{\inputminted{latex}{\string~/Library/CloudStorage/Dropbox/mho_tex/0-tex/#1}}
+\newcommand{\swiftminted}[1]{\inputminted{swift}{\string~/Library/CloudStorage/Dropbox/mho_tex/0-tex/#1}}
+\newcommand{\htmlminted}[1]{\inputminted{html}{\string~/Library/CloudStorage/Dropbox/mho_tex/0-tex/#1}}
+\usemintedstyle{xcode}
+
+\setminted{autogobble,xleftmargin=10pt, bgcolor=GreyII}
+\endinput
+%=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=
+% End of file `mhominted.sty'.
+%=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=

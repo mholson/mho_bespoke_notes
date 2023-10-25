@@ -1,0 +1,194 @@
+%=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=
+% Author: Mark H. Olson
+% Website: https://mholson.com
+% Github: https://github.com/mholson
+% 
+% File: mhoworksheets.sty
+% Created: 2017-01-18
+%
+% Description: This is the style file that use for typesetting mathematics
+% worksheets.
+%=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=
+
+
+
+
+%=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+%	PACKAGE OPTIONS & SETUP
+%=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{mhoworksheet}
+    [2017/04/12 A small package for Article customisations to create worksheets]
+
+\pagenumbering{gobble} % Gobble up the page numbers
+
+\RequirePackage{xcolor}
+\RequirePackage{multicol}
+
+\RequirePackage{mhocolorpalettesthlmnord}
+% > > > Default Packages
+\RequirePackage{mhomacros}
+%\RequirePackage{sagetex}
+
+\RequirePackage{mhotables}
+
+\RequirePackage[unicode]{hyperref}
+\hypersetup{
+colorlinks=true,
+% You might want to disable color links for you final draft.
+%colorlinks=false,
+filecolor=Blue,
+linkcolor=Blue,
+citecolor=Blue,
+urlcolor=Blue,
+}
+
+% > > > Loading custom tikz
+\RequirePackage{mhotikz}
+
+% > > > Load Packages Need to remove listings
+%\RequirePackage{listings}
+
+%\RequirePackage{mhocodestyle}
+\RequirePackage{mhotheorems}
+\RequirePackage{tocbasic}
+
+% > > > Fonts
+\RequirePackage{mhofonts}
+\RequirePackage{anyfontsize} % \fontsize{}{}\selectfont
+% > > > Formatting
+\newcommand{\framebreak}{}
+\newcommand{\tablepagebreak}{}
+
+% > > > Question numbers left margin
+\newcommand{\qnum}[1]{\hspace{-1.75cm}\vspace{-1.1cm}\tbqn{#1}}
+
+\newenvironment{EnvUplevel}
+  {\par\bigskip\vbox\bgroup
+    % We set \leftskip to provide the correct left margin for whatever
+    % is inside of the environment:
+    \leftskip=\@totalleftmargin
+    \advance\leftskip-\leftmargin
+    % We adjust \@totalleftmargin (and linewidth?) in case there's a
+    % solution environment inside of the environment:
+    \advance\@totalleftmargin-\leftmargin
+    \advance\linewidth\leftmargin
+  }
+  {\egroup\nobreak}
+
+% > > > Place custom tagID in right margin.
+\RequirePackage[right]{showlabels}
+\renewcommand{\showlabelsetlabel}[1]
+         {\showlabelfont \mhozid{\cGreyI{#1}}}
+
+\RequirePackage{subcaption}
+
+%=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+%   Enumerated Lists
+%=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+ \RequirePackage[shortlabels]{enumitem}
+ %\setlist{noitemsep}
+ \setlist[1]{labelindent=\parindent} % < Usually a good idea
+ \setlist[itemize]{leftmargin=*}
+ \setlist[itemize,1]{label=\(\circledcirc\)}
+ \setlist[enumerate]{labelsep=*, leftmargin=2pc}
+ \setlist[enumerate,1]{label = \arabic*.,
+                       ref   = \arabic*}
+ \setlist[enumerate,2]{label = (\cRed{\alph*}),
+                       ref   = \theenumi.\emph{\alph*}}
+ % \setlist[enumerate,1]{label = (\cRed{\alph*}),
+ %                       ref   = \theenumi.\emph{\alph*}}
+ % \setlist[enumerate,2]{label = \cRed{\roman*}),
+ %                       ref   = \theenumii.\roman*}
+ \setlist[description]{font=\sffamily\bfseries}
+
+\RequirePackage{multirow}
+
+%\RequirePackage{cleveref}
+
+\RequirePackage[english=british]{csquotes}
+% > > > Include Arithmetic Package
+% \RequirePackage{xlop}
+% \newcommand\hole[1]{\texttt{\_}}
+
+% > > >Package for Long Division
+%\RequirePackage{longdivision}
+
+
+% > > > If you are going to be referencing multiple images from the same path
+%       then it might be a good idea to set the path of where the images are
+%       located, so that you do not need to manually include it each time.
+
+\graphicspath{{\string~/Dropbox/assets/}}%
+
+% > > > SETUP THE MARGINS
+
+\addtolength{\oddsidemargin}{-0.5 in}
+% \addtolength{\evensidemargin}{-1.25 in}
+\addtolength{\textwidth}{1.25 in}
+\addtolength{\topmargin}{-1.25 in}
+\addtolength{\textheight}{2.5 in}
+
+% > > > PARAGRAPH INDENT SET TO ZERO
+
+\setlength\parindent{0pt}
+
+% > > > SETUP TITLE PAGE
+
+\makeatletter
+
+\renewcommand{\maketitle}{ % Customize the title
+\begin{center}
+{\cBlue{\huge \textsc{Work\( \int \)heet}}} \\% Increase the font size of the title
+\vspace{0.50cm}
+\end{center}
+}
+
+\newcommand{\answers}{
+\begin{center}
+{\cBlue{\huge\textsc{An\( \int \)wers}}} \\% Increase the font size of the title
+\vspace{0.50cm}
+\end{center}
+}
+
+
+\RequirePackage{xstring}
+\newcommand{\customjobname}{\StrLeft{\jobname}{21}}
+
+\newcommand{\customfootsage}{
+\vfill
+\begin{center}
+\cSteelI{\emph{Made with SageMath \cRed{\faHeart}  \XeLaTeX\,\large --- by mholson.com}}\\
+\vspace{10pt}
+{\scriptsize TAG ID: \customjobname}\\
+{\scriptsize Random Seed: \( \sage{initial_seed()} \)}
+\end{center}
+}
+
+\newcommand{\customfoot}{
+\vfill
+\begin{center}
+%\cSteelI{\emph{Made with \XeLaTeX\,\large --- by mholson.com}}\\
+\cSteelI{\emph{Made with \XeLaTeX\,\large}}\\
+\vspace{10pt}
+{\scriptsize TAG ID: \customjobname}
+\end{center}
+}
+
+\def\boxentry[#1]#2{{\setlength{\fboxsep}{-\fboxrule}\fbox{\parbox{#1}{\smash{\raise-9.5pt\hbox{~{\small #2}}}\vspace{3.8ex}\mbox{}}}}}
+
+% > > >	CREATE CUT LINE
+% > > >http://tex.stackexchange.com/questions/70792/best-way-to-insert-a-horizontal-cut-line-with-a-scissor-symbol
+
+\newcommand{\worksheetanswers}{%
+\vspace{0.5cm}
+\centering{\cBlue{ --- \, An\( \int \)wers \, ---}}\\
+\vspace{0.5cm}
+%\raisebox{-2.8pt}[0pt][0.75\baselineskip]{\small\ding{34}}
+%\unskip{\small\dotfill}
+}
+
+\endinput
+%=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=
+% End of file `mhoworksheet.sty'.
+%=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=

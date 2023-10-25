@@ -1,0 +1,112 @@
+%=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=
+%
+% File: mhocolorthemenord.sty
+% Author: Mark H. Olson
+% Website: https://mholson.com
+% Github: https://github.com/mholson
+%
+% Created: 2021-04-25
+%
+% Updated: 2023-04-23
+% - divided into separate style files for both the palette and the custom
+% custom commands.
+%
+% Description: A set of commands that I use to define colors based on the 
+% nord color theme (https://www.nordtheme.com) that can be used across all my
+% latex files.  I have appended this style file name with mho to ensure that 
+% the name is unique to other nord color themes for latex.
+%
+%=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=
+
+
+%=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+%	PACKAGE OPTIONS & SETUP
+%=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{mhocolorpalettenord}
+    [2021/04/25 Nord Color scheme]
+\RequirePackage{xcolor}
+%  END =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+%=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+
+
+%=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+%	NORD COLOR THEME DEFINITIONS
+%=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+
+% >>> Polar Night
+\definecolor{nordZero}{HTML}{2E3440}                                    % nord0
+	\newcommand{\cnordZero}[1]{{\color{nordZero}{#1}}}
+	\newcommand{\crnordZero}{\color{nordZero}}
+
+\definecolor{nordOne}{HTML}{3B4252}                                     % nord1
+	\newcommand{\cnordOne}[1]{{\color{nordOne}{#1}}}
+	\newcommand{\crnordOne}{\color{nordOne}}
+
+\definecolor{nordTwo}{HTML}{434C5e}                                     % nord2
+	\newcommand{\cnordTwo}[1]{{\color{nordTwo}{#1}}}
+	\newcommand{\crnordTwo}{\color{nordTwo}}
+
+\definecolor{nordThree}{HTML}{4C566A}                                   % nord3
+	\newcommand{\cnordThree}[1]{{\color{nordThree}{#1}}}
+	\newcommand{\crnordThree}{\color{nordThree}}
+
+% >>> Snow Storm
+\definecolor{nordFour}{HTML}{D8DEE9}                                    % nord4
+	\newcommand{\cnordFour}[1]{{\color{nordFour}{#1}}}
+	\newcommand{\crnordFour}{\color{nordFour}}
+
+\definecolor{nordFive}{HTML}{E5E9F0}                                    % nord5
+	\newcommand{\cnordFive}[1]{{\color{nordFive}{#1}}}
+	\newcommand{\crnordFive}{\color{nordFive}}
+
+\definecolor{nordSix}{HTML}{ECEFF4}                                     % nord6
+	\newcommand{\cnordSix}[1]{{\color{nordSix}{#1}}}
+	\newcommand{\crnordSix}{\color{nordSix}}
+
+% >>> Frost
+\definecolor{nordSeven}{HTML}{8FBCBB}                                   % nord7
+	\newcommand{\cnordSeven}[1]{{\color{nordSeven}{#1}}}
+	\newcommand{\crnordSeven}{\color{nordSeven}}
+
+\definecolor{nordEight}{HTML}{88C0D0}                                   % nord8
+	\newcommand{\cnordEight}[1]{{\color{nordEight}{#1}}}
+	\newcommand{\crnordEight}{\color{nordEight}}
+
+\definecolor{nordNine}{HTML}{81A1C1}                                    % nord9
+	\newcommand{\cnordNine}[1]{{\color{nordNine}{#1}}}
+	\newcommand{\crnordNine}{\color{nordNine}}
+
+\definecolor{nordTen}{HTML}{5E81AC}    	                                % nord10
+	\newcommand{\cnordTen}[1]{{\color{nordTen}{#1}}}
+	\newcommand{\crnordTen}{\color{nordTen}}
+
+% >>> Aurora
+\definecolor{nordEleven}{HTML}{BF616A}                                  % nord11
+	\newcommand{\cnordEleven}[1]{{\color{nordEleven}{#1}}}
+	\newcommand{\crnordEleven}{\color{nordEleven}}
+
+\definecolor{nordTwelve}{HTML}{D08770}                                  % nord12
+	\newcommand{\cnordTwelve}[1]{{\color{nordTwelve}{#1}}}
+	\newcommand{\crnordTwelve}{\color{nordTwelve}}
+
+\definecolor{nordThirteen}{HTML}{EBCB8B}                                % nord13
+	\newcommand{\cnordThirteen}[1]{{\color{nordThirteen}{#1}}}
+	\newcommand{\crnordThirteen}{\color{nordThirteen}}
+
+\definecolor{nordFourteen}{HTML}{A3BE8C}                                % nord14
+	\newcommand{\cnordFourteen}[1]{{\color{nordFourteen}{#1}}}
+	\newcommand{\crnordFourteen}{\color{nordFourteen}}
+
+\definecolor{nordFifteen}{HTML}{B48EAD}                                 % nord15
+	\newcommand{\cnordFifteen}[1]{{\color{nordFifteen}{#1}}}
+	\newcommand{\crnordFifteen}{\color{nordFifteen}}
+%  END =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+%=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+
+
+
+\endinput
+%=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=
+% End of file `mhocolorpalettenord.sty'.
+%=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=

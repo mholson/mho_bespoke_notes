@@ -1,0 +1,37 @@
+% Author: Mark H. Olson
+% Website: https://mholson.com
+% Github: https://github.com/mholson
+% 
+% File: mhofonts.sty
+% Created: 2021-12-12
+% Updates:
+% 2023-04-14
+%   - added support to use the appropriate fonts using the iftex
+%
+% 2021-12-12
+%
+% Description: Custom style file to import font settings
+%=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=+=
+
+
+%=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+%	PACKAGE OPTIONS & SETUP
+%=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{mhofonts}[2021/12/12 A small package for Math customizations]
+% > > > Load Packages
+\let\openbox\relax
+\RequirePackage{iftex}
+% > > > Fonts
+\ifxetex%
+  \RequirePackage[sfdefault,mono,vvarbb,subscriptcorrection]{notomath}
+  \RequirePackage{metalogo}
+\else%
+  \RequirePackage[utf8]{inputenc}
+  \RequirePackage[T1]{fontenc}
+  \RequirePackage{textcomp}
+  \RequirePackage{microtype}
+  \RequirePackage[sfdefault,mono,vvarbb,subscriptcorrection]{notomath}
+  \RequirePackage[scale=\NotoText@scale]{noto-mono}
+\fi
+\let\Bbbk\relax
