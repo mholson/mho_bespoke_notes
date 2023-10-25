@@ -43,11 +43,9 @@ urlcolor=Blue,
 \RequirePackage{mhotheorems}
 
 % > > > Fonts
-\RequirePackage[sfdefault,vvarbb]{notomath}
-\RequirePackage[scale=\NotoText@scale]{noto-mono}
+\RequirePackage{mhofonts}
 % \RequirePackage[warnings-off={mathtools-colon,mathtools-overbracket}]{unicode-math}
 % \RequirePackage{libertinus-otf}
-\RequirePackage{metalogo}
 
 % > > > Formatting
 \newcommand{\framebreak}{}
@@ -89,16 +87,16 @@ urlcolor=Blue,
 %   Boxes
 %=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
- \providecommand{\sectionbox}[1]{{\fboxsep0.5em\hspace*{-1.5\fboxsep}%
+ \providecommand{\sectionbox}[1]{{\fboxsep0.2em\hspace*{-1.5\fboxsep}%
  \fcolorbox{SteelI}{SnowI}{%
- \parbox{0.98\columnwidth}{%
+ \parbox{0.99\columnwidth}{%
  \raggedright #1}}}}
 
-\setlength{\parskip}{1pt}
+\setlength{\parskip}{0.5em}
 \renewcommand{\arraystretch}{1.12}
 
 % make boxes robust for verbatim
-\usepackage{cprotect}
+\RequirePackage{cprotect}
 
 \let\oldsectionbox\sectionbox
 \outer\def\sectionbox{\icprotect\oldsectionbox}
