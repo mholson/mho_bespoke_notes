@@ -1,0 +1,959 @@
+% defaults in emacs/modules/lang/
+\documentclass[fontsize=10pt,paper=a4,paper=landscape,twoside=false,parskip=half,
+headings=small,numbers=withenddot,usegeometry=true,english]{scrartcl}
+\usepackage{mhoCheatSheet}
+\usepackage{mhominted}
+\usemintedstyle{tango}
+\setminted{bgcolor=SnowII}
+\usepackage{pagecolor}
+\pagecolor{SnowIII}
+%\nopagecolor %remove page color
+\newfontfamily{\symbolfont}{Noto Sans Symbols 2}
+\newcommand{\kcmdl}{\cBlue{L\symbolfont \Uchar"2318 }}
+\newcommand{\meta}{\textbf{\cBlue{M}}}
+\newcommand{\kcmdr}{\cPurple{R\symbolfont \Uchar"2318 }}
+\newcommand{\ctrl}{\textbf{\cPurple{C}}}
+\newcommand{\ktab}{\textbf{\cGreen{TAB}}}
+\newcommand{\kcmd}{\textbf{\cRed{:\,}}}
+\newcommand{\kshell}{\textbf{\cRed{:}\cBlue{!\,}}}
+\newcommand{\kspc}{\cRed{SPC} \,}
+\newcommand{\kleft}{\cSteelI{\symbolfont \Uchar"25C0} \,}
+\newcommand{\kdown}{\cSteelI{\symbolfont \Uchar"25BC} \,}
+\newcommand{\kup}{\cSteelI{\symbolfont \Uchar"25B2} \,}
+\newcommand{\kright}{\cSteelI{\symbolfont \Uchar"25B6} \,}
+\newcommand{\kenter}{\cSteelI{\symbolfont \Uchar"23CE} \,}
+\newcommand{\kopt}{\cPink{\symbolfont \Uchar"2325}}
+\newcommand{\kshift}{\cTeal{\symbolfont \Uchar"21E7}}
+\newcommand{\kctrl}{\cOrange{\textasciicircum}}
+\newcommand{\super}{\textbf{\cOrange{S}}}
+\graphicspath{{\string~/Dropbox/assets/}}
+\begin{document}
+
+\begin{multicols}{3}
+
+  \parbox{\columnwidth}{
+    \begin{center}
+      \includegraphics[width=0.2\columnwidth]{images/doom-emacs}
+      \cPurple{\Huge Doom Emacs} \\[2pt]
+      \cBlue{\large Unofficial Reference Sheet \today} \\[2pt]
+    \end{center}
+
+  }
+  \section{Setup}
+  \sectionbox{
+    \subsection{Key Assignments: MacOS}
+    The following code was added to \texttt{config.el}
+    and intended for MacOS using a Swedish keyboard:
+    \begin{minted}{lisp}
+      (setq mac-option-modifier nil
+      mac-command-modifier 'meta
+      mac-right-command-modifier 'control
+      mac-control-modifier 'super
+      mac-function-modifier 'hyper)
+    \end{minted}
+    \begin{center}
+      \fbox{\begin{minipage}{0.5cm}\hfill\kctrl \\ \tiny{control}\end{minipage}}\,\fbox{\begin{minipage}{0.5cm}\hfill\kopt \\ \tiny{option}\end{minipage}}\,\fbox{\begin{minipage}{0.7cm}\hfill\kcmdl \\ \tiny{command}\end{minipage}}\,\fbox{\begin{minipage}{3cm}\begin{center}\kspc \\ \tiny{space}\end{center}\end{minipage}}\,\fbox{\begin{minipage}{0.7cm}\kcmdr \\ \tiny{command}\end{minipage}} \,\fbox{\begin{minipage}{0.5cm}\kopt \\ \tiny{option}\end{minipage}}
+    \end{center}
+    \begin{center}
+      \fbox{\begin{minipage}{0.5cm}\hfill\super \\ \tiny{super}\end{minipage}}\,\fbox{\begin{minipage}{0.5cm}\hfill\kopt \\ \tiny{option}\end{minipage}}\,\fbox{\begin{minipage}{0.7cm}\hfill\meta \\ \tiny{meta}\end{minipage}}\,\fbox{\begin{minipage}{3cm}\begin{center}\kspc \\ \tiny{space}\end{center}\end{minipage}}\,\fbox{\begin{minipage}{0.7cm}\ctrl \\ \tiny{control}\end{minipage}} \,\fbox{\begin{minipage}{0.5cm}\kopt \\ \tiny{option}\end{minipage}}
+    \end{center}
+  }
+    \vspace{0.1cm}
+  \begin{tblr}{
+      row{odd} = {bg=SnowII},
+      row{even} = {bg=SnowI},
+      width=0.99\columnwidth,
+      colspec={X[l] r},
+    }
+      \kspc & \cRed{Space} \\
+      \kcmd & enter command mode \\
+      \kcmdl & left command \( = \) \cBlue{Meta} \( = \) \meta \\
+      \kcmdr & right command \( = \) \cPurple{Control} \( = \) \ctrl \\
+      \kopt & left and right option keys \\
+      \kshift & shift keys \\
+      \kenter & enter \\
+      \kctrl & control \( = \) \cOrange{Super} \( = \) \super \\
+    \end{tblr}
+
+  \section{Help}
+  \begin{tblr}{
+      row{odd} = {bg=SnowII},
+      row{even} = {bg=SnowI},
+      width=0.99\columnwidth,
+      colspec={X[l] r},
+    }
+    \kspc h c & given keychord \( \rightarrow \) get command \\
+    \kspc h f & describe functions \\
+    \kspc h k & given keychord \( \rightarrow \) get command docs \\
+    \kspc h w & given command \( \rightarrow \) get keychord \\
+    \kspc h v & variable full docs \\
+    \kspc h V & custom variable full docs \\
+  \end{tblr}
+  \section{Configuration Files}
+  \sectionbox{
+    \subsection{Configuration Files Location}
+    Your configuration files: \cGreen{config.el} , \cGreen{init.el}
+    , \cGreen{packages.el} are located in the directory: \mintinline{shell-session}{~/.config/doom/}
+    \begin{itemize}
+      \item \kspc f P \hfill browse private config files
+      \item \kspc f p \hfill find file in private config files
+    \end{itemize}
+    \subsection{Changing Your Configuration Files}
+    After making changes to any of your configuration file,
+    \begin{enumerate}
+      \item \kshell \mintinline{shell-session}{doom sync} \hfill run doom sync
+      \item \kspc h r r \hfill reload doom emacs
+    \end{enumerate}
+  }
+
+    \subsection{Reloading Configuration Files}
+  \begin{tblr}{
+      row{odd} = {bg=SnowII},
+      row{even} = {bg=SnowI},
+      width=0.99\columnwidth,
+      colspec={X[l] r},
+    }
+       \kspc h r r & reload doom \\
+       \kspc h r f & reload fonts \\
+       \kspc h r t & reload theme \\
+       \kspc h r p & reload packages \\
+       \kspc h r e & reload environment \\
+    \end{tblr}
+
+  \sectionbox{
+    \subsection{Add Doom to your Path}
+    Add the following to your \cGreen{.zshrc} or \cGreen{.zprofile}
+    in your home direcotry: \mintinline{shell-session}{~/}
+    \begin{minted}{bash}
+      # Add doom emacs to the Path
+      export PATH=$HOME/.config/emacs/bin:$PATH
+    \end{minted}
+    After editing your \cGreen{.zshrc} or \cGreen{.zprofile} file, you
+    need to reload it (source it) from your home directory in the terminal.
+    \begin{minted}{shell-session}
+      $ cd SPC ENTER
+      $ source .zshrc
+    \end{minted}
+  }
+  \section{Commands}
+    \subsection{Run Emacs Commands}
+  \begin{tblr}{
+      row{odd} = {bg=SnowII},
+      row{even} = {bg=SnowI},
+      width=0.99\columnwidth,
+      colspec={X[l] r},
+    }
+      \meta--x & run emacs commands -> the meta x \\
+      \kspc : & run emacs commands -> the meta x \\
+    \end{tblr}
+
+    \subsection{Run Commands}
+      \begin{tblr}{
+      row{odd} = {bg=SnowII},
+      row{even} = {bg=SnowI},
+      width=0.99\columnwidth,
+      colspec={X[l] r},
+    }
+      \kshell \mintinline{shell-session}{cmd-name [o-opt] <input>} & run shell command \\
+      \kcmd \mintinline{shell-session}{yourVimCommand} & Vim command-line mode \\
+    \end{tblr}
+
+  \sectionbox{
+    \subsection{Command Chords}
+    \begin{center}\,\\
+      \fbox{\cRed{OPERATOR}} \quad \fbox{\cBlue{COUNT}} \quad \fbox{\cGreen{MOTION}}
+    \end{center}
+    Example:
+    \begin{itemize}
+      \item \cRed{d} \cBlue{4} \cGreen{j} \hfill \cRed{delete} \cBlue{4} lines \cGreen{down}
+    \end{itemize}
+  }
+  \section{Quit, Restart \& Save}
+    \subsection{Quit}
+  \begin{tblr}{
+      row{odd} = {bg=SnowII},
+      row{even} = {bg=SnowI},
+      width=0.99\columnwidth,
+      colspec={X[l] r},
+    }
+       \kspc q q & quit emacs \\
+       \kspc q Q & quit emacs without saving \\
+       \kcmd wq & write and quit \\
+       \kcmd x & write and quit \\
+       \kcmd q & quit -> throws error if unsaved changes \\
+       \kcmd q! & discard unsaved changes and quit \\
+       \kcmd wq & write (save) and quit \\
+       Z Z & write and quit \\
+       Z Q & discard unsaved changes and quit \\
+    \end{tblr}
+    \subsection{Restart}
+  \begin{tblr}{
+      row{odd} = {bg=SnowII},
+      row{even} = {bg=SnowI},
+      width=0.99\columnwidth,
+      colspec={X[l] r},
+    }
+       \kspc q r & restart emacs and restore \\
+       \kspc q R & restart emacs \\
+    \end{tblr}
+    \subsection{Save}
+  \begin{tblr}{
+      row{odd} = {bg=SnowII},
+      row{even} = {bg=SnowI},
+      width=0.99\columnwidth,
+      colspec={X[l] r},
+    }
+     \kspc f s & save buffer \\
+       \kspc b s & save buffer \\
+       \kspc b S & save all open buffers \\
+       \kcmd w & write (save) \\
+    \end{tblr}
+  \section{Cursor Motions}
+  \sectionbox{
+  Prefix cursor commands with a COUNT number, \#, to repeat the command
+  \#-times.}
+    \subsection{Basic Motions}
+     \begin{tblr}{
+      row{odd} = {bg=SnowII},
+      row{even} = {bg=SnowI},
+      width=0.99\columnwidth,
+      colspec={X[l] r},
+    }
+       h or \kleft & move cursor left 1 character \\
+       l or \kright & move cursor right 1 character \\
+       j or \kdown & move cursor down 1 character \\
+       k or \kup & move cursor up 1 character \\
+    \end{tblr}
+
+    \subsection{Word Motions}
+     \begin{tblr}{
+      row{odd} = {bg=SnowII},
+      row{even} = {bg=SnowI},
+      width=0.99\columnwidth,
+      colspec={X[l] r},
+    }
+       b & jump backwards start word \\
+       B & jump backwards (punctuated words) start word \\
+       e & jump forwards end word \\
+     g e & jump backwards end previous word \\
+     g E & jump backwards (punctuated words) previous word \\
+       E & jump forwards (punctuated words) end word \\
+       w & jump forwards start next word \\
+       W & jump forwards (punctuated words) start next word \\
+     \kshift \_ & jump to first non-blank character of line \\
+    \end{tblr}
+
+    \subsection{Buffer Motions}
+  \begin{tblr}{
+      row{odd} = {bg=SnowII},
+      row{even} = {bg=SnowI},
+      width=0.99\columnwidth,
+      colspec={X[l] r},
+    }
+     G & jump to start of buffer \\
+     g g & jump to end of buffer \\
+    \end{tblr}
+
+    \subsection{Find Motions}
+  \begin{tblr}{
+      row{odd} = {bg=SnowII},
+      row{even} = {bg=SnowI},
+      width=0.99\columnwidth,
+      colspec={X[l] r},
+    }
+     f ? & jump to next occurance of character ? \\
+     t ? & jump to before next occurance of character ? \\
+     F ? & jump to previous occurance of character ? \\
+     T ? & jump to after previous occurance of character ? \\
+     ; & repeat f, t, F, T movement forwards \\
+     , & repeat f, t, F, T movement backwards \\
+       \kshift 5 & jump to matching delimiter in pair (), \{\}, [] \\
+    \end{tblr}
+
+    \subsection{Paragraph Motions}
+  \begin{tblr}{
+      row{odd} = {bg=SnowII},
+      row{even} = {bg=SnowI},
+      width=0.99\columnwidth,
+      colspec={X[l] r},
+    }
+     \kshift \kopt 8 & jump to previous paragraph, function or block \\
+     \kshift \kopt 9 & jump to next paragraph, function or block \\
+  \end{tblr}
+
+    \subsection{Screen Motions}
+  \begin{tblr}{
+      row{odd} = {bg=SnowII},
+      row{even} = {bg=SnowI},
+      width=0.99\columnwidth,
+      colspec={X[l] r},
+    }
+     H & move top of screen \\
+     L & move bottom of screen \\
+     M & move middle of screen \\
+     \ctrl--b & move screen up one page \\
+     \ctrl--e & move screen down one line \\
+     \ctrl--f & move screen down one page \\
+     \ctrl--d & move cursor \& screen down 1/2 page \\
+     \ctrl--u & move cursor \& screen up 1/2 page \\
+     \ctrl--y & move screen up one line \\
+     z z & center cursor on screen \\
+     z t & position cursor at top of screen \\
+     z b & position cursor at bottom of screen \\
+    \end{tblr}
+
+    \subsection{Function Motions}
+  \begin{tblr}{
+      row{odd} = {bg=SnowII},
+      row{even} = {bg=SnowI},
+      width=0.99\columnwidth,
+      colspec={X[l] r},
+    }
+     g d & move to local declaration \\
+     g D & move to global declaration \\
+    \end{tblr}
+
+\section{Insert Mode}
+  \subsection{Exit}
+   \begin{tblr}{
+      row{odd} = {bg=SnowII},
+      row{even} = {bg=SnowI},
+      width=0.99\columnwidth,
+      colspec={X[l] r},
+    }
+     \cRed{ESC} & exit insert mode \\
+     \ctrl--g & exit insert mode \\
+  \end{tblr}
+
+  \subsection{Cursors}
+  \begin{tblr}{
+      row{odd} = {bg=SnowII},
+      row{even} = {bg=SnowI},
+      width=0.99\columnwidth,
+      colspec={X[l] r},
+    }
+     a & append after the cursor \\
+     i & insert before the cursor \\
+  \end{tblr}
+
+  \subsection{Macros}
+    \begin{tblr}{
+      row{odd} = {bg=SnowII},
+      row{even} = {bg=SnowI},
+      width=0.99\columnwidth,
+      colspec={X[l] r},
+    }
+     q & stop recording a macro \\
+     q a & record macro \\
+     @a & run macro a \\
+     @@ & rerun last macro \\
+  \end{tblr}
+
+  \subsection{Lines}
+    \begin{tblr}{
+      row{odd} = {bg=SnowII},
+      row{even} = {bg=SnowI},
+      width=0.99\columnwidth,
+      colspec={X[l] r},
+    }
+     o  append new line below current line \\
+     A  insert at end of line \\
+     O  append new line above current line \\
+     I  insert at beginning of line \\
+     \ctrl--t  indent line \\
+     \ctrl--d  de-indent line \\
+     \ctrl--j  add line break current position \\
+  \end{tblr}
+
+\section{Buffers}
+
+  \subsection{Viewing Buffers}
+    \begin{tblr}{
+      row{odd} = {bg=SnowII},
+      row{even} = {bg=SnowI},
+      width=0.99\columnwidth,
+      colspec={X[l] r},
+    }
+     \kspc b b & view workspace buffers \\
+     \kspc , & view workspace buffers \\
+     \kspc b B & view all buffers \\
+     \kspc b i & view all ibuffer \\
+     \kspc b I & view workspace ibuffer \\
+  \end{tblr}
+
+  \subsection{Navigating Buffers}
+    \begin{tblr}{
+      row{odd} = {bg=SnowII},
+      row{even} = {bg=SnowI},
+      width=0.99\columnwidth,
+      colspec={X[l] r},
+    }
+     \kspc b n & next buffer \\
+     \kspc b l & previous buffer \\
+  \end{tblr}
+
+  \subsection{Creating and Deleting Buffers}
+    \begin{tblr}{
+      row{odd} = {bg=SnowII},
+      row{even} = {bg=SnowI},
+      width=0.99\columnwidth,
+      colspec={X[l] r},
+    }
+     \kspc b c & clone current buffer \\
+     \kspc b N & new empty buffer \\
+     \kspc b d & kill (delete) buffer \\
+     \kspc b k & kill (delete) buffer \\
+     \kspc b K & kill (delete) ALL buffers \\
+     \kspc b O & kill (delete) other buffers \\
+  \end{tblr}
+
+\section{Search \& Replace}
+  \subsection{Search and Replace}
+  \begin{tblr}{
+      row{odd} = {bg=SnowII},
+      row{even} = {bg=SnowI},
+      width=0.99\columnwidth,
+      colspec={X[l] r},
+    }
+    \* & select current word forwards \\
+    \# & select current word backwards \\
+    \cRed{/}pattern & search forwards for pattern \\
+    \cRed{?}pattern & search backwards for pattern \\
+    \kcmd noh & remove highlighting of search \\
+    n & search next same direction \\
+    N & search next opposite direction \\
+    \kcmd \%s/old/new/g & replace all old with new \\
+    \kcmd \%s/old/new/gc & replace all old with new confirm \\
+  \end{tblr}
+
+\section{Windows}
+  \subsection{Creating Windows}
+       \begin{tblr}{
+      row{odd} = {bg=SnowII},
+      row{even} = {bg=SnowI},
+      width=0.99\columnwidth,
+      colspec={X[l] r},
+    }
+    \kspc w n & new window \\
+    \kspc w s & split window \\
+    \kspc w S & split window and navigate to window \\
+  \end{tblr}
+
+  \subsection{Navigating Windows}
+    \begin{tblr}{
+      row{odd} = {bg=SnowII},
+      row{even} = {bg=SnowI},
+      width=0.99\columnwidth,
+      colspec={X[l] r},
+    }
+     \kspc w j & navigate to window below \\
+     \kspc w h & navigate to window left \\
+     \kspc w k & navigate to window above \\
+     \kspc w l & navigate to window right \\
+  \end{tblr}
+
+  \subsection{Moving Windows}
+     \begin{tblr}{
+      row{odd} = {bg=SnowII},
+      row{even} = {bg=SnowI},
+      width=0.99\columnwidth,
+      colspec={X[l] r},
+    }
+     \kspc w J & move window down \\
+     \kspc w H & move window left \\
+     \kspc w K & move window up \\
+     \kspc w L & move window right \\
+  \end{tblr}
+
+  \subsection{Change Window Size}
+     \begin{tblr}{
+      row{odd} = {bg=SnowII},
+      row{even} = {bg=SnowI},
+      width=0.99\columnwidth,
+      colspec={X[l] r},
+    }
+     \kspc w + & increase window height \\
+     \kspc w - & decrease window height \\
+     \kspc w < & increase window width \\
+     \kspc w < & decrease window width \\
+     \kspc w = & balance windows \\
+  \end{tblr}
+
+\columnbreak%
+\section{Normal Mode}
+
+  \subsection{Repeat, Undo and Replace}
+     \begin{tblr}{
+      row{odd} = {bg=SnowII},
+      row{even} = {bg=SnowI},
+      width=0.99\columnwidth,
+      colspec={X[l] r},
+    }
+     . & repeat last command \\
+     r & replace single character \\
+     R & replace characters until ESC \\
+     u & undo \\
+     \ctrl--r & redo \\
+  \end{tblr}
+
+  \subsection{Copy and Paste}
+     \begin{tblr}{
+      row{odd} = {bg=SnowII},
+      row{even} = {bg=SnowI},
+      width=0.99\columnwidth,
+      colspec={X[l] r},
+    }
+     p & put (paste) clipboard after cursor \\
+     y & yank (copy) \\
+     P & paste before cursor \\
+     Y & yank to end of line \\
+     y w & yank the characters from cursor to next word \\
+     y y & yank line \\
+     x p & transpose two characters \\
+     y a w & yank word and space before or after \\
+     y i w & yank word \\
+  \end{tblr}
+
+  \subsection{Delete}
+     \begin{tblr}{
+      row{odd} = {bg=SnowII},
+      row{even} = {bg=SnowI},
+      width=0.99\columnwidth,
+      colspec={X[l] r},
+    }
+     x & delete character \\
+     D & delete to end of line \\
+     d d & delete line \\
+     d w & delete word from cursor \\
+     d i w & delete word \\
+     \kcmd n,md & delete lines starting from n to m \\
+     \kcmd .,\kopt 4 d & delete from current line to end file \\
+     \kcmd .,1 d & delete from current line to start file \\
+     \kcmd n,1 d & delete from line n to start file \\
+  \end{tblr}
+
+  \subsection{Change}
+     \begin{tblr}{
+      row{odd} = {bg=SnowII},
+      row{even} = {bg=SnowI},
+      width=0.99\columnwidth,
+      colspec={X[l] r},
+    }
+     C & change to end of line \\
+     c c & change line \\
+     c w & change to end of word \\
+     c i w & change word \\
+  \end{tblr}
+
+  \subsection{Transpose Characters and Line Joins}
+
+     \begin{tblr}{
+      row{odd} = {bg=SnowII},
+      row{even} = {bg=SnowI},
+      width=0.99\columnwidth,
+      colspec={X[l] r},
+    }
+     J & join line below with line with space \\
+     g J & join line below with line with no space \\
+     x p & transpose two characters \\
+  \end{tblr}
+
+  % https://github.com/hlissner/evil-multiedit
+  \subsection{Evil Multi-Edit}
+
+     \begin{tblr}{
+      row{odd} = {bg=SnowII},
+      row{even} = {bg=SnowI},
+      width=0.99\columnwidth,
+      colspec={X[l] r},
+    }
+     D & clear the region \\
+     C & clear to end of region and go into insert mode \\
+     A & go into insert mode at end of region \\
+     I & go into insert mode at start of region \\
+     R & highlight all matches of selection in buffer \\
+     P & replace highlighted region with the clipboard \\
+     V & select the region \\
+     \$ & go to end of region \\
+     0 & go to start of region \\
+     gg & go to first region \\
+     G & go to last region \\
+     \kenter & toggle selected region under cursor \\
+     \meta--d & match next selected region \\
+     \meta--D & match previous selected region \\
+     \ctrl--n & move to next selected region \\
+     \ctrl--N & move to previous selected region \\
+     \meta--\ctrl--D & restore last groupe multi-edit regions \\
+  \end{tblr}
+
+  \subsection{Text Indentation}
+
+     \begin{tblr}{
+      row{odd} = {bg=SnowII},
+      row{even} = {bg=SnowI},
+      width=0.99\columnwidth,
+      colspec={X[l] r},
+    }
+     > > & move indent right \\
+     < < & move indent left (de-indent) \\
+     > \% & indent () or \{\} block (cursor on bracket) \\
+     < \% & de-indent () or \{\} block (cursor on bracket) \\
+     > i b & indent inner block \\
+     > i B & re-indent inner block \\
+     > a t & indent block with < > tags \\
+     = \% & re-indent () or \{\} block (cursor on bracket) \\
+     g g = G & re-indent entire buffer \\
+  \end{tblr}
+
+  \subsection{Text Folding}
+     \begin{tblr}{
+      row{odd} = {bg=SnowII},
+      row{even} = {bg=SnowI},
+      width=0.99\columnwidth,
+      colspec={X[l] r},
+    }
+     z a & toggle folds \\
+     z o & open folds \\
+     z c & close fold \\
+     z C & outline hide subtree (org) \\
+     z m & hide next fold level \\
+     z M & close all folds \\
+     z r & fold less \\
+     z x & update folds \\
+     z v & open fold this line \\
+     z i & toggle inline images \\
+     z A & toggle folds recursively \\
+     z C & close folds recursively \\
+     z M & close all \\
+     z o & open fold \\
+     z O & open fold recursively \\
+     z r & open next fold \\
+     z R & open all folds \\
+  \end{tblr}
+
+
+
+\section{Visual Mode}
+  \subsection{Visual Mode}
+  \sectionbox{
+    Entering Visual Mode
+    }
+     \begin{tblr}{
+      row{odd} = {bg=SnowII},
+      row{even} = {bg=SnowI},
+      width=0.99\columnwidth,
+      colspec={X[l] r},
+    }
+     v & start visual mode, mark region  \\
+     V & start visual-line mode \\
+     \ctrl v & start visual-block mode \\
+     A & insert mode at end of region \\
+     I & insert mode at start of region \\
+     o & toggle cursor to other end of marked region \\
+     \cRed{ESC} & exit visual mode \\
+  \end{tblr}
+
+  \subsection{Mark Regions}
+     \begin{tblr}{
+      row{odd} = {bg=SnowII},
+      row{even} = {bg=SnowI},
+      width=0.99\columnwidth,
+      colspec={X[l] r},
+    }
+     a w & mark a word \\
+     a b & mark a () block\\
+     a ( & mark a () block\\
+     a B & mark a \{\} block\\
+     a \textbraceleft & mark a \{\} block\\
+     a t & mark a <> tags block\\
+     i b & mark the inner of () block\\
+     i B & mark the inner of \{\} block\\
+     i p & mark the inner of paragraph\\
+     i t & mark the inner of <> tags block\\
+  \end{tblr}
+
+  \subsection{Surround Mode}
+
+     \begin{tblr}{
+      row{odd} = {bg=SnowII},
+      row{even} = {bg=SnowI},
+      width=0.99\columnwidth,
+      colspec={X[l] r},
+    }
+     S & surround a region of text \\
+     S <tagName \kenter & surround region with given tag name \\
+     S ( \kenter & surround region () \\
+  \end{tblr}
+
+  \subsection{Actions on Regions}
+
+     \begin{tblr}{
+      row{odd} = {bg=SnowII},
+      row{even} = {bg=SnowI},
+      width=0.99\columnwidth,
+      colspec={X[l] r},
+    }
+     d & delete marked text \\
+     y & yank (copy) marked text \\
+     u & change to lowercase \\
+     U & change to uppercase \\
+     \kopt .. & switch case (key beside return key) \\
+  \end{tblr}
+
+\section{Python}
+  \subsection{Running Python}
+
+     \begin{tblr}{
+      row{odd} = {bg=SnowII},
+      row{even} = {bg=SnowI},
+      width=0.99\columnwidth,
+      colspec={X[l] r},
+    }
+     \meta--x run-python & start a python REPL \\
+     \ctrl--c \meta--o & clear python REPL \\
+  \end{tblr}
+
+\section{Customizations}
+
+  \subsection{Themes}
+
+     \begin{tblr}{
+      row{odd} = {bg=SnowII},
+      row{even} = {bg=SnowI},
+      width=0.99\columnwidth,
+      colspec={X[l] r},
+    }
+     \kspc h t & choose (consult) theme \\
+     \kspc h r t & reload theme \\
+  \end{tblr}
+
+\columnbreak%
+\section{Dired - File Management}
+
+  \subsection{Starting Dired}
+
+     \begin{tblr}{
+      row{odd} = {bg=SnowII},
+      row{even} = {bg=SnowI},
+      width=0.99\columnwidth,
+      colspec={X[l] r},
+    }
+     \kspc f d & open directory in dired (prompts you) \\
+     \kspc o - & open current directory in dired \\
+     \kspc p . & open project root in dired \\
+     q & kill all dired buffers \\
+  \end{tblr}
+
+  \subsection{Directory Navigation}
+
+     \begin{tblr}{
+      row{odd} = {bg=SnowII},
+      row{even} = {bg=SnowI},
+      width=0.99\columnwidth,
+      colspec={X[l] r},
+    }
+     \kenter & Visit the file/directory new buffer \\
+     - & go up one directory \\
+     ( & toggle file info detail \\
+     ) & dired-git-info-mode \\
+     = & diff files \\
+     a & visit file/directory same buffer \\
+     g r & refresh in the dired directory \\
+     g o & visit the file in the other directory \\
+  \end{tblr}
+
+  \subsection{Marking Files \& Directories}
+
+     \begin{tblr}{
+      row{odd} = {bg=SnowII},
+      row{even} = {bg=SnowI},
+      width=0.99\columnwidth,
+      colspec={X[l] r},
+    }
+     d & mark file(s) for deletion \\
+     m & mark files \\
+     q & kill all dired buffers \\
+     u & unmark a file/directory \\
+     U & unmark all marked file/directory \\
+     \% m & mark files by regexp \\
+     ! & run shell command on marked files \\
+  \end{tblr}
+
+  \subsection{Creating \& Delete}
+
+     \begin{tblr}{
+      row{odd} = {bg=SnowII},
+      row{even} = {bg=SnowI},
+      width=0.99\columnwidth,
+      colspec={X[l] r},
+    }
+     \kspc . & create new file \\
+     \kspc f f & create new file \\
+     + & create directory \\
+     D & delete the file at point \\
+     x & delete marked files \\
+     Z & zip (compress) a file/directory \\
+  \end{tblr}
+
+  \subsection{Copy \& Rename}
+
+     \begin{tblr}{
+      row{odd} = {bg=SnowII},
+      row{even} = {bg=SnowI},
+      width=0.99\columnwidth,
+      colspec={X[l] r},
+    }
+     C & copy the file at point \\
+     q & kill all dired buffers \\
+     R & rename the file at point \\
+     = & diff files \\
+  \end{tblr}
+
+  \subsection{Bulk Renaming files/directories}
+  \sectionbox{Steps renaming files/directories in bulk}
+
+     \begin{tblr}{
+      row{odd} = {bg=SnowII},
+      row{even} = {bg=SnowI},
+      width=0.99\columnwidth,
+      colspec={X[l] r},
+    }
+     \textbf{Step 1:} \ctrl--c, \ctrl--e & open writable grep buffer \\
+     \textbf{Step 2:} & rename files \& directories in the buffer. \\
+     \textbf{Step 3:} \ctrl--c, \ctrl--c & commit changes \\
+     \\
+     \ctrl--c, \ctrl--k & abort changes at any time \\
+  \end{tblr}
+
+\columnbreak%
+
+\section{Org-Mode}
+  \subsection{Headings}
+
+     \begin{tblr}{
+      row{odd} = {bg=SnowII},
+      row{even} = {bg=SnowI},
+      width=0.99\columnwidth,
+      colspec={X[l] r},
+    }
+     \kshift--\kenter & create headline of same type below \\
+     \kshift--\ctrl--\kenter & create headline of same type above \\
+     \meta--h & move heading left (promote) \\
+     \meta--l & move heading right (demote) \\
+     \meta--k & move heading up \\
+     \meta--j & move heading down \\
+     \kshift--\meta--h & move heading and children left \\
+     \kshift--\meta--l & move heading and children right \\
+     \kshift--\meta--k & move heading and children up \\
+     \kshift--\meta--j & move heading and children down \\
+  \end{tblr}
+
+  \subsection{Links}
+
+     \begin{tblr}{
+      row{odd} = {bg=SnowII},
+      row{even} = {bg=SnowI},
+      width=0.99\columnwidth,
+      colspec={X[l] r},
+    }
+     \kspc m l c & clipboard link \\
+    % \kspc m l g & macos link \\
+     \kspc m l l & create link \\
+     \kspc m l d & delete link \\
+     \kspc m l s & store link \\
+     \kspc m l S & insert last stored link \\
+     \kspc m l t & toggle link display \\
+  \end{tblr}
+
+  \subsection{Babel Source Code Blocks}
+
+     \begin{tblr}{
+      row{odd} = {bg=SnowII},
+      row{even} = {bg=SnowI},
+      width=0.99\columnwidth,
+      colspec={X[l] r},
+    }
+     src \ktab & create a babel source block \\
+     \ctrl--c \ctrl--c & run babel block \\
+     \kspc m k & remove babel output \\
+     \kspc m K & remove all babel output \\
+  \end{tblr}
+  \sectionbox{
+\begin{minted}{elisp}
+#+begin_src web
+;; your html code goes here
+#+end_src
+\end{minted}
+}
+
+  \subsection{Org-Agenda}
+
+     \begin{tblr}{
+      row{odd} = {bg=SnowII},
+      row{even} = {bg=SnowI},
+      width=0.99\columnwidth,
+      colspec={X[l] r},
+    }
+     \kspc m d & agenda deadline \\
+     \kspc m s & agenda schedule \\
+  \end{tblr}
+
+  \subsection{Org-Agenda Clock}
+
+     \begin{tblr}{
+      row{odd} = {bg=SnowII},
+      row{even} = {bg=SnowI},
+      width=0.99\columnwidth,
+      colspec={X[l] r},
+    }
+     \kspc m c c & clock cancel \\
+     \kspc m c g & goto clock \\
+     \kspc m c i & clock in \\
+     \kspc m c o & clock out \\
+     \kspc m c r & clock report mode \\
+     \kspc m c s & show clocking issues \\
+  \end{tblr}
+
+  \subsection{Calendar Minibuffer}
+
+     \begin{tblr}{
+      row{odd} = {bg=SnowII},
+      row{even} = {bg=SnowI},
+      width=0.99\columnwidth,
+      colspec={X[l] r},
+    }
+     \ctrl--h & backward 1 day \\
+     \ctrl--l & forward 1 day \\
+     \ctrl--k & backward 1 week \\
+     \ctrl--j & forward 1 week \\
+     \kshift--\ctrl--h & backward 1 month \\
+     \kshift--\ctrl--l & forward 1 month \\
+     \kshift--\ctrl--k & backward 1 year \\
+     \kshift--\ctrl--j & forward 1 year \\
+  \end{tblr}
+
+  \subsection{Org Tree/Subtree}
+
+     \begin{tblr}{
+      row{odd} = {bg=SnowII},
+      row{even} = {bg=SnowI},
+      width=0.99\columnwidth,
+      colspec={X[l] r},
+    }
+     \kspc m s b & tree to indirect buffer \\
+     \kspc m s c & clone subtree with time shift \\
+     \kspc m s d & cut subtree \\
+     \kspc m s h & promote subtree \\
+     \kspc m s j & move subtree down \\
+     \kspc m s k & move subtree up \\
+     \kspc m s l & demote subtree \\
+     \kspc m s n & narrow to subtree \\
+     \kspc m s N & widen \\
+     \kspc m s r & org refile \\
+     \kspc m s s & sparse tree \\
+     \kspc m s S & org sort \\
+     \kspc m s A & archive subtree \\
+  \end{tblr}
+
+\end{multicols}
+\end{document}

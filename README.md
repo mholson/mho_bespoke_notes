@@ -12,6 +12,8 @@ Happy TeX-ing!
 ## Cheatsheets
 ### Doom Emacs Cheatsheet
 ![Doom Emacs Cheatsheet](/assets/latex-cheatsheet-doomEmacs.png)
+- [tex](/main/0-reference_emacs_doom.tex)
+- [pdf](/main/0-reference_emacs_doom.pdf)
 ## Notebooks
 
 ## Exams
