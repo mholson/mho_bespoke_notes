@@ -4,8 +4,9 @@
 This repository is a collection of my public facing tex files 
 and my custom style files.  Some files will not work out of the 
 box because the appropriate assets, such as images, are not 
-part of this repository.  However, I do that it might ignite 
-some inspiration for your own setups.
+part of this repository.  However, I do hope that this brings 
+someone a little tex inspiration for their own setup much in the 
+same way that I have benefited from the shared work of others.
 
 ## Cheatsheets
 
