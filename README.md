@@ -13,9 +13,9 @@ Happy TeX-ing!
 ### Doom Emacs Cheatsheet
 ![Doom Emacs Cheatsheet](/assets/latex-cheatsheet-doomEmacs.png)
 
-> [!NOTE] 
-> View File: [tex](/main/0-reference_emacs_doom.tex)
-> View File: [pdf](/main/0-reference_emacs_doom.pdf)
+**Files** 
+- [0-reference_emacs_doom.tex](/main/0-reference_emacs_doom.tex)
+- [0-reference_emacs_doom.pdf](/main/0-reference_emacs_doom.pdf)
 
 ## Notebooks
 
