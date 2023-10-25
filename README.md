@@ -1,12 +1,13 @@
 ![GitHub Banner](/assets/mho_latex.png)
 # mho LaTeX
 
-This repository is a collection of my public facing tex files 
-and my custom style files.  Some files will not work out of the 
-box because the appropriate assets, such as images, are not 
-part of this repository.  However, I do hope that this brings 
-someone a little tex inspiration for their own setup much in the 
-same way that I have benefited from the shared work of others.
+Welcome to this repository! It serves as a collection of my public-facing LaTeX (often pronounced "Lay-tech" or "Lah-tech") files, accompanied by my custom style files.
+
+Please be aware that some of these files might not compile successfully right out-of-the-box. This is mainly due to certain assets, like images, that are required but not included in this repository.
+
+I genuinely hope that my work sparks a bit of LaTeX inspiration in your projects. I've been greatly inspired by the generous contributions of the community, and I aim to give back in the same spirit.
+
+Happy TeX-ing!
 
 ## Cheatsheets
 ### Doom Emacs Cheatsheet
