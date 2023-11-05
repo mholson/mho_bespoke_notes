@@ -21,22 +21,15 @@ Happy TeX-ing!
 ### Doom Emacs Cheatsheet
 ![Doom Emacs Cheatsheet](/assets/latex-cheatsheet-doomEmacs.png)
 
-<table>
-<tr><th align="center"> **Dependencies**</th></tr>
-<tr><th align="center">
-**Files** </th></tr>
-<tr>
-<th>
-<p>[mhocheatsheet.sty](/texmf/mhocheatsheet.sty)</p>
-<p>[mhocolorpalettesthlmnord.sty](/texmf/mhocolorpalettesthlmnord.sty)</p>
-<p>[mhominted.sty](/texmf/mhominted.sty)</p>
-</th>
-<th>
-<p> [0-reference_emacs_doom.tex](/main/0-reference_emacs_doom.tex)</p> 
-<p> [0-reference_emacs_doom.pdf](/main/0-reference_emacs_doom.pdf)</p>
-</th>
-</tr>
-</table>
+**Dependencies**
+- [mhocheatsheet.sty](/texmf/mhocheatsheet.sty)
+- [mhocolorpalettesthlmnord.sty](/texmf/mhocolorpalettesthlmnord.sty)
+- [mhominted.sty](/texmf/mhominted.sty)
+
+ 
+**Files** 
+- [0-reference_emacs_doom.tex](/main/0-reference_emacs_doom.tex)
+- [0-reference_emacs_doom.pdf](/main/0-reference_emacs_doom.pdf)
 
 ## Notebooks
 
