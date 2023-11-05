@@ -25,7 +25,7 @@ Happy TeX-ing!
 - [mhocheatsheet.sty](/texmf/mhocheatsheet.sty)
 - [mhocolorpalettesthlmnord.sty](/texmf/mhocolorpalettesthlmnord.sty)
 - [mhominted.sty](/texmf/mhominted.sty)
- fs
+ 
 **Files** 
 - [0-reference_emacs_doom.tex](/main/0-reference_emacs_doom.tex)
 - [0-reference_emacs_doom.pdf](/main/0-reference_emacs_doom.pdf)
