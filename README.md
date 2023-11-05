@@ -1,4 +1,4 @@
-![GitHub Banner](/assets/mho_latex.png)
+![GitHub Banner](/assets/bespoke_notes.png)
 # mho LaTeX (maybe someday Typst)
 
 This repository serves as a collection of my public-facing LaTeX (often pronounced "Lay-tech" or "Lah-tech") files, accompanied by my custom style files and management scripts (currently written in Python).
