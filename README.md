@@ -17,8 +17,8 @@ Happy TeX-ing!
 # Scripts
 ## Generating TeX and Org Files
 ![mho Bespoke Script](/assets/images/mho_bespoke_script.png)
-## Cheatsheets
-### Doom Emacs Cheatsheet
+# Cheatsheets
+## Doom Emacs Cheatsheet
 ![Doom Emacs Cheatsheet](/assets/images/latex-cheatsheet-doomEmacs.png)
 
 **Dependencies**
@@ -31,8 +31,29 @@ Happy TeX-ing!
 - [0-reference_emacs_doom.tex](/main/0-reference_emacs_doom.tex)
 - [0-reference_emacs_doom.pdf](/main/0-reference_emacs_doom.pdf)
 
-## Notebooks
+# Notebooks
 
-## Exams
+# Exams
+
+# TiKz Images
+<p align="center">
+  <figure style="display: inline-block; width: 100%; margin: 10px;">
+    <img src="/assets/tikz/imgs_tikz-058w.png" alt="058w" style="width: 100%;">
+    <figcaption>05wm</figcaption>
+  </figure>
+<p align="center">
+  <figure style="display: inline-block; width: 30%; margin: 10px;">
+    <img src="/assets/tikz/imgs_tikz-05wm.png" alt="Caption for image4" style="width: 100%;">
+    <figcaption>05wm</figcaption>
+  </figure>
+  <figure style="display: inline-block; width: 30%; margin: 10px;">
+    <img src="/assets/tikz/imgs_tikz-0136.png.jpg" alt="Caption for image5" style="width: 100%;">
+    <figcaption>0136</figcaption>
+  </figure>
+  <figure style="display: inline-block; width: 30%; margin: 10px;">
+    <img src="/assets/tikz/imgs_tikz-059t" alt="Caption for image6" style="width: 100%;">
+    <figcaption>059t</figcaption>
+  </figure>
+</p>
 
  
