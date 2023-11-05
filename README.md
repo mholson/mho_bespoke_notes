@@ -16,7 +16,7 @@ Happy TeX-ing!
 
 # Scripts
 ## Generating TeX and Org Files
-
+![mho Bespoke Script](/assets/mho_bespoke_script.png)
 ## Cheatsheets
 ### Doom Emacs Cheatsheet
 ![Doom Emacs Cheatsheet](/assets/latex-cheatsheet-doomEmacs.png)
