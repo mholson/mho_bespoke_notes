@@ -1,4 +1,4 @@
-![GitHub Banner](/assets/bespoke_notes.png)
+![GitHub Banner](/assets/images/bespoke_notes.png)
 # mho Bespoke Notes 
 
 This repository serves as a collection of my public-facing notes which are currently typeset using LaTeX (often pronounced "Lay-tech" or "Lah-tech").  
@@ -16,10 +16,10 @@ Happy TeX-ing!
 
 # Scripts
 ## Generating TeX and Org Files
-![mho Bespoke Script](/assets/mho_bespoke_script.png)
+![mho Bespoke Script](/assets/images/mho_bespoke_script.png)
 ## Cheatsheets
 ### Doom Emacs Cheatsheet
-![Doom Emacs Cheatsheet](/assets/latex-cheatsheet-doomEmacs.png)
+![Doom Emacs Cheatsheet](/assets/images/latex-cheatsheet-doomEmacs.png)
 
 **Dependencies**
 - [mhocheatsheet.sty](/texmf/mhocheatsheet.sty)
