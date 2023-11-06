@@ -37,6 +37,8 @@ Happy TeX-ing!
 
 # TiKz Images
 
+
+| &nbsp; | &nbsp; |
 | :----: | :----: |
 | [058w](/assets/tikz/imgs_tikz-058w.png) | [05wm](/assets/tikz/imgs_tikz-05wm.png) |
 | [`058w.tex`](/assets/tikz/imgs_tikz-058w.tex) | [`05wm.tex`](/assets/tikz/imgs_tikz-05wm.tex) |
