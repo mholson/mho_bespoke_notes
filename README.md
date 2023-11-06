@@ -36,24 +36,11 @@ Happy TeX-ing!
 # Exams
 
 # TiKz Images
-<p align="center">
-  <figure style="display: inline-block; width: 100%; margin: 10px;">
-    <img src="/assets/tikz/imgs_tikz-058w.png" alt="058w" style="width: 100%;">
-    <figcaption>05wm</figcaption>
-  </figure>
-<p align="center">
-  <figure style="display: inline-block; width: 30%; margin: 10px;">
-    <img src="/assets/tikz/imgs_tikz-05wm.png" alt="Caption for image4" style="width: 100%;">
-    <figcaption>05wm</figcaption>
-  </figure>
-  <figure style="display: inline-block; width: 30%; margin: 10px;">
-    <img src="/assets/tikz/imgs_tikz-0136.png.jpg" alt="Caption for image5" style="width: 100%;">
-    <figcaption>0136</figcaption>
-  </figure>
-  <figure style="display: inline-block; width: 30%; margin: 10px;">
-    <img src="/assets/tikz/imgs_tikz-059t" alt="Caption for image6" style="width: 100%;">
-    <figcaption>059t</figcaption>
-  </figure>
-</p>
+|:---:|:---:|
+|[058w](/assets/tikz/imgs_tikz-058w.png)|[05wm](/assets/tikz/imgs_tikz-05wm.png)|
+|[`058w.tex`](/assets/tikz/imgs_tikz-058w.tex)|[`05wm.tex`](/assets/tikz/imgs_tikz-05wm.tex)|
+|[058w](/assets/tikz/imgs_tikz-058w.png)|[05wm](/assets/tikz/imgs_tikz-05wm.png)|
+|[`058w.tex`](/assets/tikz/imgs_tikz-058w.tex)|[`05wm.tex`](/assets/tikz/imgs_tikz-05wm.tex)|
+|:---:|:---:|
 
  
