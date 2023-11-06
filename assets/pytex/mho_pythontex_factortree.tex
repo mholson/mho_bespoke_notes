@@ -1,0 +1,41 @@
+% Code to generate the trees using pythontex, forest and 
+% https://tex.stackexchange.com/a/132145
+\usepackage{mhocolorpalettesthlmnord}
+\usepackage{mhofonts}
+\usepackage{mhomacros}
+\usepackage{mhotikz}
+\usepackage{forest}
+\usepackage{pythontex}
+\begin{pycode}
+from math import sqrt
+def generate_tree(number):
+        global tree_text
+        tree_text = ""
+        def prime_factors_recursive(n, level):
+                """Finds the prime factors of 'n' and generates text representation
+                     according to tikz forest package.
+                """
+                limit = int(sqrt(n)) + 1
+                divisor = 2
+                num = n
+                level += 1
+                global tree_text
+                tree_text = tree_text + "["
+                for divisor in range(2, limit):
+                        if (num % divisor == 0):
+                                num /= divisor
+                                tree_text = tree_text + "%d [%d,circle,fill=LightTeal,draw] " %(n, divisor)
+                                return (n, (divisor, prime_factors_recursive(num, level)))
+                tree_text = tree_text + "%d,circle,fill=LightTeal,draw" %(n)
+                for i in range(level):
+                        tree_text = tree_text + "]"
+                return (n,)
+
+        prime_factors_recursive(number, 0)
+        output = r'\begin{forest}' + tree_text + r'\end{forest}'
+        return output
+\end{pycode}
+
+\newcommand{\PrimeTree}[1]{%
+\py{generate_tree(#1)}
+}

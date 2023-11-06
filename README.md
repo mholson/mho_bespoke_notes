@@ -35,9 +35,9 @@ Happy TeX-ing!
 
 # Exams
 
-# TiKz Images
+# Generated Images
 
-## TiKz
+## Images Generated using TiKz
 
 | &nbsp; | &nbsp; |
 | :----: | :----: |
@@ -48,9 +48,19 @@ Happy TeX-ing!
 | ![05c9](/assets/png/imgs_tikz-05c9.png) | ![01pk](/assets/png/imgs_tikz-01pk.png) |
 | [`05c9.tex`](/assets/tikz/imgs_tikz-05c9.tex) | [`01pk.tex`](/assets/tikz/imgs_tikz-01pk.tex) |
  
-## TkZ
+## Images Generated using TkZ
 
 | &nbsp; | &nbsp; |
 | :----: | :----: |
 | ![05ee](/assets/png/imgs_tikz-05ee.png) | ![05ej](/assets/png/imgs_tikz-05ej.png) |
 | [`05ee.tex`](/assets/tikz/imgs_tikz-05ee.tex) | [`05ej.tex`](/assets/tikz/imgs_tikz-05ej.tex) |
+
+## Images Generated using PythonTex
+
+### Generating Factor Trees
+
+| Factor Trees | 
+| :----: |
+| ![primetree-990](/assets/png/imgs_pytex_primetree-990.png) | 
+|[`mho_primetree_texfile_generator.py`](/assets/pytex/mho_primetree_texfile_generator.py) [`mho_pythontex_factortree.tex`](/assets/pytex/mho_pythontex_factortree.tex) [`imgs_pytex_primetree-990.tex`](/assets/pytex/imgs_pytex_primetree-990.tex)|
+
