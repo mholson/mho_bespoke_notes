@@ -37,12 +37,19 @@ Happy TeX-ing!
 
 # TiKz Images
 
+## TiKz
 
 | &nbsp; | &nbsp; |
 | :----: | :----: |
-| ![058w](/assets/tikz/imgs_tikz-058w.png) | ![05wm](/assets/tikz/imgs_tikz-05wm.png) |
+| ![058w](/assets/png/imgs_tikz-058w.png) | ![05wm](/assets/png/imgs_tikz-05wm.png) |
 | [`058w.tex`](/assets/tikz/imgs_tikz-058w.tex) | [`05wm.tex`](/assets/tikz/imgs_tikz-05wm.tex) |
-| ![058w](/assets/tikz/imgs_tikz-058w.png) | ![05wm](/assets/tikz/imgs_tikz-05wm.png) |
-| [`058w.tex`](/assets/tikz/imgs_tikz-058w.tex) | [`05wm.tex`](/assets/tikz/imgs_tikz-05wm.tex) |
+| ![059t](/assets/png/imgs_tikz-059t.png) | ![05wm](/assets/png/imgs_tikz-0136.png) |
+| [`059t.tex`](/assets/tikz/imgs_tikz-059t.tex) | [`05wm.tex`](/assets/tikz/imgs_tikz-0136.tex) |
 
  
+## TkZ
+
+| &nbsp; | &nbsp; |
+| :----: | :----: |
+| ![05ee](/assets/png/imgs_tikz-05ee.png) | ![05ej](/assets/png/imgs_tikz-05ej.png) |
+| [`05ee.tex`](/assets/tikz/imgs_tikz-05ee.tex) | [`05ej.tex`](/assets/tikz/imgs_tikz-05ej.tex) |

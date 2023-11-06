@@ -1,0 +1,26 @@
+\documentclass[crop]{standalone}
+
+\usepackage{mhocolorpalettesthlmnord}
+\usepackage{mhofonts}
+\usepackage{mhomacros}
+\usepackage{mhotikz}
+\usepackage{mhotkz}
+\begin{document}
+\begin{tikzpicture}[scale=1.5] 
+	\tkzDefPoints{0/0/O, 1/0/A}
+	\tkzDefPointBy[rotation=center O angle 85](A)
+	\tkzGetPoint{B}
+	\tkzDefPointBy[rotation=center O angle -45](A)
+	\tkzGetPoint{C}
+	\tkzDefPointBy[rotation=center O angle -135](A)
+	\tkzGetPoint{D}
+	\tkzDrawCircle[color=Blue](O,A)
+	\tkzFillCircle[color=Blue!0](O,A)
+	\tkzFillAngles[fill=LightTeal, size=0.5, opacity=0.8](D,O,C)
+	\tkzFillAngles[fill=LightTeal, size=0.5, opacity=0.8](D,B,C)
+	\tkzDrawSegments[color=Blue](C,B D,B C,O D,O)
+	\tkzDrawPoints[size=1](O)
+	\tkzLabelAngles[pos=0.25,font=\scriptsize](D,O,C){\( \ang{102} \)}
+	\tkzLabelAngles[pos=0.25,font=\scriptsize](D,B,C){\( x \)}
+\end{tikzpicture}
+\end{document}

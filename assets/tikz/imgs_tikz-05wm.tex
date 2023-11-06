@@ -1,0 +1,22 @@
+\documentclass[crop]{standalone}
+\usepackage{mhocolorpalettesthlmnord}
+\usepackage{mhofonts}
+\usepackage{mhomacros}
+\usepackage{mhotikz}
+\usepackage{mhotkz}
+\begin{document}
+\begin{tikzpicture}
+\tkzDefPoints{0/0/O, 2/0/A,2/4/B,-2/0/C,-2/4/D, 0/8.1/P, 4/8.1/Q, -4/0/F, 4/0/G, 0/4/K}
+\tkzDrawPolygon[fill=Orange!15](F,G,P)
+\draw[color=SteelI, line width = 1pt, fill=Orange!40] (0,0) ellipse (4cm and 0.8cm);  % Define the ellipse for the base of the cone
+\tkzDrawPolygon[fill=Teal!15](O,A,B,D,C)
+\draw[color=SteelI, line width = 1pt, fill=Teal] (0,0) ellipse (2cm and 0.5cm);  % Define the ellipse for the base of the cylinder
+\draw (0,4)[color=SteelI, line width = 1pt, fill=Teal] ellipse (2cm and 0.5cm);  % Define the ellipse for the base
+\tkzDrawSegments[color=SteelI, line width = 1pt](A,B C,D)
+\tkzDrawSegments[color=SteelI, line width = 1pt](F,P G,P)
+\tkzDrawPoints[color=SteelI,size=5](O,K)
+\tkzDrawSegments[color=SteelI, line width = 1pt,dashed](O,A K,B)
+\tkzDrawSegment[dim={$d$,16pt,above=6pt,font=\large}, color=SteelI](Q,G)
+\tkzDrawSegment[dim={$d$,38pt,below=6pt,font=\large}, color=SteelI](G,F)
+\end{tikzpicture}
+\end{document}

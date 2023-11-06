@@ -1,0 +1,42 @@
+\documentclass[crop]{standalone}
+
+\usepackage{mhocolorpalettesthlmnord}
+\usepackage{mhofonts}
+\usepackage{mhomacros}
+\usepackage{mhotikz}
+
+\begin{document}
+\begin{tikzpicture}[scale=1, auto]
+% Place nodes
+\node[firstterm](11){\( x \)}; 
+\node[terms,right=of 11](plus1){\( + \) };
+\node[secondterm, right=of plus1](12){\( 6 \)};
+\node[firstterm, below=of 11](21){ \( x \) }; 
+\node[terms,right=of 21](plus2){\( + \) };
+\node[secondterm, right=of plus2](22){\( \oneg 5 \)};
+
+\node[multiply1, below=of 21](31){ \( x^2 \) };
+\node[multiply2, below=of 22](32){ \( \oneg 30 \) };
+
+\node[xmultiply, right=of 12](13){\( 6x \)};
+\node[xmultiply, right=of 22](23){\( \oneg 5x \)};
+
+\node[add, below=of 23](33){ \( x \) };
+
+\path[lineRed](11) edge[binomsleftarrow]node[leftarrowmul]{ \( \times \)}(21);
+\path[lineBlue](12) edge[binomsrightarrow]node[rightarrowmul]{ \( \times \)}(22);
+\path[lineRed](21)--(31);
+
+\path[lineTeal](21)--(12);
+\path[lineTeal](11)--(22);
+\path[lineBlue](22)--(32);
+
+\path[lineTeal](12)--(13);
+\path[lineTeal](22)--(23);
+
+\path[lineTeal](13)--node[downarrowadd]{ \( + \) }(23);
+\path[lineTeal](23)--(33);
+\node[xcheck] at ($(plus1)!0.5!(plus2)$){\( \times \) };
+
+\end{tikzpicture}
+\end{document}
