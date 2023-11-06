@@ -61,5 +61,54 @@ Happy TeX-ing!
 
 ![mho_pythontex_prime_tree_generator](/assets/images/mho_pythontex_prime_tree_generator.png) 
 
+The files `mho_primetree_texfile_generator.py` and `mho_pythontex_factortree.tex` need to be placed in the same directory.  For me this is `~/../assets/pytex`.  
+
+**Step 1:** 
+
+``` shell
+python mho_primetree_textfile_generator.py
+```
+
+This will generate an individual tex file of the form `imgs_pytex_primetree-###.tex`
+for each composite integer on a given range included in the script file (default: 4-1001). 
+Each of these files need to be individually compiled and have `pythontex` run.  
+In my workflow, this is automatically taken care of by the `tex_all.py` script that 
+automates the compilation of all my LaTeX files.
+
+The code used to generate the trees using pythontex, forest and python
+was referenced from [Stack Exchange](https://tex.stackexchange.com/a/132145).
+
+If you just want to create a specific factor tree, then you can create a tex file, 
+such as the example given and place the following code in it.  Notice that the 
+argument passed into the `PrimeTree{990}` command is the composite integer that 
+you want to generate a tree that includes it's prime factors.
+
+```latex
+\documentclass[crop, varwidth]{standalone}
+\input{mho_pythontex_factortree}
+\begin{document}
+\PrimeTree{990}
+\end{document}
+
+```
+
+#### Dependencies 
+
+##### LaTex
+
+- [mhocolorpalettesthlmnord.sty](/texmf/mhocolorpalettesthlmnord.sty)
+- [mhofonts.sty](/texmf/mhofonts.sty)
+- [mhomacros.sty](/texmf/mhomacros.sty)
+- [mhotikz.sty](/texmf/mhotikz.sty)
+- [forest](https://ctan.org/pkg/forest) 
+- [pythontex](https://ctan.org/pkg/pythontex)
+
+##### Python
+
+- math
+
+#### Files
+
 - [`mho_primetree_texfile_generator.py`](/assets/pytex/mho_primetree_texfile_generator.py)
-- [`mho_pythontex_factortree.tex`](/assets/pytex/mho_pythontex_factortree.tex) - [`imgs_pytex_primetree-990.tex`](/assets/pytex/imgs_pytex_primetree-990.tex)|
+- [`mho_pythontex_factortree.tex`](/assets/pytex/mho_pythontex_factortree.tex) 
+- [`imgs_pytex_primetree-990.tex`](/assets/pytex/imgs_pytex_primetree-990.tex)
