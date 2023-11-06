@@ -43,9 +43,10 @@ Happy TeX-ing!
 | :----: | :----: |
 | ![058w](/assets/png/imgs_tikz-058w.png) | ![05wm](/assets/png/imgs_tikz-05wm.png) |
 | [`058w.tex`](/assets/tikz/imgs_tikz-058w.tex) | [`05wm.tex`](/assets/tikz/imgs_tikz-05wm.tex) |
-| ![059t](/assets/png/imgs_tikz-059t.png) | ![05wm](/assets/png/imgs_tikz-0136.png) |
-| [`059t.tex`](/assets/tikz/imgs_tikz-059t.tex) | [`05wm.tex`](/assets/tikz/imgs_tikz-0136.tex) |
-
+| ![059t](/assets/png/imgs_tikz-059t.png) | ![0136](/assets/png/imgs_tikz-0136.png) |
+| [`059t.tex`](/assets/tikz/imgs_tikz-059t.tex) | [`0136.tex`](/assets/tikz/imgs_tikz-0136.tex) |
+| ![05c9](/assets/png/imgs_tikz-05c9.png) | ![01pk](/assets/png/imgs_tikz-01pk.png) |
+| [`05c9.tex`](/assets/tikz/imgs_tikz-05c9.tex) | [`01pk.tex`](/assets/tikz/imgs_tikz-01pk.tex) |
  
 ## TkZ
 

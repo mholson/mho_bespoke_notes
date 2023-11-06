@@ -1,0 +1,51 @@
+\documentclass[crop]{standalone}
+
+\usepackage{mhocolorpalettesthlmnord}
+\usepackage{istgame}
+\usepackage{mhotikz}
+\usepackage{mhomacros}
+\usepackage{mhofonts}
+
+
+\begin{document}
+  \begin{istgame}[font=\footnotesize]
+
+    \setistgrowdirection'{east}
+    \setistEllipseNodeStyle{20pt}
+
+    \xtdistance{15mm}{35mm}
+    \istrooto(0)(0,0)
+    \istb{P(\cOrange{A})}[al]
+    \istb{P(\cBlue{B})}[bl]
+    \endist
+
+    \xtdistance{15mm}{25mm}
+    \istrooto(1)(0-1)[white, fill=Orange]{\(A\)}
+    \istb{P(\cOrange{A} \mid \cOrange{A})}[al]
+    \istb{P(\cBlue{B} \mid \cOrange{A})}[bl]
+    \endist
+
+    \istrooto(2)(0-2)[white, fill=Blue]{\(B\)}
+    \istb{P(\cOrange{A}\mid \cBlue{B})}[al]
+    \istb{P(\cBlue{B} \mid \cBlue{B})}[bl]
+    \endist
+
+    \istrooto(3)(1-1)[white, fill=Orange]{\(A\)}
+    \istb{}{P(\cOrange{A}) \cdot P(\cOrange{A} \mid \cOrange{A})}
+    \endist
+
+    \istrooto(4)(1-2)[white, fill=Blue]{\(B\)}
+    \istb{}{P(\cOrange{A}) \cdot P(\cBlue{B} \mid \cOrange{A})}
+    \endist
+
+    \istrooto(5)(2-1)[white, fill=Orange]{\(A\)}
+    \istb{}{P(\cBlue{B}) \cdot P(\cOrange{A}\mid \cBlue{B})}
+    \endist
+
+    \istrooto(6)(2-2)[white, fill=Blue]{\(B\)}
+    \istb{}{P(\cBlue{B}) \cdot P(\cBlue{B} \mid \cBlue{B})}
+    \endist
+
+  \end{istgame}
+
+\end{document}
