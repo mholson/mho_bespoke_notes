@@ -59,6 +59,7 @@ Happy TeX-ing!
 
 ### Generating Factor Trees
 
-| Example Tree | Code |
-| :----: |:---|
-| ![primetree-990](/assets/png/imgs_pytex_primetree-990.png) | [`mho_primetree_texfile_generator.py`](/assets/pytex/mho_primetree_texfile_generator.py)<br> [`mho_pythontex_factortree.tex`](/assets/pytex/mho_pythontex_factortree.tex)<br> [`imgs_pytex_primetree-990.tex`](/assets/pytex/imgs_pytex_primetree-990.tex)|
+![mho_pythontex_prime_tree_generator](/assets/images/mho_pythontex_prime_tree_generator.png) 
+
+- [`mho_primetree_texfile_generator.py`](/assets/pytex/mho_primetree_texfile_generator.py)
+- [`mho_pythontex_factortree.tex`](/assets/pytex/mho_pythontex_factortree.tex) - [`imgs_pytex_primetree-990.tex`](/assets/pytex/imgs_pytex_primetree-990.tex)|
